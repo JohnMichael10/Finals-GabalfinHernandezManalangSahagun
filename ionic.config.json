@@ -1,7 +1,0 @@
-{
-  "name": "recipal",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
