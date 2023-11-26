@@ -1,10 +1,11 @@
 <ion-content class="homepage-cont">
-    <h1>Good day <br> Marius!</h1>
+    <h1 class="header">Good day<br> <span>Marius!</span></h1>
 
     <ion-grid>
         <ion-row>
-            <ion-col size="4"><ion-img src="../../assets/images/lomi.png" alt="lomi cute photo"></ion-img></ion-col>
-            <ion-col size="8" class="desc-col">
+            <ion-col size="5" size-md="2"><ion-img src="../../assets/images/lomi.png" alt="lomi cute photo"></ion-img></ion-col>
+            <ion-col size="0" size-md="8"></ion-col>
+            <ion-col size="7" size-md="2" class="desc-col">
                 <h1>Meal of the day</h1>
                 <h2>LOMI</h2>
                 <ion-button shape="round">How to cook this?</ion-button>
@@ -13,17 +14,26 @@
     </ion-grid>
 
 
-    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
-        <p>Recommend me a recipe</p>
-        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-    </ion-item>
-    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
-        <p>Set a goal</p>
-        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-    </ion-item>
-    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
-        <p>Check my progress</p>
-        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-    </ion-item>
-      
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-md="4">
+                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <p>Recommend me a recipe</p>
+                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <p>Set a goal</p>
+                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <p>Check my progress</p>
+                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

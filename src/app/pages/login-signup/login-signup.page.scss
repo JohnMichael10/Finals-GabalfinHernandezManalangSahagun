@@ -16,14 +16,18 @@ ion-content{
 
 .logo{
     font-size: 60px;
+    font-weight: 700;
+}
+ion-input{
+    padding-left: 30px !important;
 }
 .input-field::part(native){
     background-color: #F8F6F2;
     border-radius: 50px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 5px 15px 5px 15px;
-    margin: 5px;
-    width: 95%;
+    border: none;
+    margin: 10px 0 10px 0;
 }
 .login-form{
     padding: 50px 0 50px 0;
