@@ -1,1 +1,29 @@
-<h1>Homepage ito</h1>
+<ion-content class="homepage-cont">
+    <h1>Good day <br> Marius!</h1>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="4"><ion-img src="../../assets/images/lomi.png" alt="lomi cute photo"></ion-img></ion-col>
+            <ion-col size="8" class="desc-col">
+                <h1>Meal of the day</h1>
+                <h2>LOMI</h2>
+                <ion-button shape="round">How to cook this?</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+        <p>Recommend me a recipe</p>
+        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+        <p>Set a goal</p>
+        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+        <p>Check my progress</p>
+        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+    </ion-item>
+      
+</ion-content>

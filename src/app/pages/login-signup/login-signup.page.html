@@ -1,27 +1,91 @@
 <ion-content [fullscreen]="true" class="login">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12">
-        <form action="" method="post">
-          <h1>Recipal</h1>
-        </form>
-      </ion-col>
-    </ion-row>
+  <section class="login-section" *ngIf="login">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+            <h1 class="logo">Recipal</h1>
+        </ion-col>
+      </ion-row>
+      <form action="" method="post" class="login-form">
+        <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+          <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+          <ion-input placeholder="Email or Username"></ion-input>
+          <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
+        </ion-item>
+        <br>
+        <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input placeholder="Password" type="password"></ion-input>
+          <ion-icon name="eye-outline" slot="end"></ion-icon>
+        </ion-item><br>
+        <a href="#" class="ion-text-end">Forgot Password?</a>
+        <br><br><br>
+        <ion-button shape="round" click="homepage()">Login</ion-button>
+      </form>
+    </ion-grid>
+    <h2 class="ion-text-center">Or</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-button expand="block">
+            <ion-icon name="logo-google"></ion-icon>Google Account</ion-button>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-button expand="block">
+            <ion-icon name="mail"></ion-icon>Email</ion-button>
+        </ion-col>
+          
+      </ion-row>
+    </ion-grid>
+    <p class="ion-text-center">Don't have an account? <a (click)="clickSignup()">Sign up</a></p>
+  </section>
 
-    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
-      <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-      <ion-input placeholder="Email or Username"></ion-input>
-      <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
-    </ion-item>
+  <section class="signup-section" *ngIf="signup">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h1>Create an account and start your healthy journey!</h1>
+        </ion-col>
+      </ion-row>
+      <br><br>
+      <ion-row>
+        <ion-col>
+          <form action="post">
+            <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+              <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+              <ion-input placeholder="Name"></ion-input>
+              <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
+            </ion-item>
+  
+            <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+              <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+              <ion-input placeholder="Email"></ion-input>
+              <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
+            </ion-item>
+  
+            <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+              <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+              <!-- <ion-input placeholder="Password" type="password"(click)="toggle-pwd"></ion-input> -->
+              <ion-input type="{{ isPassword ? 'text' : 'password' }}" placeholder="Password"></ion-input>
+              <ion-icon name="{{ isPassword ? 'eye-outline' : 'eye-off-outline' }}" slot="end" (click)="togglePassword()"></ion-icon>
+            </ion-item>
 
-    <ion-item class="input-field" [button]="true" detail="false" mode='md'>
-      <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-      <ion-input placeholder="Password"></ion-input>
-      <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
-    </ion-item>
-    
-
-    <a href="#" class="ion-text-end">Forgot Password?</a>
-  </ion-grid>
-
+  
+            <ion-item class="input-field" [button]="true" detail="false" mode='md'>
+              <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+              <ion-input type="password" placeholder="Confirm Password"></ion-input>
+            </ion-item>
+          </form>
+        </ion-col>
+      </ion-row>
+      <br>
+      <input type="radio" id="tnc-radio">
+      <label for="tnc-radio">I agree with Terms & Conditions</label>
+      <br><br>
+      <ion-button shape="round" click="clickLogin()">Sign up</ion-button>
+      <br><br>
+      <p class="ion-text-center">Already have an account? <a (click)="clickLogin()">Login</a></p>
+    </ion-grid>
+  </section>
 </ion-content>
+
