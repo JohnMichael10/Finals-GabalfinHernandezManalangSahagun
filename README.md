@@ -1,1 +1,0 @@
-# Finals-GabalfinHernandezManalangSahagun
