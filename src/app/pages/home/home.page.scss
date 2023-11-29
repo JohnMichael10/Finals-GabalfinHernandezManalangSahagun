@@ -8,15 +8,46 @@
   --padding-end: 50px;
   --padding-top: 50px;
 
-  .header{
-    font-size: 50px;
+  .homepage-header{
+    font-size: 10vmin;
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+    flex-direction: column;
     span{
       font-weight: 700;
     }
   }
 
+  .motd-grid{
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+  }
+  .recommend-grid{
+    height: 40vh;
+    justify-content: space-between;
+
+    .input-field{
+      padding: 10px;
+    }
+    .input-field::part(native){
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+  }
+
+
   .desc-col{
     text-align: right;
+    h1{
+      font-size: 5vmin;
+    }
+    h2{
+      font-size: 8vmin;
+    }
   }
 
 

@@ -1,16 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoginSignupPage } from './login-signup.page';
+import { GoalPage } from './goal.page';
 
-describe('LoginSignupPage', () => {
-  let component: LoginSignupPage;
-  let fixture: ComponentFixture<LoginSignupPage>;
+describe('GoalPage', () => {
+  let component: GoalPage;
+  let fixture: ComponentFixture<GoalPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(LoginSignupPage);
+    fixture = TestBed.createComponent(GoalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-
 
   it('should create', () => {
     expect(component).toBeTruthy();

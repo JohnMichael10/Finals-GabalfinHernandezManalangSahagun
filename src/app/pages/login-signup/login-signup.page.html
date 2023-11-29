@@ -1,94 +1,111 @@
 <ion-content [fullscreen]="true" class="login">
 
-  <ion-grid>
+  <ion-grid class="container">
     <ion-row>
       <ion-col size="0" size-md="5">
         <ion-img src="../../../assets/utilities/bg.jpg"></ion-img>
       </ion-col>
-      <ion-col size="12" size-md="7">
+      <ion-col size="12" size-md="7" class="right-col">
         <section class="login-section" *ngIf="login">
           <ion-grid>
             <ion-row>
-              <ion-col size="12">
-                  <h1 class="logo">Recipal</h1>
+              <ion-col>
+                <h1 class="logo">Recipal</h1>
+                <form action="" method="post" class="login-form">
+                  <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+                    <ion-input placeholder="Email or Username"></ion-input>
+                  </ion-item>
+                  <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
+                        <ion-input type="{{ isPassword ? 'text' : 'password' }}" placeholder="Password"></ion-input>
+                        <ion-icon name="{{ isPassword ? 'eye-outline' : 'eye-off-outline' }}" slot="end" (click)="togglePassword()"></ion-icon>
+                  </ion-item><br>
+                  <a href="#">Forgot Password?</a>
+                  <br><br><br>
+                  <ion-button shape="round" (click)="homepage()">Login</ion-button>
+                </form>
               </ion-col>
             </ion-row>
-            <form action="" method="post" class="login-form">
-              <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                <ion-input placeholder="Email or Username"></ion-input>
-                <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
-              </ion-item>
-              <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                    <ion-input type="{{ isPassword ? 'text' : 'password' }}" placeholder="Password"></ion-input>
-                    <ion-icon name="{{ isPassword ? 'eye-outline' : 'eye-off-outline' }}" slot="end" (click)="togglePassword()"></ion-icon>
-              </ion-item><br>
-              <a href="#">Forgot Password?</a>
-              <br><br><br>
-              <ion-button shape="round" click="homepage()">Login</ion-button>
-            </form>
           </ion-grid>
-          <h2 class="ion-text-center">Or</h2>
-          <ion-grid>
+          
+          <ion-grid class="other-grid">
+            <h2 class="ion-text-center">Or</h2>
             <ion-row>
               <ion-col size="12" size-md="6">
-                <ion-button expand="block" fill="outline">
-                  <ion-icon name="logo-google"></ion-icon> Google Account</ion-button>
+                <ion-button expand="full" fill="outline" shape="round">
+                  <ion-icon name="logo-google"></ion-icon> Google Account</ion-button> 
               </ion-col>
               <ion-col size="12" size-md="6">
-                <ion-button expand="block" fill="outline">
+                <ion-button expand="full" fill="outline" shape="round">
                   <ion-icon name="mail"></ion-icon> Email</ion-button>
               </ion-col>
                 
             </ion-row>
+            <p class="ion-text-center">Don't have an account? <a (click)="clickSignup()">Sign up</a></p>
           </ion-grid>
-          <p class="ion-text-center">Don't have an account? <a (click)="clickSignup()">Sign up</a></p>
+          
         </section>
         <section class="signup-section" *ngIf="signup">
           <ion-grid>
             <ion-row>
               <ion-col>
-                <h1>Create an account and start your healthy journey!</h1>
-              </ion-col>
-            </ion-row>
-            <br><br>
-            <ion-row>
-              <ion-col>
-                <form action="post">
+                <h1 class="signup-header">Create an account and start your healthy journey!</h1>
+                <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="userSignUp()">
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
                     <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                    <ion-input placeholder="Name"></ion-input>
-                    <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
+                    <ion-input placeholder="Name" name="name" formControlName="name" tabindex="1"></ion-input>
                   </ion-item>
-                  <br>
+                  <ion-note *ngFor="let error of errorMessages.name" color="danger">
+                    <ng-container *ngIf="name.hasError(error.type) &&  (name.dirty || name.touched)">
+                      {{error.message}} 
+                    </ng-container>
+                  </ion-note><br>
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                    <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                    <ion-input placeholder="Email"></ion-input>
-                    <!-- <ion-icon color="danger" slot="end" name="list-circle" size="large"></ion-icon> -->
+                    <ion-icon name="mail-outline" slot="start" size="medium"></ion-icon>
+                    <ion-input placeholder="Email" name="email" type="email" formControlName="email" tabindex="2"></ion-input>
                   </ion-item>
-                  <br>
+                  <ion-note *ngFor="let error of errorMessages.email" color="danger">
+                    <ng-container *ngIf="email.hasError(error.type) &&  (email.dirty || email.touched)">
+                      {{error.message}} 
+                    </ng-container>
+                  </ion-note><br>
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                    <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                    <ion-input type="{{ isPassword ? 'text' : 'password' }}" placeholder="Password"></ion-input>
+                    <ion-icon name="lock-closed-outline" slot="start" size="medium"></ion-icon>
+                    <ion-input type="{{ isPassword ? 'text' : 'password' }}" placeholder="Password" name="pwd" formControlName="pwd" tabindex="3"></ion-input>
                     <ion-icon name="{{ isPassword ? 'eye-outline' : 'eye-off-outline' }}" slot="end" (click)="togglePassword()"></ion-icon>
                   </ion-item>
-                  <br>
+                  <ion-note *ngFor="let error of errorMessages.pwd" color="danger">
+                    <ng-container *ngIf="pwd.hasError(error.type) &&  (pwd.dirty || pwd.touched)">
+                      {{error.message}}
+                    </ng-container>
+                  </ion-note><br>
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                    <ion-icon name="person-outline" slot="start" size="medium"></ion-icon>
-                    <ion-input type="password" placeholder="Confirm Password"></ion-input>
+                    <ion-icon name="lock-closed-outline" slot="start" size="medium"></ion-icon>
+                    <ion-input type="password" placeholder="Confirm Password" name="conpwd" formControlName="conpwd" tabindex="4"></ion-input>
                   </ion-item>
+                  <ion-note *ngFor="let error of errorMessages.conpwd" color="danger">
+                    <ng-container *ngIf="conpwd.hasError(error.type) &&  (conpwd.dirty || conpwd.touched)">
+                      {{error.message}} 
+                    </ng-container>
+                    <ng-container *ngIf="signupForm.hasError('passwordMismatch','conpwd')">
+                      Passwords do not match
+                    </ng-container>
+                  </ion-note>
+                  
+                  <br><br><br>
+                  <input type="radio" id="tnc-radio">
+                  <label for="tnc-radio">I agree with Terms & Conditions</label>
+                  <br><br>
+                  <ion-button shape="round" type="submit">Sign up</ion-button>
+                  <br><br>
+                  <p class="ion-text-center">Already have an account? <a (click)="clickLogin()">Login</a></p>
                 </form>
               </ion-col>
             </ion-row>
-            <br>
-            <input type="radio" id="tnc-radio">
-            <label for="tnc-radio">I agree with Terms & Conditions</label>
-            <br><br>
-            <ion-button shape="round" click="clickLogin()">Sign up</ion-button>
-            <br><br>
-            <p class="ion-text-center">Already have an account? <a (click)="clickLogin()">Login</a></p>
           </ion-grid>
+
+
         </section>
       </ion-col >
     </ion-row>
