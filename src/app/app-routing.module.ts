@@ -9,7 +9,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },  {
+    path: 'checkprog',
+    loadChildren: () => import('./pages/checkprog/checkprog.module').then( m => m.CheckprogPageModule)
   },
+
 ];
 
 @NgModule({
