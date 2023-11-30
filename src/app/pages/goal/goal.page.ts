@@ -7,16 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalPage implements OnInit {
 
-  goalPage: boolean=false
-  bmiPage: boolean=true
+  goalPage: boolean=true
+  bmiPage: boolean=false
+  mealPage: boolean=false
+  nutritionPage: boolean=false
   constructor() { }
 
   ngOnInit() {
   }
   clickBmiPage(){
-
     this.goalPage=false
     this.bmiPage=true
+  }
+  clickMealPage(){
+    this.goalPage=false
+    this.mealPage=true
+  }
+  clickNutritionPage(){
+    this.goalPage=false
+    this.nutritionPage=true
   }
 
 }

@@ -113,7 +113,17 @@ export class LoginSignupPage implements OnInit {
       pwd: pwdValue,
       conpwd: "" // Assuming conpwd is an empty string as per your example
     };
-    axios.post("http://recipal.infinityfreeapp.com/recipal_login_signup.php", insertUser)
+
+    // axios.defaults.baseURL = 'http://recipal.infinityfreeapp.com';
+    // // Set default headers for all requests
+    // axios.defaults.headers.common['Content-Type'] = 'application/json';
+    // axios.defaults.headers.common['Authorization'] = 'Bearer YOUR_ACCESS_TOKEN_HERE';
+    axios.post("http://recipal.infinityfreeapp.com/recipal_login_signup.php", insertUser, {
+      headers: {
+        'Content-Type': 'application/json',
+        // Other specific headers if needed for this request
+      }
+    })
       .then((response) => {
         console.log(response.data);
         if (response.data.status === "success") {
