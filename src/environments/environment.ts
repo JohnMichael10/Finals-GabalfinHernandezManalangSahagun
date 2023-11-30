@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/recipal/'
+  apiUrl: 'http://localhost/recipal/',
+  foodApiUrl: 'https://api.edamam.com/api/food-database/v2/parser',
+  foodApiID: 'eb58a7fd',
+  foodApiKey: '8e9f4db9641d5b48199d5900d063094a',
+
+  plannerApiUrl: ''
 };
 
 /*

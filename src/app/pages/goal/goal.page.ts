@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalPage implements OnInit {
 
-  goalPage: boolean=true
+  goalPage: boolean=false
   bmiPage: boolean=false
-  mealPage: boolean=false
+  mealPage: boolean=true
   nutritionPage: boolean=false
   constructor() { }
 

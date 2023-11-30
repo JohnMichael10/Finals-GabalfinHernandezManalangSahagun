@@ -9,7 +9,8 @@
         <section class="login-section" *ngIf="login">
           <ion-grid>
             <ion-row>
-              <ion-col>
+              <ion-col size="1" size-md="3"></ion-col>
+              <ion-col size="10" size-md="6">
                 <h1 class="logo">Recipal</h1>
                 <form action="" method="post" class="login-form">
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
@@ -25,25 +26,28 @@
                   <br><br><br>
                   <ion-button shape="round" (click)="homepage()">Login</ion-button>
                 </form>
+                <!-- bottom details -->
+                <ion-grid class="other-grid">
+                  <h2 class="ion-text-center">Or</h2>
+                  <ion-row>
+                    <ion-col size="12" size-md="6">
+                      <ion-button expand="full" fill="outline" shape="round">
+                        <ion-icon name="logo-google"></ion-icon>Google Account</ion-button> 
+                    </ion-col>
+                    <ion-col size="12" size-md="6">
+                      <ion-button expand="full" fill="outline" shape="round">
+                        <ion-icon name="mail"></ion-icon> Email</ion-button>
+                    </ion-col>
+                      
+                  </ion-row>
+                  <p class="ion-text-center">Don't have an account? <a (click)="clickSignup()">Sign up</a></p>
+                </ion-grid>
               </ion-col>
+              <ion-col size="1" size-md="3"></ion-col>
             </ion-row>
           </ion-grid>
           
-          <ion-grid class="other-grid">
-            <h2 class="ion-text-center">Or</h2>
-            <ion-row>
-              <ion-col size="12" size-md="6">
-                <ion-button expand="full" fill="outline" shape="round">
-                  <ion-icon name="logo-google"></ion-icon> Google Account</ion-button> 
-              </ion-col>
-              <ion-col size="12" size-md="6">
-                <ion-button expand="full" fill="outline" shape="round">
-                  <ion-icon name="mail"></ion-icon> Email</ion-button>
-              </ion-col>
-                
-            </ion-row>
-            <p class="ion-text-center">Don't have an account? <a (click)="clickSignup()">Sign up</a></p>
-          </ion-grid>
+          
           
         </section>
         <section class="signup-section" *ngIf="signup">
