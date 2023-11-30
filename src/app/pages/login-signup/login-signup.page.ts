@@ -113,7 +113,7 @@ export class LoginSignupPage implements OnInit {
       pwd: pwdValue,
       conpwd: "" // Assuming conpwd is an empty string as per your example
     };
-    axios.post("http://localhost/recipal/recipal_login_signup.php", insertUser)
+    axios.post("http://recipal.infinityfreeapp.com/recipal_login_signup.php", insertUser)
       .then((response) => {
         console.log(response.data);
         if (response.data.status === "success") {
