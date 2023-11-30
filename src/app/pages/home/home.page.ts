@@ -14,8 +14,4 @@ export class HomePage {
     this.router.navigate(['/goal']);
   }
 
-  recommendRecipe(){
-    this.router.navigate(['/recommend-recipe']);
-  }
-
 }

@@ -32,12 +32,6 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
-
-  {
-    path: 'recommend-recipe',
-    loadChildren: () => import('./pages/recommend-recipe/recommend-recipe.module').then( m => m.RecommendRecipePageModule)
-  },
-
   {
     path: 'goal',
     loadChildren: () => import('./pages/goal/goal.module').then( m => m.GoalPageModule)
