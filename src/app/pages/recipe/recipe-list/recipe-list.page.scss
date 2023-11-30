@@ -40,3 +40,44 @@ swiper-container {
     height: 87%;
     text-align: center;
 }
+
+.recipe-list__img{
+    height: auto;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.recipe-list__title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #301828;
+}
+
+.recipe-list__rating {
+    color: #FCB040;
+}
+
+.recipe-list__sub-info {
+    line-height: 0;
+}
+
+ion-card-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.recipe-list__price {
+    font-size: 1.5rem;
+    font-weight: 550;
+}
+
+.recipe__cook-btn {
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 1rem;
+    right: 0;
+}

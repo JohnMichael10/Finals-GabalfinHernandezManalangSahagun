@@ -27,6 +27,6 @@ export class FoodapiService {
       .set('app_key', this.apiKey)
       .set('ingr', query)
       .set('nutrition-type', 'cooking');
-    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+    return this.http.get(`${this.apiUrl}`, { headers, params });
   }
 }

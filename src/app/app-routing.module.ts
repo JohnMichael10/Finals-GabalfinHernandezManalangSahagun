@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'recommend-recipe/recipe-list',
     loadChildren: () => import('./pages/recipe/recipe-list/recipe-list.module').then( m => m.RecipeListPageModule)
   },
+  {
+    path: 'recipe',
+    loadChildren: () => import('./pages/recipe/recipe/recipe.module').then( m => m.RecipePageModule)
+  },
 ];
 
 @NgModule({
