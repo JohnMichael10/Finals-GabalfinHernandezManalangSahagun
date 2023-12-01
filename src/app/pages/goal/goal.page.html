@@ -114,12 +114,154 @@
         <ion-col size="10"><h1>Meal Plan</h1></ion-col>
       </ion-row>
     </ion-grid>
-  </section>
-  <!-- Meal plan -->
 
-  <!-- Meal plan -->
-  <section class="nutrition-section" *ngIf="nutritionPage">
-    <h1 class="cat-header">NUTRITION</h1>
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-segment value="default" (ionChange)="segmentChanged($event)" class="meal-segment">
+            <ion-segment-button value="step1">
+              <ion-label>Step 1</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="step2">
+              <ion-label>Step 2</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="step3">
+              <ion-label>Step 3</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Placeholder for displaying the selected page content -->
+    <div *ngIf="selectedStep === 'step1'" class="meal-segment-cont">
+      <ion-item>
+        <h1>Set your meals per day</h1>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Breakfast</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Lunch</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Dinner</ion-checkbox>
+            </section>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="selectedStep === 'step2'" class="meal-segment-cont">
+      <ion-item>
+        <h1>Set filters for all meals</h1>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <br><br>
+            <h1>Allergies</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Celery-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Crustacean-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Dairy-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Egg-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Fish-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Gluten-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Lupine-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Fish-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Mustard-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Peanut-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Sesame-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Shellfish-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Soy-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Tree-nut-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Wheat-free</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Immuno-supportive</ion-checkbox>
+            </section>
+            <br><br>
+            <h1>Diets</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Breakfast</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Lunch</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Dinner</ion-checkbox>
+            </section>
+            <br><br>
+            <h1>Calories</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Breakfast</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Lunch</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Dinner</ion-checkbox>
+            </section>
+            <br><br>
+            <h1>Nutrients</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Breakfast</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Lunch</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Dinner</ion-checkbox>
+            </section>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="selectedStep === 'step3'" class="meal-segment-cont">
+      <ion-item>
+        <h1>Select preferred meals</h1>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <br><br>
+            <h1>Breakfast</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Biscuits & cookies</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Bread</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Cereals</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Drinks</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Egg</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Pancake</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Pasta</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Pastry</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Pie & tarts</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Sweets</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Special occasion</ion-checkbox>
+            </section>
+            <br><br>
+            <h1>Lunch</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Alcohol cocktail</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Condiments & sauces</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Desserts</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Ice-cream & custard</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Preps</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Preserve</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Side dish</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Soup</ion-checkbox>
+            </section>
+            <br><br>
+            <h1>Dinner</h1>
+            <br><br>
+            <section class="step1-cat">
+              <ion-checkbox labelPlacement="end">Pizza</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Starter</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Sweets</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Main course</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Salad</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Sandwiches</ion-checkbox>
+              <ion-checkbox labelPlacement="end">Seafood</ion-checkbox>
+            </section>
+            <ion-button color="primary" expand="block">Plan my food now!</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </section>
   <!-- Meal plan -->
 </ion-content>
@@ -165,3 +307,4 @@
   </ng-template>
 </ion-modal>
 <!-- modal -->
+

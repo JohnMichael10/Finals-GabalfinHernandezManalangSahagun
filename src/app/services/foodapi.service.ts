@@ -29,4 +29,9 @@ export class FoodapiService {
       .set('nutrition-type', 'cooking');
     return this.http.get(`${this.apiUrl}`, { headers, params });
   }
+
+
+
+  // MEAL PLANNER
+
 }

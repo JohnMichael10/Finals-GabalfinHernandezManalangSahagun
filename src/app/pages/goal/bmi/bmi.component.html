@@ -1,0 +1,51 @@
+ <!-- BMI -->
+ <section class="bmi-section">
+  <ion-grid class="goal-header-grid">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
+      <ion-col size="10"><h1>Body mass index</h1></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="ion-text-center bmi-grid" *ngIf="bmiStats">
+    <ion-row>
+      <ion-col>
+        <h1 class="bmi-h1">Your current BMI</h1>
+        <ion-row class="stats-item">
+          <ion-col size="6"><ion-label>{{bmiStats.weight}} kg</ion-label></ion-col>
+          <ion-col size="6"><ion-label >Weight (kg)</ion-label></ion-col>
+        </ion-row>
+
+        <ion-row class="stats-item">
+          <ion-col size="6"><ion-label>{{bmiStats.height}} cm</ion-label></ion-col>
+          <ion-col size="6"><ion-label >Height (cm)</ion-label></ion-col>
+        </ion-row>
+
+        <ion-row class="stats-item ">
+          <ion-col size="6"><ion-label>{{bmiStats.bmi}}</ion-label></ion-col>
+          <ion-col size="6"><ion-label >Your BMI</ion-label></ion-col>
+        </ion-row>
+
+      </ion-col>
+    </ion-row>
+
+    <!-- stats row -->
+    <ion-row class="ion-align-items-center"> 
+      <ion-col>
+        <section>
+          <h1 class="bmi-h1">You are:</h1>
+          <ion-icon name="ellipse" color="{{ isNormal ? 'success' : 'danger' }}"></ion-icon>
+          <ion-label>{{bmiStats.status}}</ion-label>
+        </section>
+        <br>
+        <section>
+          <h1 class="bmi-h1">Your target Weight</h1>
+          <ion-label>{{bmiStats.target}} kg</ion-label>
+        </section>
+
+
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</section>
+ <!-- BMI -->

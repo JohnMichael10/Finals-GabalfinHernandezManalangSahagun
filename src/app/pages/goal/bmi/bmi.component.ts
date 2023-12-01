@@ -1,23 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
-  selector: 'app-goal',
-  templateUrl: './goal.page.html',
-  styleUrls: ['./goal.page.scss'],
+  selector: 'app-bmi',
+  templateUrl: './bmi.component.html',
+  styleUrls: ['./bmi.component.scss'],
 })
-export class GoalPage implements OnInit {
-
-  goalPage: boolean=false
-  bmiPage: boolean=false
-  mealPage: boolean=true
-  nutritionPage: boolean=false
-
-
-  selectedStep: string = 'step1'; // Default selected segment
-
-
+export class BmiComponent  implements OnInit {
+  @Input() data: any;
   bmiStats={
     weight:0,
     height:0,
@@ -32,21 +22,7 @@ export class GoalPage implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-  clickBmiPage(){
-    this.goalPage=false
-    this.bmiPage=true
-  }
-  clickMealPage(){
-    this.goalPage=false
-    this.mealPage=true
-  }
-  clickNutritionPage(){
-    this.goalPage=false
-    this.nutritionPage=true
-  }
-
+  ngOnInit() {}
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -56,7 +32,6 @@ export class GoalPage implements OnInit {
     this.modal.dismiss(this.bmiStats.weight, 'confirm');
     this.calculateBMI()
     this.calculateStatus() //for displaying status
-    this.clickBmiPage()
   }
 
   calculateBMI() {
@@ -95,9 +70,5 @@ export class GoalPage implements OnInit {
 
   }
 
-
-
-  segmentChanged(event: CustomEvent) {
-    this.selectedStep = event.detail.value;
-  }
 }
+

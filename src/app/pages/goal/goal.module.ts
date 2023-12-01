@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GoalPageRoutingModule } from './goal-routing.module';
 
 import { GoalPage } from './goal.page';
+import { BmiComponent } from './bmi/bmi.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { GoalPage } from './goal.page';
     IonicModule,
     GoalPageRoutingModule
   ],
-  declarations: [GoalPage]
+  declarations: [GoalPage, BmiComponent]
 })
 export class GoalPageModule {}
