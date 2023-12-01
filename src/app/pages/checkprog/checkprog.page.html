@@ -2,7 +2,7 @@
   <!--Header Title and Back Button-->
   <div class="titleandback">
     <div class="backicon">
-    <ion-icon src="../../../assets/icon/chevcircleleft.svg"></ion-icon>
+      <ion-icon src="../../../assets/icon/chevcircleleft.svg"></ion-icon>
     </div>
 
     <div class="checkprog">
@@ -28,10 +28,21 @@
       </ion-card-header>
     
       <ion-card-content>
-        <!-- <mbsc-datepicker
-        calendarType="week"
-        [calendarSize]="1">
-        </mbsc-datepicker> -->
+        <div class="wrapper-calendar">
+          <!-- <div class="monthYear" id="monthYear"></div> -->
+          <div class="calendar">
+            <ul class="weeks">
+              <li>Su</li>
+              <li>M</li>
+              <li>T</li>
+              <li>W</li>
+              <li>Th</li>
+              <li>F</li>
+              <li>S</li>
+            </ul>
+            <div class="dates" id="dates"></div>
+          </div>
+        </div>
       </ion-card-content>
 
       <ion-row class="cardfooter">
@@ -95,3 +106,4 @@
     </ion-card>
   </div>
 </ion-content>
+
