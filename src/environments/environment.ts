@@ -9,7 +9,15 @@ export const environment = {
   foodApiID: 'eb58a7fd',
   foodApiKey: '8e9f4db9641d5b48199d5900d063094a',
 
-  plannerApiUrl: ''
+  firebaseConfig : {
+    apiKey: "AIzaSyBe3fFjrUvpe1YEqX7HMXyT4nPfu6bsWu8",
+    authDomain: "recipal-d4ded.firebaseapp.com",
+    projectId: "recipal-d4ded",
+    storageBucket: "recipal-d4ded.appspot.com",
+    messagingSenderId: "174785880990",
+    appId: "1:174785880990:web:39f5749dc4b22e73436c8f",
+    measurementId: "G-BLX6TSJ3E7"
+  }
 };
 
 /*

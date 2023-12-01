@@ -53,7 +53,8 @@
         <section class="signup-section" *ngIf="signup">
           <ion-grid>
             <ion-row>
-              <ion-col>
+              <ion-col size="1" size-md="3"></ion-col>
+              <ion-col size="10" size-md="6">
                 <h1 class="signup-header">Create an account and start your healthy journey!</h1>
                 <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="userSignUp()">
                   <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
@@ -106,6 +107,7 @@
                   <p class="ion-text-center">Already have an account? <a (click)="clickLogin()">Login</a></p>
                 </form>
               </ion-col>
+              <ion-col size="1" size-md="3"></ion-col>
             </ion-row>
           </ion-grid>
 

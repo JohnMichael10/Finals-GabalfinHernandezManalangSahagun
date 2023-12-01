@@ -2,39 +2,58 @@
     margin: 0;
     padding: 0;
 }
-.goal-section ion-grid{
-    text-align: center;
-    padding: 30px;
-    h2{
-        font-size: 5vmin;
+
+.goal-section {
+    .goal-main-grid{
+        text-align: center;
+        padding: 30px;
+        h2{
+            font-size: 5vmin;
+        }
     }
 }
+
+.goal-header-grid{
+    padding: 50px;
+    h1{
+        font-size: 8vmin;
+        font-weight: 600;
+    }
+    ion-icon::part(native){
+        font-size: 100px;
+    }
+}
+
 .goal-acc-gp{
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    height: 70vh;
+    height: 60vh;
 
-    .goal-cat-acc ion-item{
-        --border-radius: 20px;
-        --padding-top: 8vmin;
-        --padding-bottom: 8vmin;
-        --padding-left: 8vmin;
-        --padding-right: 8vmin;
+    .goal-cat-acc{
+        ion-icon{
+            font-size: 30px;
+            padding: 0 20px 0 10px;
+        }
+
+
+        ion-item{
+            --border-radius: 20px;
+            --padding-top: 8vmin;
+            --padding-bottom: 8vmin;
+            --padding-left: 8vmin;
+            --padding-right: 8vmin;
+            --background: white;
+        }
+        .ion-padding{
+            border-radius: 0 0 20px 20px;
+            background-color: white;
+            padding: 10px;
+        }
     }
+    
 }
 
-
-
-.cat-header{
-    height: 15vh;
-    line-height: 15vh;
-    font-weight: 400;
-    text-align: center;
-    font-size: 10vmin;
-    background-color: #B8462E;
-    color: antiquewhite;
-}
 
 
 // BMI
