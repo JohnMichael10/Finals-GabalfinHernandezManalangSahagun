@@ -1,0 +1,26 @@
+<!-- food-search.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Edamam Food Search
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchQuery" (ionChange)="searchFood()"></ion-searchbar>
+
+  <ion-list *ngIf="searchResults.length > 0">
+    <ion-item *ngFor="let result of searchResults">
+      <ion-label>
+        {{ result.food.label }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="searchResults.length === 0 && searchQuery.trim() !== ''">
+    <ion-label>
+      No results found.
+    </ion-label>
+  </ion-item>
+</ion-content>

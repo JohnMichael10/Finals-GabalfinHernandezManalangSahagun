@@ -18,6 +18,22 @@ const routes: Routes = [
     path: 'checkprog',
     loadChildren: () => import('./pages/checkprog/checkprog.module').then( m => m.CheckprogPageModule)
   },
+  {
+    path: 'sample-api',
+    loadChildren: () => import('./pages/sample-api/sample-api.module').then( m => m.SampleApiPageModule)
+  },
+  {
+    path: 'recommend-recipe',
+    loadChildren: () => import('./pages/recipe/recommend-recipe/recommend-recipe.module').then( m => m.RecommendRecipePageModule)
+  },
+  {
+    path: 'recommend-recipe/recipe-list',
+    loadChildren: () => import('./pages/recipe/recipe-list/recipe-list.module').then( m => m.RecipeListPageModule)
+  },
+  {
+    path: 'recipe',
+    loadChildren: () => import('./pages/recipe/recipe/recipe.module').then( m => m.RecipePageModule)
+  },
 ];
 
 @NgModule({
@@ -26,4 +42,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

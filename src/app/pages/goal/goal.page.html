@@ -1,38 +1,48 @@
 <ion-content>
   <section class="goal-section" *ngIf="goalPage">
-    <h1 class="cat-header">SET A GOAL</h1>
-    <ion-grid>
+
+    <ion-grid class="goal-header-grid">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
+        <ion-col size="10"><h1>Set a goal</h1></ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-grid class="goal-main-grid">
       <!-- for goal body -->
       <ion-row>
         <ion-col>
           <ion-accordion-group expand="inset" class="goal-acc-gp">
             <ion-accordion value="first" class="goal-cat-acc">
-              <ion-item slot="header" color="primary">
+              <ion-item slot="header">
                 <h2 class="ion-text-center">Body Mass Index</h2>
                 <ion-icon name="barbell-outline" slot="start"></ion-icon>
               </ion-item>
               <div class="ion-padding" slot="content">
                 <p>Calculate your BMI with your height and weight. See whether you’re overweight, underweight, or normal. Set a target BMI that you want to achieve.</p>
-                <ion-button shape="round" (click)="clickBmiPage()">Start</ion-button>
+                <br>
+                <ion-button shape="round" id="bmi-btn">Start</ion-button>
               </div>
             </ion-accordion>
             <ion-accordion value="second" class="goal-cat-acc">
-              <ion-item slot="header" color="primary">
+              <ion-item slot="header">
                 <h2 class="ion-text-center">Meal Plan</h2>
                 <ion-icon name="fast-food-outline" slot="start"></ion-icon>
               </ion-item>
               <div class="ion-padding" slot="content">
                 <p>Meal Plan description</p>
+                <br>
                 <ion-button shape="round" (click)="clickMealPage()">Start</ion-button>
               </div>
             </ion-accordion>
             <ion-accordion value="third" class="goal-cat-acc">
-              <ion-item slot="header" color="primary">
+              <ion-item slot="header">
                 <h2 class="ion-text-center">Nutrition</h2>
                 <ion-icon name="body-outline" slot="start"></ion-icon>
               </ion-item>
               <div class="ion-padding" slot="content">
                 <p>Nutrition description</p>
+                <br>
                 <ion-button shape="round" (click)="clickNutritionPage()">Start</ion-button>
               </div>
             </ion-accordion>
@@ -46,28 +56,28 @@
 
   <!-- BMI -->
   <section class="bmi-section" *ngIf="bmiPage">
-    <h1 class="cat-header">Body Mass Index</h1>
-    <ion-grid class="ion-text-center bmi-grid">
+    <ion-grid class="goal-header-grid">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
+        <ion-col size="10"><h1>Body mass index</h1></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="ion-text-center bmi-grid" *ngIf="bmiStats">
       <ion-row>
         <ion-col>
           <h1 class="bmi-h1">Your current BMI</h1>
           <ion-row class="stats-item">
-            <ion-col size="6"><ion-label>124 kg</ion-label></ion-col>
+            <ion-col size="6"><ion-label>{{bmiStats.weight}} kg</ion-label></ion-col>
             <ion-col size="6"><ion-label >Weight (kg)</ion-label></ion-col>
           </ion-row>
 
           <ion-row class="stats-item">
-            <ion-col size="6"><ion-label>124 kg</ion-label></ion-col>
-            <ion-col size="6"><ion-label >Weight (kg)</ion-label></ion-col>
-          </ion-row>
-
-          <ion-row class="stats-item">
-            <ion-col size="6"><ion-label>124 cm</ion-label></ion-col>
+            <ion-col size="6"><ion-label>{{bmiStats.height}} cm</ion-label></ion-col>
             <ion-col size="6"><ion-label >Height (cm)</ion-label></ion-col>
           </ion-row>
 
-          <ion-row class="stats-item">
-            <ion-col size="6"><ion-label>124 kg/m</ion-label></ion-col>
+          <ion-row class="stats-item ">
+            <ion-col size="6"><ion-label>{{bmiStats.bmi}}</ion-label></ion-col>
             <ion-col size="6"><ion-label >Your BMI</ion-label></ion-col>
           </ion-row>
 
@@ -75,16 +85,17 @@
       </ion-row>
 
       <!-- stats row -->
-      <ion-row>
+      <ion-row class="ion-align-items-center"> 
         <ion-col>
           <section>
             <h1 class="bmi-h1">You are:</h1>
-            <ion-label>Overweight</ion-label>
+            <ion-icon name="ellipse" color="{{ isNormal ? 'success' : 'danger' }}"></ion-icon>
+            <ion-label>{{bmiStats.status}}</ion-label>
           </section>
           <br>
           <section>
-            <h1 class="bmi-h1">Your target BMI</h1>
-            <ion-label>85 kg/m</ion-label>
+            <h1 class="bmi-h1">Your target Weight</h1>
+            <ion-label>{{bmiStats.target}} kg</ion-label>
           </section>
 
 
@@ -97,7 +108,12 @@
 
   <!-- Meal plan -->
   <section class="meal-section" *ngIf="mealPage">
-    <h1 class="cat-header">MEAL PLAN</h1>
+    <ion-grid class="goal-header-grid">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
+        <ion-col size="10"><h1>Meal Plan</h1></ion-col>
+      </ion-row>
+    </ion-grid>
   </section>
   <!-- Meal plan -->
 
@@ -107,3 +123,45 @@
   </section>
   <!-- Meal plan -->
 </ion-content>
+
+
+
+<!-- MODALS -->
+<!-- modal -->
+<ion-modal trigger="bmi-btn">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Let's calculate your BMI!</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-input
+          label="Weight(kg)"
+          labelPlacement="stacked"
+          type="text"
+          placeholder="kg"
+          [(ngModel)]="bmiStats.weight"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Height(cm)"
+          labelPlacement="stacked"
+          type="text"
+          placeholder="cm"
+          [(ngModel)]="bmiStats.height"
+        ></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+<!-- modal -->

@@ -1,0 +1,83 @@
+ion-content {
+    --background: linear-gradient(to right, #301828 0, #301828 60%, #7E5956 60%, #7E5956 70%, #FCB040 70%, #FCB040 100%);;
+}
+
+header__buttons {
+    display: inline-block;
+    justify-content: flex-start;
+}
+
+.header__back-btn {
+    position: relative;
+    z-index: 2;
+    float:inline-start;
+    color: #F5EFE6;
+    margin: 2rem;
+    margin-bottom: 0;
+}
+
+.header__save-btn {
+    position: relative;
+    z-index: 2;
+    float:inline-end;
+    color: #7A6341;
+    margin: 2rem;
+    margin-bottom: 0;
+}
+
+.recipe-list__card {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+swiper-container {
+    position: relative;
+    z-index: 0;
+    --swiper-scrollbar-bg-color: #a0a0a0;
+    --swiper-scrollbar-drag-bg-color: #ffffff;
+    height: 87%;
+    text-align: center;
+}
+
+.recipe-list__img{
+    height: auto;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.recipe-list__title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #301828;
+}
+
+.recipe-list__rating {
+    color: #FCB040;
+}
+
+.recipe-list__sub-info {
+    line-height: 0;
+}
+
+ion-card-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.recipe-list__price {
+    font-size: 1.5rem;
+    font-weight: 550;
+}
+
+.recipe__cook-btn {
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 1rem;
+    right: 0;
+}

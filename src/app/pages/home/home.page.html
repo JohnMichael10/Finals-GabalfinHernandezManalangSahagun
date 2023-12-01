@@ -1,34 +1,39 @@
 <ion-content class="homepage-cont">
-    <h1 class="homepage-header">Good day<br> <span>Marius!</span></h1>
+    <h1 class="homepage-header">Good day<br> <span>Marius!</span></h1><br><br>
 
     <ion-grid class="motd-grid">
         <ion-row class="ion-align-items-center">
-            <ion-col size="5" size-md="2"><ion-img src="../../assets/images/lomi.png" alt="lomi cute photo"></ion-img></ion-col>
-            <ion-col size="0" size-md="5"></ion-col>
-            <ion-col size="7" size-md="5" class="desc-col">
+            <ion-col size="0" size-md="1"></ion-col>
+            <ion-col size="5" size-md="4"><ion-img src="../../assets/images/lomi.png" alt="lomi cute photo"></ion-img></ion-col>
+            <ion-col size="0" size-md="2"></ion-col>
+            <ion-col size="7" size-md="4" class="desc-col">
                 <h1>Meal of the day</h1>
                 <h2>LOMI</h2>
                 <ion-button shape="round" expand="full">How to cook this?</ion-button>
             </ion-col>
+            <ion-col size="0" size-md="1"></ion-col>
         </ion-row>
     </ion-grid>
 
     <ion-grid class="recommend-grid">
         <ion-row>
             <ion-col size="12" size-md="4">
-                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none" (click)="recommendRecipe()">
+                    <ion-icon name="fast-food" slot="start"></ion-icon>
                     <p>Recommend me a recipe</p>
                     <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                 </ion-item>
             </ion-col>
             <ion-col size="12" size-md="4">
                 <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none" (click)="goal()">
+                    <ion-icon name="checkmark-circle" slot="start"></ion-icon>
                     <p>Set a goal</p>
                     <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                 </ion-item>
             </ion-col>
             <ion-col size="12" size-md="4">
                 <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                    <ion-icon name="newspaper" slot="start"></ion-icon>
                     <p>Check my progress</p>
                     <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                 </ion-item>
