@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FoodapiService {
+  foodApiUrl: 'https://api.edamam.com/api/recipes/v2'
+  foodApiID: '0c3a13ae'
+  foodApiKey: '0e1d22af14fc795ecc2470ae3192929a'
   
   constructor(private http: HttpClient) { }
 
@@ -85,8 +88,8 @@ export class FoodapiService {
 
 
     let params = new HttpParams()
-      .set('app_id', environment.foodApiID)
-      .set('app_key', environment.foodApiKey)
+      .set('app_id', this.foodApiID)
+      .set('app_key', this.foodApiKey)
       .set('type', 'any')
       .set('random', true)
       ;
