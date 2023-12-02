@@ -31,7 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recipe/recipe-list/recipe-list.module').then( m => m.RecipeListPageModule)
   },
   {
-    path: 'recipe',
+    path: 'recommend-recipe/recipe',
     loadChildren: () => import('./pages/recipe/recipe/recipe.module').then( m => m.RecipePageModule)
   },
 ];
