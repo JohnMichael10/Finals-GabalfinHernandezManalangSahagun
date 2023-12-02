@@ -3,8 +3,12 @@
 
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">
-        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
-        <ion-col size="10"><h1>Set a goal</h1></ion-col>
+        <ion-col size="2" (click)="goBack()">
+          <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+        </ion-col>
+        <div class="header-content">
+          <h1>Set a goal</h1>
+        </div>
       </ion-row>
     </ion-grid>
     
@@ -30,7 +34,7 @@
                 <ion-icon name="fast-food-outline" slot="start"></ion-icon>
               </ion-item>
               <div class="ion-padding" slot="content">
-                <p>Meal Plan description</p>
+                <p>Plan out your meals based on your own specification and needs. Have an allergy to something or perhaps a specific food type you want to eat? Recipal's got you covered!</p>
                 <br>
                 <ion-button shape="round" (click)="clickMealPage()">Start</ion-button>
               </div>
@@ -41,7 +45,7 @@
                 <ion-icon name="body-outline" slot="start"></ion-icon>
               </ion-item>
               <div class="ion-padding" slot="content">
-                <p>Nutrition description</p>
+                <p>Want to make sure you're getting enough calories? Perhaps you want to make sure you’re only getting a certain amount of sugars? Recipal will make sure you can hit your target!</p>
                 <br>
                 <ion-button shape="round" (click)="clickNutritionPage()">Start</ion-button>
               </div>
