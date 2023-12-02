@@ -4,10 +4,10 @@
         <ion-button class="header__save-btn" size="small" fill="clear"><ion-icon name="bookmark-outline" size="large"></ion-icon></ion-button>
     </div>
 
-    <swiper-container [scrollbar]="true">
-        <swiper-slide>
+    <swiper-container [scrollbar]="true" *ngIf="recipeList.length > 0">
+        <swiper-slide *ngFor="let result of recipeList">
             <ion-card class="recipe-list__card">
-                <img class="recipe-list__img" src="../../../../assets/images/lomi_top-down.png" alt="Lomi">
+                <img class="recipe-list__img" src="{{ result.recipe.image }}" alt="Lomi">
                 <ion-card-header>
                     <ion-card-subtitle class="recipe-list__rating">
                         <ion-icon name="star" size="large"></ion-icon>
@@ -16,7 +16,7 @@
                         <ion-icon name="star" size="large"></ion-icon>
                         <ion-icon name="star" size="large"></ion-icon>
                     </ion-card-subtitle>
-                    <ion-card-title class="recipe-list__title">Lomi</ion-card-title>
+                    <ion-card-title class="recipe-list__title">{{ result.recipe.label }}</ion-card-title>
                 </ion-card-header>
 
                 <ion-grid>
@@ -27,7 +27,7 @@
                       </ion-col>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="flame" size="large"></ion-icon>
-                        <p>909 Kcal</p>
+                        <p>{{ result.recipe.totalNutrients.CHOCDF.quantity | number:'1.2-2' }} cal</p>
                       </ion-col>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="people" size="large"></ion-icon>

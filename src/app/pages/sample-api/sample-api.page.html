@@ -7,18 +7,18 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchQuery" (ionChange)="searchFood()"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="foodParams.query" (ionChange)="searchFood()"></ion-searchbar>
 
   <ion-list *ngIf="searchResults.length > 0">
     <ion-item *ngFor="let result of searchResults">
-      <ion-label>
-        {{ result.food.label }}
-      </ion-label>
+      <ion-label slot="start">{{ result.food.label }}</ion-label>
+      <ion-label slot="end">{{ result.food.nutrients.ENERC_KCAL}} cal</ion-label>
     </ion-item>
   </ion-list>
 
-  <ion-item *ngIf="searchResults.length === 0 && searchQuery.trim() !== ''">
+  <ion-item *ngIf="searchResults.length === 0 && foodParams.query.trim() !== ''">
     <ion-label>
       No results found.
     </ion-label>

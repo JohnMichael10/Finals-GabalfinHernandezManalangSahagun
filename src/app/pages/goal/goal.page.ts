@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 
@@ -26,11 +27,17 @@ export class GoalPage implements OnInit {
     target:0
   }
 
+  mealPlan: { [key: string]: any } = {
+
+  };
+
   isNormal:boolean=false
   @ViewChild(IonModal) modal: IonModal;
   message="hello"
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -97,7 +104,67 @@ export class GoalPage implements OnInit {
 
 
 
-  segmentChanged(event: CustomEvent) {
-    this.selectedStep = event.detail.value;
+  addMealInclusion(event: CustomEvent){
+    this.mealPlan={}
+
+    if(event.detail.value!=''){
+      event.detail.value.forEach((item:string) => {
+        this.mealPlan[item] = []
+      });
+      
+    }
+  }
+
+  keyExists(key: string): boolean {
+    return key in this.mealPlan;
+  }
+
+  addBreakfast(breakfast: CustomEvent){
+    this.mealPlan['breakfast']=[]
+    if(breakfast.detail.value!=''){
+      breakfast.detail.value.forEach((item:string) => {
+        this.mealPlan['breakfast'].push(item)
+      });
+    }
+  }
+
+  addLunch(lunch: CustomEvent){
+    this.mealPlan['lunch']=[]
+    if(lunch.detail.value!=''){
+      lunch.detail.value.forEach((item:string) => {
+        this.mealPlan['lunch'].push(item)
+      });
+    }
+  }
+
+  addDinner(dinner: CustomEvent){
+    this.mealPlan['dinner']=[]
+    if(dinner.detail.value!=''){
+      dinner.detail.value.forEach((item:string) => {
+        this.mealPlan['dinner'].push(item)
+      });
+    }
+  }
+
+  addSnack(snack: CustomEvent){
+    this.mealPlan['snack']=[]
+    if(snack.detail.value!=''){
+      snack.detail.value.forEach((item:string) => {
+        this.mealPlan['snack'].push(item)
+      });
+    }
+  }
+
+  mealPlanner(){
+    // deleting empty keys
+    Object.keys(this.mealPlan).forEach((key) => {
+      if (Array.isArray(this.mealPlan[key]) && this.mealPlan[key].length === 0) {
+          delete this.mealPlan[key];
+      }
+    });
+    
+    this.router.navigate(['/goal/meal-plan'], {
+      state: this.mealPlan
+    });
   }
 }

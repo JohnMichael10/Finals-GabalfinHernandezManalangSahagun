@@ -26,15 +26,15 @@
     <ion-label class="recipe__parameter-label">Do you have any Allergies?</ion-label>
     <div class="recipe__parameter-input">
       <img class="recipe__paremeter-icon" src="./assets/icon/allergy-icon.png" alt="Allergy Icon">
-      <ion-select justify="end" aria-label="allergies" interface="popover" placeholder="Add all that applies" toggleIcon="add" [multiple]="true">
-        <ion-select-option value="egg">Eggs</ion-select-option>
-        <ion-select-option value="milk_and_Dairy">Milk and Dairy</ion-select-option>
-        <ion-select-option value="peanuts">Peanuts</ion-select-option>
-        <ion-select-option value="tree_nuts">Tree nuts</ion-select-option>
-        <ion-select-option value="fish">Fish</ion-select-option>
-        <ion-select-option value="shellfish">Shellfish</ion-select-option>
-        <ion-select-option value="wheat">Wheat</ion-select-option>
-        <ion-select-option value="soy">Soy</ion-select-option>
+      <ion-select justify="end" aria-label="allergies" interface="popover" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" (ionChange)="getAllergens($event)">
+        <ion-select-option value="egg-free">Eggs</ion-select-option>
+        <ion-select-option value="dairy-free">Milk and Dairy</ion-select-option>
+        <ion-select-option value="peanut-free">Peanuts</ion-select-option>
+        <ion-select-option value="tree-nut-free">Tree nuts</ion-select-option>
+        <ion-select-option value="vegan">Fish</ion-select-option>
+        <ion-select-option value="shellfish-free">Shellfish</ion-select-option>
+        <ion-select-option value="wheat-free">Wheat</ion-select-option>
+        <ion-select-option value="soy-free">Soy</ion-select-option>
       </ion-select>
     </div>
 

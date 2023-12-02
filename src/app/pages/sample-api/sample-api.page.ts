@@ -10,23 +10,29 @@ import { FoodapiService } from 'src/app/services/foodapi.service';
 })
 export class SampleApiPage implements OnInit {
 
-  searchQuery: string = '';
   searchResults: any[] = [];
+  
+
+  foodParams={
+    query:'',
+    diet:'high-protein',
+    health:['vegan'],
+    calories:'100+',
+    dishType:''
+  }
   ngOnInit(){
     this.searchFood()
   }
 
+
   constructor(private foodapi: FoodapiService) { }
 
   searchFood(): void {
-    if (this.searchQuery.trim() !== '') {
-      this.foodapi.searchFood(this.searchQuery)
-        .subscribe((response: any) => {
-          this.searchResults = response.hints || [];
-        });
-    } else {
-      this.searchResults = [];
-    }
+    this.foodapi.searchFood(this.foodParams.query, this.foodParams.diet, this.foodParams.health, this.foodParams.calories,this.foodParams.dishType)
+    .subscribe((response: any) => {
+      this.searchResults = response.hints || [];
+      console.log(response.hints)
+    });
   }
 
 }

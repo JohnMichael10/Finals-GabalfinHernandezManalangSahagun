@@ -84,21 +84,38 @@
 
 
 }
-.meal-segment-cont{
-    ion-col{
-        padding: 10px;
-        height: 90vh;
-        overflow-y: scroll;
-    }
-    ion-item h1{
-        font-size: 30px;
-        padding: 20px;
-        text-align: center;
-    }
-    h1{
-        text-align: center;
+
+.meal-content{
+    height: 78vh;
+    overflow-y: scroll;
+
+    .meal-segment-cont{
+        margin: 15px 0 85px 0;
+        section{
+            padding: 20px;
+            text-align: center;
+            h1{
+                font-size: 30px;
+            }
+            p{
+                padding: 10px;
+            }
+        } 
+        ion-col:nth-child(2) ion-select{
+            background-color: rgb(196, 174, 219);
+        }
+        ion-grid{
+            margin: 0 50px 0 50px;
+        }
+        ion-row{
+            margin: 20px 0 20px 0;
+        }
+        h1{
+            text-align: center;
+        }
     }
 }
+
 
 
 .step1-cat{

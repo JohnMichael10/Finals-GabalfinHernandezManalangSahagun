@@ -8,30 +8,92 @@ import { environment } from 'src/environments/environment';
 })
 export class FoodapiService {
   
-  apiUrl = 'https://api.edamam.com/api/food-database/v2/parser';
-  appId = 'eb58a7fd';
-  apiKey = '8e9f4db9641d5b48199d5900d063094a';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     
   }
 
-  searchFood(query: string): Observable<any> {
+  searchFood(
+    query: string, 
+    diet:string, 
+    health:string[], 
+    calories:string,
+    dishType:string,
+    ): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    const params = new HttpParams()
-      .set('app_id', this.appId)
-      .set('app_key', this.apiKey)
-      .set('ingr', query)
-      .set('nutrition-type', 'cooking');
-    return this.http.get(`${this.apiUrl}`, { headers, params });
+    const healthArray: string[] = health;
+
+    let params = new HttpParams()
+      .set('app_id', environment.foodApiID)
+      .set('app_key', environment.foodApiKey)
+      .set('type', 'public')
+      .set('random', true)
+      .set('q', 'Chicken')
+      .set('diet', diet)
+      .set('calories', calories)
+      .set('cuisineType', 'Asian')
+      .set('imageSize', 'SMALL')
+      ;
+
+    for (const healthItem of healthArray) {
+      params = params.append('health', healthItem);
+    }
+    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
   }
 
 
+  recommendRecipe(
+    health:string[],
+    dishType:string[],
+    ): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
-  // MEAL PLANNER
+
+    let params = new HttpParams()
+      .set('app_id', environment.foodApiID)
+      .set('app_key', environment.foodApiKey)
+      .set('type', 'any')
+      .set('q', 'Chicken')
+      .set('random', true)
+      ;
+
+    for (const healthItem of health) {
+      params = params.append('health', healthItem);
+    }
+    for (const dishTypeItem of dishType) {
+      params = params.append('dishType', dishTypeItem);
+    }
+    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+  }
+
+  // returns breakfast meal plan
+  getMealPlan(
+    mealType:string, 
+    // health:string[],
+    // dietType:string[],
+    dishType:string[],
+  ): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+
+    let params = new HttpParams()
+      .set('app_id', environment.foodApiID)
+      .set('app_key', environment.foodApiKey)
+      .set('type', 'any')
+      .set('random', true)
+      ;
+    for (const dish of dishType) {
+      params = params.append('dishType', dish);
+    }
+    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+  }
 
 }

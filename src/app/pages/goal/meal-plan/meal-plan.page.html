@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mealPlan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Meal Planner</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list *ngIf="apiDone" class="meal-list">
+    <!-- dito yung loop -->
+    <div *ngFor="let item of transformObjectToArray(); let i=index;"> 
+      <h1 class="ion-text-center">Day {{i+1}} </h1>
+      <section *ngIf="mealPlan.hasOwnProperty('breakfast')">
+        <ion-label slot="start">Breakfast</ion-label>
+        <ion-item>
+          <ion-img slot="start"  src="{{ item.category.breakfast.recipe.images.THUMBNAIL.url }}"></ion-img>
+          <ion-label slot="end">{{ item.category.breakfast.recipe.label }}</ion-label>
+        </ion-item>
+      </section>
+
+      <section *ngIf="mealPlan.hasOwnProperty('lunch')">
+        <ion-label slot="start">Lunch</ion-label>
+        <ion-item>
+          <ion-img slot="start"  src="{{ item.category.lunch.recipe.images.THUMBNAIL.url }}"></ion-img>
+          <ion-label slot="end">{{ item.category.lunch.recipe.label }}</ion-label>
+        </ion-item>
+      </section>
+
+      <section *ngIf="mealPlan.hasOwnProperty('dinner')">
+        <ion-label slot="start">Dinner</ion-label>
+        <ion-item>
+          <ion-img slot="start"  src="{{ item.category.dinner.recipe.images.THUMBNAIL.url }}"></ion-img>
+          <ion-label slot="end">{{ item.category.dinner.recipe.label }}</ion-label>
+        </ion-item>
+      </section>
+    </div>
+
+  </ion-list>
+
+  
+</ion-content>
