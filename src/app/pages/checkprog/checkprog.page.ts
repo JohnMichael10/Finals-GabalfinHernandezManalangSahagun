@@ -125,6 +125,8 @@ export class CheckprogPage {
     this.router.navigate(['/home']);
   }
 
+  
+
 }
 
 

@@ -47,6 +47,10 @@ ion-card{
     background: radial-gradient(242.95% 242.95% at 78.82% 96.79%, rgba(63, 11, 11, 0.90) 23.67%, rgba(73, 23, 23, 0.00) 93.16%);
 }
 
+ion-card-header{
+    padding-bottom: 10px;
+}
+
 ion-card-title{
     font-size: 32px;
     font-weight: 600;
@@ -59,6 +63,9 @@ ion-card-subtitle{
     font-size: 12px;
     margin-right: 10px;
     color: #7A6341;
+    font-weight: 400;
+    text-transform: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .dropdown-container{
@@ -150,4 +157,62 @@ ion-card-subtitle{
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+ion-checkbox::part(container) {
+    border-radius: 15px;
+  }
+
+ion-chip{
+    width: 243px;
+    background: #F5EFE6;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 32px;
+}
+
+ion-row{
+    align-items: center;
+    column-gap: 7px;
+}
+
+.chiplabel{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #7A6341;
+}
+
+.botrow{
+    margin-top: 4px;
+}
+
+.toplabel{
+    width: 165px;
+}
+
+.botlabel{
+    width: 30px;
+    text-align:center;
+}
+
+ion-col{
+    padding: 0;
+    width: 30px;
+}
+
+.streaktxt{
+    text-align: center;
+    font-size: 6px;
+}
+
+.streakrow{
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fire{
+    height: 10px;
+    width: 10px;
 }
