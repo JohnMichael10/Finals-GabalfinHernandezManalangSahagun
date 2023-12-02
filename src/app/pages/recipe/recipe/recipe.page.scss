@@ -1,0 +1,92 @@
+.header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.header__title {
+    text-transform: uppercase;
+    color: #301828;
+}
+
+.header__btns {
+    display: inline-block;
+    color: #301828;
+    margin-right: 0.5rem;
+}
+
+.recipe__info {
+    position: relative;
+    transform: translateX(-10rem);
+    overflow: visible;
+    width: calc(100% + 10rem);
+    color: #666666;;
+}
+
+.recipe__img {
+    width: 23rem;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    border-radius: 50%;
+    -webkit-shape-outside:circle();
+    shape-outside: circle();
+}
+
+.recipe__title {
+    position: relative;
+    text-transform: uppercase;
+    color: #301828;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.recipe__rating {
+    color: #FCB040;
+}
+
+.recipe__sub-info_container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.recipe__sub-info {
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.recipe__sub-info ion-label {
+    padding-left: 0.5rem;
+}
+
+.recipe__price {
+    font-size: 1.5rem;
+    font-weight: 510;
+}
+
+ion-segment-button {
+    font-size: 1.1rem;
+    --indicator-height: 0.15rem;
+}
+
+ion-list {
+    padding-bottom: 6rem;
+}
+
+.recipe__process-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.recipe__finish-btn {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}

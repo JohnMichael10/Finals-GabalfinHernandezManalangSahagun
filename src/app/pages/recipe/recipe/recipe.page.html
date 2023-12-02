@@ -1,13 +1,88 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>recipe</ion-title>
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-buttons class="header__btns" size="small" (click)="goBack()"><ion-icon name="close-circle" size="large"></ion-icon></ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-title class="header__title" size="large">Lomi</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-buttons class="header__btns ion-float-right" size="small"><ion-icon name="bookmark-outline" size="large"></ion-icon></ion-buttons>
+          <ion-buttons class="header__btns ion-float-right" size="small"><ion-icon name="share-outline" size="large"></ion-icon></ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">recipe</ion-title>
+      <div class="recipe__info">
+        <img class="recipe__img" src="../../../../assets/images/lomi_top-down.png" alt="Lomi">
+        <h2 class="recipe__title">Lomi</h2>
+        <div class="recipe__rating">
+          <ion-icon name="star" size="large"></ion-icon>
+          <ion-icon name="star" size="large"></ion-icon>
+          <ion-icon name="star" size="large"></ion-icon>
+          <ion-icon name="star" size="large"></ion-icon>
+          <ion-icon name="star" size="large"></ion-icon>
+        </div>
+        <div class="recipe__sub-info_container">
+          <div class="recipe__sub-info">
+            <ion-icon name="time" size="large"></ion-icon>
+            <ion-label>1h</ion-label>
+          </div>
+          <div class="recipe__sub-info">
+            <ion-icon name="flame" size="large"></ion-icon>
+            <ion-label>909 Kcal</ion-label>
+          </div>
+          <div class="recipe__sub-info">
+            <ion-icon name="people" size="large"></ion-icon>
+            <ion-label>3 Servings</ion-label>
+          </div>
+        </div>
+
+        <ion-label>For Mediterranean diet <br/>
+          No chicken allergens.</ion-label>
+        <h4 class="recipe__price">₱ 100 - ₱ 250</h4>
+      </div>
     </ion-toolbar>
   </ion-header>
+
+  <ion-segment value="ingredients" mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="selectedSegment">
+    <ion-segment-button value="ingredients">
+      <ion-label>Ingredients</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="process">
+      <ion-label>Process</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment == 'ingredients'">
+    <ion-list>
+      <ion-item text-wrap *ngFor="let list of ingredients; let i=index;">
+        <ion-checkbox labelPlacement="end" justify="start">{{list}}</ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="recipe__process-btn" size="large"  (click)="segmentProcess()">
+      <ion-icon slot="icon-only" name="restaurant"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div *ngIf="selectedSegment == 'process'">
+    <ion-list>
+      <ion-item text-wrap *ngFor="let list of process; let i=index;">
+          <ion-label>{{i + 1}}. {{list}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="recipe__finish-btn" size="large" (click)="finishCooking()">
+      Finish Cooking
+    </ion-button>
+  </div>
+
 </ion-content>
