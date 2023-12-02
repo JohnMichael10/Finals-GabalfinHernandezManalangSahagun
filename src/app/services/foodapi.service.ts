@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +30,8 @@ export class FoodapiService {
     const healthArray: string[] = health;
 
     let params = new HttpParams()
-      .set('app_id', environment.foodApiID)
-      .set('app_key', environment.foodApiKey)
+      .set('app_id', this.foodApiID)
+      .set('app_key', this.foodApiKey)
       .set('type', 'public')
       .set('random', true)
       .set('q', 'Chicken')
@@ -45,7 +44,7 @@ export class FoodapiService {
     for (const healthItem of healthArray) {
       params = params.append('health', healthItem);
     }
-    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+    return this.http.get(`${this.foodApiUrl}`, { headers, params });
   }
 
 
@@ -59,8 +58,8 @@ export class FoodapiService {
 
 
     let params = new HttpParams()
-      .set('app_id', environment.foodApiID)
-      .set('app_key', environment.foodApiKey)
+      .set('app_id', this.foodApiID)
+      .set('app_key', this.foodApiKey)
       .set('type', 'any')
       .set('q', 'Chicken')
       .set('random', true)
@@ -72,7 +71,7 @@ export class FoodapiService {
     for (const dishTypeItem of dishType) {
       params = params.append('dishType', dishTypeItem);
     }
-    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+    return this.http.get(`${this.foodApiUrl}`, { headers, params });
   }
 
   // returns breakfast meal plan
@@ -96,7 +95,7 @@ export class FoodapiService {
     for (const dish of dishType) {
       params = params.append('dishType', dish);
     }
-    return this.http.get(`${environment.foodApiUrl}`, { headers, params });
+    return this.http.get(`${this.foodApiUrl}`, { headers, params });
   }
 
 }
