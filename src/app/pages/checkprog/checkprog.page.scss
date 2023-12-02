@@ -1,22 +1,21 @@
 .checkprog{
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 700;
-    display: inline-block;
-    text-align: center;
-    margin-top: 50px;
     width: 300px;
 }
 
 .titleandback{
+    display: flex;
+    flex-direction: row;
     box-sizing: border-box;
+    margin: 1rem;
+    padding-top: 1.5rem;
+    padding-right: 2rem;
     width: 400px;
-    padding-left: 24px;
-    padding-right: 24px;
+    align-items: center;
 }
 
 .backicon{
-    margin-left: 20px;
-    display: inline-block;
     font-size: 20px;
 }
 

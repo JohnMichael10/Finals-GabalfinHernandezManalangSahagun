@@ -1,13 +1,11 @@
 <ion-content>
   <!--Header Title and Back Button-->
   <div class="titleandback">
-    <div class="backicon">
+    <ion-button class="backicon" fill="clear" size="small" (click)="goHome()">
       <ion-icon src="../../../assets/icon/chevcircleleft.svg"></ion-icon>
-    </div>
+    </ion-button>
 
-    <div class="checkprog">
-      Check My Progress
-    </div>
+    <ion-label class="checkprog">Check My Progress</ion-label>
   </div>
 
   <!--Preview Cards-->
@@ -16,7 +14,6 @@
   <div class="card">
     <ion-card class="hascardfooter">
       <ion-card-header>
-        <ion-card-title>Calendar</ion-card-title>
         <ion-card-subtitle>
           <div class="dropdown-container">
             Week
@@ -25,6 +22,7 @@
             
           </div>
         </ion-card-subtitle>
+        <ion-card-title>Calendar</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>

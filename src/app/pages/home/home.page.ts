@@ -18,4 +18,8 @@ export class HomePage {
     this.router.navigate(['/recommend-recipe']);
   }
 
+  checkprog(){
+    this.router.navigate(['/checkprog']);
+  }
+
 }
