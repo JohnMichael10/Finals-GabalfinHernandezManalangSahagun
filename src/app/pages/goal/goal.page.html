@@ -1,4 +1,5 @@
 <ion-content>
+  <!-- SET A GOAL MAIN PAGE -->
   <section class="goal-section" *ngIf="goalPage">
 
     <ion-grid class="goal-header-grid">
@@ -56,9 +57,10 @@
       </ion-row>
     </ion-grid>
   </section>
+  <!-- SET A GOAL MAIN PAGE -->
 
 
-  <!-- BMI -->
+  <!-- SET A GOAL - BMI -->
   <section class="bmi-section" *ngIf="bmiPage">
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">
@@ -108,9 +110,9 @@
       </ion-row>
     </ion-grid>
   </section>
-   <!-- BMI -->
+  <!-- SET A GOAL - BMI -->
 
-  <!-- Meal plan -->
+  <!-- SET A GOAL - Meal Planner -->
   <section class="meal-section" *ngIf="mealPage">
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">
@@ -303,15 +305,19 @@
     </div>
     <ion-button color="primary" expand="block" (click)="mealPlanner()">Plan my food now!</ion-button>
   </section>
-  <!-- Meal plan -->
+  <!-- SET A GOAL - Meal Planner -->
   
 </ion-content>
 
 
 
-<!-- MODALS -->
+
+
+
+
+<!-- UTILITIES -->
 <!-- modal -->
-<!-- <ion-modal trigger="bmi-btn">
+<ion-modal trigger="bmi-btn">
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -346,7 +352,7 @@
       </ion-item>
     </ion-content>
   </ng-template>
-</ion-modal> -->
+</ion-modal>
 <!-- modal -->
 
 
