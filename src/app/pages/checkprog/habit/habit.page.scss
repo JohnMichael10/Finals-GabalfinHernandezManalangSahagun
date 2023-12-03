@@ -7,7 +7,7 @@
 }
 
 .calendar{
-    width: 350px;
+    width: 370px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 }
 
 .header ion-button{
