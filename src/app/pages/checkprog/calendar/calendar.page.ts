@@ -11,6 +11,9 @@ export class CalendarPage implements OnInit {
 
   ngOnInit() {
     const datesElement = document.getElementById('dates');
+    const monthYearElement = document.getElementById('monthYear');
+    const prevbtn = document.getElementById('prevbtn');
+    const nextbtn = document.getElementById('nextbtn');
     
 
     let currentDate = new Date();
@@ -27,6 +30,7 @@ export class CalendarPage implements OnInit {
       const lastDayIndex = lastDay.getDay();
 
       const monthYearString = currentDate.toLocaleString('default', {month: 'long', year: 'numeric'});
+      monthYearElement.textContent = monthYearString;
       
       let datesHTML = '';
       //for previous month days
@@ -38,7 +42,7 @@ export class CalendarPage implements OnInit {
       for(let i = 1; i <= totalDays; i++){
         const date = new Date(currentYear, currentMonth, i);
         const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : '';
-        datesHTML += `<div class=date ${activeClass}">${i}</div>`;
+        datesHTML += `<div class="date ${activeClass}">${i}</div>`;
       }
       //for next month days
       for(let i = 1; i <= 6 - lastDayIndex; i++){
@@ -48,6 +52,14 @@ export class CalendarPage implements OnInit {
 
       datesElement.innerHTML = datesHTML;
     }
+    prevbtn.addEventListener('click', () =>{
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      updateCalendar();
+    })
+    nextbtn.addEventListener('click', () =>{
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      updateCalendar();
+    })
 
     updateCalendar();
   }

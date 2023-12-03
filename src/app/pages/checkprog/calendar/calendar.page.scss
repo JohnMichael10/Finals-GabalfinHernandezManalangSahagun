@@ -1,6 +1,6 @@
 .wrapper-calendar{
     width: 414px;
-    background: skyblue;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +13,7 @@
     flex-direction: column;
     padding: 10px;
     border-radius: 10px;
-    background: palegreen;
+    
 }
 
 .header{
@@ -34,6 +34,7 @@
 .weeks{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 10px;
 }
 
 .week{
@@ -41,72 +42,35 @@
     padding: 5px;
 }
 
-// .calendar ul{
-//     display: flex;
-//     list-style: none;
-//     flex-wrap: wrap;
-//     text-align: center;
-// }
-
-// .calendar ul li{
-//     position: relative;
-//     width: calc(100% / 7);
-// }
-
-// .calendar ul li::before{
-//     position: absolute;
-//     content: "";
-//     height: 30px;
-//     width: 30px;
-//     top: 50%;
-//     left: 50%;
-//     z-index: -1;
-//     border-radius: 50%;
-//     transform: translate(-50%, -50%);
-// }
-
-.days li:hover::before{
-    background: #f2f2f2;
-}
-
-.days,
-.weeks{
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0px;
-}
-
-.days{
-    margin-bottom: 5px;
-    margin-top: 3px;
-}
-
-.weeks{
-    margin-bottom: 3px;
-}
-
-.calendar .weeks li{
-    padding-top: 16px;
-    font-weight: 400;
-}
-
-.calendar .days li{
-    z-index: 1;
-    font-weight: 400;
-}
-
 .dates{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.date {
+:host::ng-deep .date{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: 0.2s;
+}
+
+:host::ng-deep .date:hover,
+:host::ng-deep .date.active{
+    background: red;
+    color: #fff;
+}
+
+:host::ng-deep .date.inactive{
+    color: #d2d2d2;
+}
+
+:host::ng-deep .date.inactive:hover{
+    color: #fff;
 }

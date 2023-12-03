@@ -4,10 +4,30 @@
   </ion-toolbar>
 </ion-header>
 
+<!--Calendar Starts Here-->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">habit</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="wrapper-calendar">
+    <div class="calendar">
+      <div class="header">
+        <ion-button id="prevbtn" fill="clear">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+        <div class="monthYear" id="monthYear"></div>
+        <ion-button id="nextbtn" fill="clear">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="weeks">
+        <div class="week">Sun</div>
+        <div class="week">Mon</div>
+        <div class="week">Tue</div>
+        <div class="week">Wed</div>
+        <div class="week">Thu</div>
+        <div class="week fri">Fri</div>
+        <div class="week fri">Sat</div>
+      </div>
+      <div class="dates" id="dates"></div>
+    </div>
+  </div>
+  <!--Calendar Ends Here-->
 </ion-content>
