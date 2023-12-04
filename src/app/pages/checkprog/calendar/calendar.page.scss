@@ -56,13 +56,25 @@
 .time{
     font-size: 12px;
     color: rgba(122, 99, 65, 0.75);
+    align-items: center;
+}
+
+.iconcol{
+    padding: 0px;
+    padding-top: 3px;
+}
+
+.iconcol2{
+    padding: 0px;
 }
 
 .mfood{
-    padding-left: 10px;
+    padding-left: 20px;
+    color: #7A6341;
 }
 
 .mingredient{
     font-size: 12px;
-    padding-left: 10px;
+    padding-left: 20px;
+    color: #7A6341;
 }
