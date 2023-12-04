@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppStoreModule } from './store/AppStoreModule';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule, 
     CommonModule,
     ...AppStoreModule,
-    StoreDevtoolsModule.instrument({maxAge:25})
+    StoreDevtoolsModule.instrument({maxAge:25}),
+    StoreModule.forRoot({}, {})
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

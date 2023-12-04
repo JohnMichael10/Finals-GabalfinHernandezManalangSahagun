@@ -247,7 +247,7 @@
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Ingredients Exclusion" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Ingredients Exclusion" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'exclusion')">
                 <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
                 <ion-select-option value="celery-free">Celery</ion-select-option>
                 <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
@@ -275,7 +275,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Diet" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Diet" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'diet')">
                 <ion-select-option value="breakfast">Balanced</ion-select-option>
                 <ion-select-option value="lunch">High-fiber</ion-select-option>
                 <ion-select-option value="dinner">High-protein</ion-select-option>
@@ -288,7 +288,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Other preferences" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Other preferences" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'preferences')">
               
                 <ion-select-option value="alcohol-cocktail">Alcohol-Cocktail</ion-select-option>
                 <ion-select-option value="DASH">DASH</ion-select-option>

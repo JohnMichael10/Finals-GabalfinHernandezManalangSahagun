@@ -9,9 +9,16 @@ import { Router } from '@angular/router';
 export class RecipePage implements OnInit {
 
   selectedSegment: string = 'ingredients';
+
+  selectedRecipeList: any[] = [];
   constructor(private router: Router) { }
 
   ngOnInit() {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      this.selectedRecipeList.push(navigation.extras.state)
+    }
+    console.log(this.selectedRecipeList)
   }
 
   goBack(){
@@ -59,5 +66,12 @@ export class RecipePage implements OnInit {
   finishCooking(){
     // Will create splash screen to congratulate the user
     this.router.navigate(['/home']);
+  }
+
+  getTruncatedText(text: string, maxLength: number): string {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
   }
 }

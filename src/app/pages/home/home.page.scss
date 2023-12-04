@@ -5,15 +5,14 @@
 
 
 .homepage-cont{
-  --padding-start: 50px;
-  --padding-end: 50px;
+  --padding-start: 30px;
+  --padding-end: 30px;
   --padding-top: 50px;
 
   .homepage-header{
     font-size: 10vmin;
     display: flex;
     justify-content: center;
-    height: 5vh;
     flex-direction: column;
     span{
       font-weight: 700;
@@ -21,37 +20,56 @@
   }
 
   .motd-grid{
-    height: 25vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+    .motd-bg{
+      position: absolute;
+      padding-right: 100px;
+      height: 20vh;
+      ion-img{
+        height: 100%;
+        object-fit:fill;
+      }
+    }
+    .motd-cont{
+      position: relative;
+      ion-img{
+        margin-right: -80px;
+      }
+    }
     
   }
   .recommend-grid{
-    height: 40vh;
     justify-content: space-between;
 
     .input-field{
       padding: 10px;
     }
     .input-field::part(native){
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       height: 10vmax;
     }
     ion-icon{
       margin: 20px;
     }
-
   }
 
 
   .desc-col{
-    text-align: right;
+    padding-left: 30px;
     h1{
-      font-size: 5vmin;
+      font-size: 4.5vmin;
+      font-weight: 700;
+      line-height: 9vmin;
     }
     h2{
-      font-size: 8vmin;
+      font-size: 7vmin;
+      font-weight: 400;
+    }
+    ion-button{
+      font-size: 10px;
     }
   }
 
@@ -63,4 +81,22 @@
     border-radius: 15px;
     margin: 10px 0 10px 0;
   }
+}
+
+
+.progress-bar{
+  width: 100px;
+  height: 100px;
+  background-image: url('../../../assets/icon/diet-icon.png');
+  background-size: cover;
+  position: relative;
+}
+.progress{
+  background-color: #ff0000;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode:soft-light;
 }

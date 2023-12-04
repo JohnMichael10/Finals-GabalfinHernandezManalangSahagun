@@ -17,12 +17,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="selectedRecipeList">
   <ion-header collapse="condense">
     <ion-toolbar>
       <div class="recipe__info">
-        <img class="recipe__img" src="../../../../assets/images/lomi_top-down.png" alt="Lomi">
-        <h2 class="recipe__title">Lomi</h2>
+        <img class="recipe__img" src="{{ selectedRecipeList[0].recipe.image }}" alt="Lomi">
+        <h2 class="recipe__title">{{ getTruncatedText(selectedRecipeList[0].recipe.label, 5) }}</h2>
         <div class="recipe__rating">
           <ion-icon name="star" size="large"></ion-icon>
           <ion-icon name="star" size="large"></ion-icon>
@@ -33,21 +33,27 @@
         <div class="recipe__sub-info_container">
           <div class="recipe__sub-info">
             <ion-icon name="time" size="large"></ion-icon>
-            <ion-label>1h</ion-label>
+            <ion-label *ngIf="selectedRecipeList[0].recipe.totalTime !=0">{{selectedRecipeList[0].recipe.totaltime}} hr</ion-label>
+            <ion-label *ngIf="selectedRecipeList[0].recipe.totalTime ==0"> less than 1 hr </ion-label>
           </div>
           <div class="recipe__sub-info">
             <ion-icon name="flame" size="large"></ion-icon>
-            <ion-label>909 Kcal</ion-label>
+            <ion-label> {{ selectedRecipeList[0].recipe.calories | number:'1.0-0' }} Kcal</ion-label>
           </div>
+          
           <div class="recipe__sub-info">
             <ion-icon name="people" size="large"></ion-icon>
-            <ion-label>3 Servings</ion-label>
+            <ion-label>{{selectedRecipeList[0].recipe.yield}} Servings</ion-label>
           </div>
         </div>
 
         <ion-label>For Mediterranean diet <br/>
           No chicken allergens.</ion-label>
-        <h4 class="recipe__price">₱ 100 - ₱ 250</h4>
+
+        <br><br>
+        <ion-label color="warning">Cautions: </ion-label>
+        <ion-label *ngFor="let result of selectedRecipeList[0].recipe.cautions">{{result}}   </ion-label>
+        <br><br>
       </div>
     </ion-toolbar>
   </ion-header>
@@ -61,9 +67,8 @@
     </ion-segment-button>
   </ion-segment>
 
-  <section *ngIf="selectedSegment == 'ingredients'">
     <ion-list>
-      <ion-item text-wrap *ngFor="let list of ingredients; let i=index;">
+      <ion-item text-wrap *ngFor="let list of selectedRecipeList[0].recipe.ingredientLines; let i=index;">
         <ion-checkbox labelPlacement="end" justify="start">{{list}}</ion-checkbox>
       </ion-item>
     </ion-list>
@@ -71,7 +76,6 @@
     <ion-button class="recipe__process-btn" size="large"  (click)="segmentProcess()">
       <ion-icon slot="icon-only" name="restaurant"></ion-icon>
     </ion-button>
-  </section>
 
   <section *ngIf="selectedSegment == 'process'">
     <ion-list>

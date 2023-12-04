@@ -3,9 +3,8 @@
         <ion-button class="header__back-btn" size="small" fill="clear" (click)="goBack()"><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-button>
         <ion-button class="header__save-btn" size="small" fill="clear"><ion-icon name="bookmark-outline" size="large"></ion-icon></ion-button>
     </div>
-
-    <swiper-container [scrollbar]="true" *ngIf="recipeList.length > 0">
-        <swiper-slide *ngFor="let result of recipeList">
+    <swiper-container [scrollbar]="true" *ngIf="recipeList.length">
+        <swiper-slide *ngFor="let result of recipeList; let i=index">
             <ion-card class="recipe-list__card">
                 <img class="recipe-list__img" src="{{ result.recipe.image }}" alt="Lomi">
                 <ion-card-header>
@@ -27,7 +26,6 @@
                       </ion-col>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="flame" size="large"></ion-icon>
-                        <p>{{ result.recipe.totalNutrients.CHOCDF.quantity | number:'1.2-2' }} cal</p>
                       </ion-col>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="people" size="large"></ion-icon>
@@ -42,13 +40,13 @@
                     <h4 class="recipe-list__price">₱ 100 - ₱ 250</h4>
                 </ion-card-content>
 
-                <ion-button class="recipe__cook-btn" horizontal="end" expand="block" size="large" (click)="cookingRecipe()">
+                <ion-button class="recipe__cook-btn" horizontal="end" expand="block" size="large" (click)="cookingRecipe(i)">
                     Let’s Cook!
                 </ion-button>
             </ion-card>
         </swiper-slide>
 
-        <swiper-slide>
+        <!-- <swiper-slide>
             <ion-card class="recipe-list__card">
                 <img class="recipe-list__img" src="../../../../assets/images/lomi_top-down.png" alt="Lomi">
                 <ion-card-header>
@@ -132,6 +130,6 @@
                     Let’s Cook!
                 </ion-button>
             </ion-card>
-        </swiper-slide>
+        </swiper-slide> -->
     </swiper-container>
 </ion-content>

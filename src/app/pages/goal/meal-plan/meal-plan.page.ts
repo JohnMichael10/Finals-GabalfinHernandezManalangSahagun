@@ -13,8 +13,14 @@ export class MealPlanPage implements OnInit {
 
   mealPlan: { [key: string]: any } = {
   };
+  mealParams: { [key: string]: any } = {
+    exclusion:[],
+    preferences: [],
+    diet: []
 
-  overallMeal: { [key: string]: { breakfast: any, lunch: any, dinner: any } } = {};
+  };
+
+  overallMeal: { [key: string]: any } = {};
   apiDone: boolean=false
   apiCallPass: boolean=false
 
@@ -27,7 +33,8 @@ export class MealPlanPage implements OnInit {
   ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras.state) {
-      this.mealPlan=navigation.extras.state
+      this.mealPlan=navigation.extras.state['mealPlan']
+      this.mealParams=navigation.extras.state['mealParams']
     }
     this.getMeal()
   }
@@ -35,12 +42,13 @@ export class MealPlanPage implements OnInit {
   
 
   factionMeals(){
+    const mealCat= Object.keys(this.mealPlan)
     for (let i = 0; i < 5; i++) {
-      this.overallMeal[i] = {
-        breakfast: this.mealPlan['breakfast'][i],
-        lunch: this.mealPlan['lunch'][i],
-        dinner: this.mealPlan['dinner'][i]
-      };
+      this.overallMeal[i] = [];
+      // Populate values (arrays) for each key in overallMeal
+      for (let j = 0; j < mealCat.length; j++) {
+        this.overallMeal[i][mealCat[j]] = this.mealPlan[mealCat[j]][i];
+      }
     }
     console.log(this.overallMeal)
   }
@@ -49,14 +57,13 @@ export class MealPlanPage implements OnInit {
     const transformedArray = Object.keys(this.overallMeal).map(key => ({
       category: this.overallMeal[key]
     }));
-    // console.log(transformedArray); // Logging the transformed object
     return transformedArray;
   }
 
   getMeal(): void {
     const mealType=Object.keys(this.mealPlan)
     const apiCalls = mealType.map(mealType =>
-      this.foodapi.getMealPlan(mealType, this.mealPlan[mealType]).pipe(
+      this.foodapi.getMealPlan(mealType, this.mealParams['exclusion'].concat(this.mealParams['preferences']), this.mealParams['diet'], this.mealPlan[mealType]).pipe(
         catchError(error => {
           // Handle API call errors here
           return (null); // Return a fallback value or handle the error
@@ -81,40 +88,5 @@ export class MealPlanPage implements OnInit {
         console.log('Some API calls failed. Cannot proceed.');
       }
     });
-  
-
- 
   }
-  // getBreakfast(): void{
-  //   this.foodapi.getMealPlan('breakfast', this.mealPlan['breakfast'])
-  //   .subscribe((response: any) => {
-  //     this.mealPlan['breakfast'] = response.hits; //this works
-  //     this.factionMeals()
-  //   });
-  // }
-  // getLunch(): void{
-  //   this.foodapi.getMealPlan('lunch', this.mealPlan['lunch'])
-  //   .subscribe((response: any) => {
-  //     this.mealPlan['lunch']= response.hits;
-  //     this.factionMeals()
-  //   });
-  // }
-  // getDinner(): void{
-  //   this.foodapi.getMealPlan('dinner', this.mealPlan['dinner'])
-  //   .subscribe((response: any) => {
-  //     this.mealPlan['dinner']= response.hits;
-  //     this.factionMeals()
-  //   });
-  // }
-
-
-
-  chunkArray(arr: any[], chunkSize: number): any[][] {
-    const chunkedArray = [];
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      chunkedArray.push(arr.slice(i, i + chunkSize));
-    }
-    return chunkedArray;
-  }
-
 }

@@ -30,6 +30,11 @@ export class GoalPage implements OnInit {
   // Meal planner
 
   mealPlan: { [key: string]: any } = {};
+  mealParams: { [key: string]: any } = {
+    exclusion:[],
+    preferences: [],
+    diet: []
+  };
 
 
   // Utilities
@@ -108,7 +113,6 @@ export class GoalPage implements OnInit {
   // Meal planner
   addMealInclusion(event: CustomEvent){
     this.mealPlan={}
-
     if(event.detail.value!=''){
       event.detail.value.forEach((item:string) => {
         this.mealPlan[item] = []
@@ -117,6 +121,15 @@ export class GoalPage implements OnInit {
     }
   }
 
+  addConcern(event: CustomEvent, concern:string){
+    if(event.detail.value!=''){
+      event.detail.value.forEach((item: string) => {
+        if(!this.mealParams[concern].includes(item)){
+          this.mealParams[concern].push(item);
+        }
+      });
+    }
+  }
   keyExists(key: string): boolean {
     return key in this.mealPlan;
   }
@@ -148,15 +161,6 @@ export class GoalPage implements OnInit {
     }
   }
 
-  addSnack(snack: CustomEvent){
-    this.mealPlan['snack']=[]
-    if(snack.detail.value!=''){
-      snack.detail.value.forEach((item:string) => {
-        this.mealPlan['snack'].push(item)
-      });
-    }
-  }
-
   mealPlanner(){
     // deleting empty keys
     Object.keys(this.mealPlan).forEach((key) => {
@@ -165,8 +169,12 @@ export class GoalPage implements OnInit {
       }
     });
     
+    const dataToPass={
+      mealPlan:this.mealPlan,
+      mealParams:this.mealParams
+    }
     this.router.navigate(['/goal/meal-plan'], {
-      state: this.mealPlan
+      state: dataToPass
     });
   }
   // MEAL PLANNER
