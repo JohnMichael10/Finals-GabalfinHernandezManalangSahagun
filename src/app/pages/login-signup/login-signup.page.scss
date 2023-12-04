@@ -8,6 +8,7 @@ ion-content{
     section{
         opacity: 1;
         -webkit-animation: fadein 2s linear forwards;
+        animation: fadein 2s linear forwards;
     }
     @keyframes fadein {
         0% { opacity: 0; }
@@ -60,6 +61,12 @@ ion-input{
 .login-form{
     margin: auto;
     height: 50vh;
+}
+
+.login__forgotPassword{
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-size: 1rem;
 }
 
 

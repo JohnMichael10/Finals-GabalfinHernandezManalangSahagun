@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import axios from 'axios';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginPageForm } from './login-signup.page.form';
 
 @Component({
   selector: 'app-login-signup',
@@ -10,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-signup.page.scss'],
 })
 export class LoginSignupPage implements OnInit {
+
+  form: FormGroup;
 
   signupForm = this.formBuilder.group(
     {
@@ -53,6 +56,7 @@ export class LoginSignupPage implements OnInit {
     }
 
   ngOnInit() {
+    this.form = new LoginPageForm(this.formBuilder).createForm();
   }
 
   // DISPLAYING PAGES
