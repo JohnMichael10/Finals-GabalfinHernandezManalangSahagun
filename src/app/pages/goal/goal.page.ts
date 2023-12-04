@@ -10,12 +10,10 @@ import { OverlayEventDetail } from '@ionic/core/components';
 })
 export class GoalPage implements OnInit {
 
-  // set a goal pages toggle
-  goalPage: boolean=true
-  bmiPage: boolean=false
-  mealPage: boolean=false
-  nutritionPage: boolean=false
-
+  goalPage: boolean = true;
+  bmiPage: boolean = false;
+  mealPage: boolean = false;
+  nutritionPage: boolean = false;
 
   // BMI
   bmiStats={
@@ -50,9 +48,17 @@ export class GoalPage implements OnInit {
     this.goalPage=false
     this.bmiPage=true
   }
+  clickBmiBackButton(){
+    this.goalPage=true
+    this.bmiPage=false
+  }
   clickMealPage(){
     this.goalPage=false
     this.mealPage=true
+  }
+  clickMealBackButton(){
+    this.goalPage=true
+    this.mealPage=false
   }
   clickNutritionPage(){
     this.goalPage=false
@@ -171,6 +177,12 @@ export class GoalPage implements OnInit {
     // Use the router to navigate back
     this.router.navigate(['/home']); // Adjust the route according to your application structure
   }
+
+  openBmiModal() {
+    // Open the BMI modal
+    this.modal.present();
+  }
+
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
