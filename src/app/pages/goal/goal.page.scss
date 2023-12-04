@@ -7,6 +7,8 @@
     .goal-main-grid{
         text-align: center;
         padding: 30px;
+        padding-top: 0px;
+
         h2{
             font-size: 5vmin;
         }
@@ -15,11 +17,13 @@
 
 .goal-header-grid{
     text-align: center;
-    padding: 72px;
+    padding: 60px;
+    padding-bottom: 40px;
+
     h1{
         font-size: 10vmin;
         font-weight: 600;
-        padding-bottom: 7px;
+        padding-bottom: 6.5px;
     }
     ion-icon::part(native){
         font-size: 100px;
@@ -30,7 +34,7 @@
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    height: 70vh;
+    height: 65vh;
 
     .goal-cat-acc{
         ion-icon{
@@ -56,9 +60,11 @@
     
 }
 
-
-
 // BMI
+.bmi-header{
+    padding-right: 50px;
+}
+
 .bmi-h1{
     background-color: #5D3D3D;
     color: aliceblue;
@@ -66,7 +72,7 @@
     font-size: 6vmin;
 }
 .bmi-grid{
-    height: 60vh;
+    height: 10vh;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -84,7 +90,11 @@
         font-size: 5vmin;
     }
 
+}
 
+// Meal Plan
+.meal-plan-header {
+    padding-right: 50px;
 }
 
 .meal-content{
@@ -92,7 +102,7 @@
     overflow-y: scroll;
 
     .meal-segment-cont{
-        margin: 15px 0 85px 0;
+        margin: 15px 0 70px 0;
         section{
             padding: 20px;
             text-align: center;
@@ -118,8 +128,6 @@
     }
 }
 
-
-
 .step1-cat{
     display: flex;
     flex-wrap: wrap;
@@ -132,5 +140,10 @@
         margin: 5px;
         width: 40%;
     }
-    
+
+}
+
+.goal-icon {
+    padding: 0 0 0 140px;
+    margin-bottom: 0px;   
 }

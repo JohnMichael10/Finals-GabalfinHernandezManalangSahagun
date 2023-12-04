@@ -5,14 +5,20 @@ describe('LoginSignupPage', () => {
   let component: LoginSignupPage;
   let fixture: ComponentFixture<LoginSignupPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     fixture = TestBed.createComponent(LoginSignupPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create form on init', () => {
+    component.ngOnInit();
+
+    expect(component.form).not.toBeUndefined();
+  })
 });

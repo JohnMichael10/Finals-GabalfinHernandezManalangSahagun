@@ -61,7 +61,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div *ngIf="selectedSegment == 'ingredients'">
+  <section *ngIf="selectedSegment == 'ingredients'">
     <ion-list>
       <ion-item text-wrap *ngFor="let list of ingredients; let i=index;">
         <ion-checkbox labelPlacement="end" justify="start">{{list}}</ion-checkbox>
@@ -71,9 +71,9 @@
     <ion-button class="recipe__process-btn" size="large"  (click)="segmentProcess()">
       <ion-icon slot="icon-only" name="restaurant"></ion-icon>
     </ion-button>
-  </div>
+  </section>
 
-  <div *ngIf="selectedSegment == 'process'">
+  <section *ngIf="selectedSegment == 'process'">
     <ion-list>
       <ion-item text-wrap *ngFor="let list of process; let i=index;">
           <ion-label>{{i + 1}}. {{list}}</ion-label>
@@ -83,6 +83,6 @@
     <ion-button class="recipe__finish-btn" size="large" (click)="finishCooking()">
       Finish Cooking
     </ion-button>
-  </div>
+  </section>
 
 </ion-content>

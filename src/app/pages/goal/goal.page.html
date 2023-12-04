@@ -8,43 +8,53 @@
           <ion-icon name="chevron-back-outline" size="large"></ion-icon>
         </ion-col>
         <div class="header-content">
-          <h1>Set a goal</h1>
+          <h1>Set a Goal!</h1>
         </div>
       </ion-row>
     </ion-grid>
+
+    <ion-row class="goal-icon">
+      <ion-img src="assets/icon/goal.svg"></ion-img>
+    </ion-row>
     
     <ion-grid class="goal-main-grid">
       <!-- for goal body -->
       <ion-row>
         <ion-col>
+          
           <ion-accordion-group expand="inset" class="goal-acc-gp">
             <ion-accordion value="first" class="goal-cat-acc">
               <ion-item slot="header">
                 <h2 class="ion-text-center">Body Mass Index</h2>
                 <ion-icon name="barbell-outline" slot="start"></ion-icon>
               </ion-item>
+
               <div class="ion-padding" slot="content">
                 <p>Calculate your BMI with your height and weight. See whether you’re overweight, underweight, or normal. Set a target BMI that you want to achieve.</p>
                 <br>
-                <ion-button shape="round" id="bmi-btn">Start</ion-button>
+                <ion-button shape="round" id="bmi-btn" (click)="openBmiModal()">Start</ion-button>
               </div>
+
             </ion-accordion>
             <ion-accordion value="second" class="goal-cat-acc">
               <ion-item slot="header">
                 <h2 class="ion-text-center">Meal Plan</h2>
                 <ion-icon name="fast-food-outline" slot="start"></ion-icon>
               </ion-item>
+
               <div class="ion-padding" slot="content">
                 <p>Plan out your meals based on your own specification and needs. Have an allergy to something or perhaps a specific food type you want to eat? Recipal's got you covered!</p>
                 <br>
                 <ion-button shape="round" (click)="clickMealPage()">Start</ion-button>
               </div>
+
             </ion-accordion>
             <ion-accordion value="third" class="goal-cat-acc">
               <ion-item slot="header">
                 <h2 class="ion-text-center">Nutrition</h2>
                 <ion-icon name="body-outline" slot="start"></ion-icon>
               </ion-item>
+
               <div class="ion-padding" slot="content">
                 <p>Want to make sure you're getting enough calories? Perhaps you want to make sure you’re only getting a certain amount of sugars? Recipal will make sure you can hit your target!</p>
                 <br>
@@ -64,14 +74,16 @@
   <section class="bmi-section" *ngIf="bmiPage">
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">
-        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
-        <ion-col size="10"><h1>Body mass index</h1></ion-col>
+        <ion-col size="2" (click)="clickBmiBackButton()">
+          <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+        </ion-col>
+        <ion-col size="10"><h1 class="bmi-header">Body Mass Index</h1></ion-col>
       </ion-row>
     </ion-grid>
     <ion-grid class="ion-text-center bmi-grid" *ngIf="bmiStats">
       <ion-row>
         <ion-col>
-          <h1 class="bmi-h1">Your current BMI</h1>
+          <h1 class="bmi-h1">Your current BMI:</h1>
           <ion-row class="stats-item">
             <ion-col size="6"><ion-label>{{bmiStats.weight}} kg</ion-label></ion-col>
             <ion-col size="6"><ion-label >Weight (kg)</ion-label></ion-col>
@@ -83,8 +95,8 @@
           </ion-row>
 
           <ion-row class="stats-item ">
-            <ion-col size="6"><ion-label>{{bmiStats.bmi}}</ion-label></ion-col>
             <ion-col size="6"><ion-label >Your BMI</ion-label></ion-col>
+            <ion-col size="6"><ion-label>{{bmiStats.bmi}}</ion-label></ion-col>
           </ion-row>
 
         </ion-col>
@@ -116,8 +128,10 @@
   <section class="meal-section" *ngIf="mealPage">
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">
-        <ion-col size="2" ><ion-icon name="chevron-back-outline" size="large"></ion-icon></ion-col>
-        <ion-col size="10"><h1>Meal Plan</h1></ion-col>
+        <ion-col size="2" (click)="clickMealBackButton()">
+          <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+        </ion-col>
+        <ion-col size="10"><h1 class="meal-plan-header">Meal Plan</h1></ion-col>
       </ion-row>
     </ion-grid>
 
@@ -126,12 +140,12 @@
       <div class="meal-segment-cont">
         <section>
           <h1>Set your meals per day</h1>
-          <p>This will let us know what to recommend based on your meal preferences.</p>
+          <p>This lets us know what to recommend based on meal type.</p>
         </section>
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="12" class="field-col">
-              <ion-select label="Meals included" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addMealInclusion($event)">
+              <ion-select label="Meals included" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addMealInclusion($event)">
                 <ion-select-option value="breakfast">Breakfast</ion-select-option>
                 <ion-select-option value="lunch">Lunch</ion-select-option>
                 <ion-select-option value="dinner">Dinner</ion-select-option>
@@ -144,12 +158,12 @@
       <div class="meal-segment-cont">
         <section>
           <h1>Select preferred meals</h1>
-          <p>This will let us know what's your favorite meals to include.</p>
+          <p>This lets us know which meals you'd like to have.</p>
         </section>
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select [disabled]="!keyExists('breakfast')" label="Breakfast" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addBreakfast($event)">
+              <ion-select [disabled]="!keyExists('breakfast')" label="Breakfast" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addBreakfast($event)">
                 <ion-select-option value="biscuits and cookies">Biscuits and Cookies</ion-select-option>
                 <ion-select-option value="bread">Bread</ion-select-option>
                 <ion-select-option value="cereals">Cereals</ion-select-option>
@@ -171,7 +185,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select [disabled]="!keyExists('lunch')" label="Lunch" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addLunch($event)">
+              <ion-select [disabled]="!keyExists('lunch')" label="Lunch" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addLunch($event)">
                 <ion-select-option value="alcohol cocktail">Alcohol Cocktail</ion-select-option>
                 <ion-select-option value="condiments and sauces">Condiments and Sauces</ion-select-option>
                 <ion-select-option value="desserts">Desserts</ion-select-option>
@@ -197,7 +211,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select [disabled]="!keyExists('dinner')" label="Dinner" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addDinner($event)">
+              <ion-select [disabled]="!keyExists('dinner')" label="Dinner" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addDinner($event)">
                 <ion-select-option value="alcohol cocktail">Alcohol Cocktail</ion-select-option>
                 <ion-select-option value="bread">Bread</ion-select-option>
                 <ion-select-option value="condiments and sauces">Condiments and Sauces</ion-select-option>
@@ -228,12 +242,12 @@
       <div class="meal-segment-cont">
         <section>
           <h1>Set filters for all meals</h1>
-          <p>This will let us know what are you allergic to, nutrients you might need to balance, etc.</p>
+          <p>This lets know what are you allergic to, the nutrients you might need to balance, etc.</p>
         </section>
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Ingredients Exclusion" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Ingredients Exclusion" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
                 <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
                 <ion-select-option value="celery-free">Celery</ion-select-option>
                 <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
@@ -261,7 +275,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Diet" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Diet" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
                 <ion-select-option value="breakfast">Balanced</ion-select-option>
                 <ion-select-option value="lunch">High-fiber</ion-select-option>
                 <ion-select-option value="dinner">High-protein</ion-select-option>
@@ -274,7 +288,7 @@
 
           <ion-row class="ion-align-items-center">
             <ion-col size="12">
-              <ion-select label="Other preferences" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between">
+              <ion-select label="Other preferences" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between">
               
                 <ion-select-option value="alcohol-cocktail">Alcohol-Cocktail</ion-select-option>
                 <ion-select-option value="DASH">DASH</ion-select-option>
@@ -298,20 +312,14 @@
 
 
           
-
-          
         </ion-grid>
       </div>
     </div>
-    <ion-button color="primary" expand="block" (click)="mealPlanner()">Plan my food now!</ion-button>
+    <ion-button class="plan-button" color="primary" expand="block" (click)="mealPlanner()" shape="full">Plan my food now!</ion-button>
   </section>
   <!-- SET A GOAL - Meal Planner -->
   
 </ion-content>
-
-
-
-
 
 
 
@@ -324,7 +332,7 @@
         <ion-buttons slot="start">
           <ion-button (click)="cancel()">Cancel</ion-button>
         </ion-buttons>
-        <ion-title>Let's calculate your BMI!</ion-title>
+        <ion-title>Calculate your BMI</ion-title>
         <ion-buttons slot="end">
           <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
         </ion-buttons>
@@ -354,8 +362,3 @@
   </ng-template>
 </ion-modal>
 <!-- modal -->
-
-
-
-
-
