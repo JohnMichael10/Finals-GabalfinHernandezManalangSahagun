@@ -125,8 +125,8 @@ export class CheckprogPage {
     this.router.navigate(['/home']);
   }
 
-  goHabit(){
-    this.router.navigate(['/habit']);
+  goCalendar(){
+    this.router.navigate(['/calendar']);
   }
 
 }
