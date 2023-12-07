@@ -1,31 +1,31 @@
 <ion-content>
   <!--Header Title and Back Button-->
-  <div class="titleandback">
+  <section class="titleandback">
     <ion-button class="backicon" fill="clear" size="small" (click)="goHome()">
       <ion-icon src="../../../assets/icon/chevcircleleft.svg"></ion-icon>
     </ion-button>
 
     <ion-label class="checkprog">Check My Progress</ion-label>
-  </div>
+  </section>
 
   <!--Preview Cards-->
 
   <!--Calendar Preview Card-->
-  <div class="card">
+  <section class="card">
     <ion-card class="hascardfooter">
       <ion-card-header>
         <ion-card-subtitle>
-          <div class="dropdown-container">
+          <section class="dropdown-container">
             <ion-label>November</ion-label>
-          </div>
+          </section>
         </ion-card-subtitle>
         <ion-card-title>Calendar</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
-        <div class="wrapper-calendar">
-          <!-- <div class="monthYear" id="monthYear"></div> -->
-          <div class="calendar">
+        <section class="wrapper-calendar">
+          <!-- <section class="monthYear" id="monthYear"></section> -->
+          <section class="calendar">
             <ul class="weeks">
               <li>Su</li>
               <li>M</li>
@@ -35,26 +35,26 @@
               <li>F</li>
               <li>S</li>
             </ul>
-            <div class="dates" id="dates"></div>
-          </div>
-        </div>
+            <section class="dates" id="dates"></section>
+          </section>
+        </section>
       </ion-card-content>
 
       <ion-row class="cardfooter">
         <ion-col>
-          <div class="nexticon">
+          <section class="nexticon">
             <ion-button fill="clear" size="small" (click)="goCalendar()">
               <ion-icon src="../../../assets/icon/chevright.svg"></ion-icon>
             </ion-button>
-          </div>
+          </section>
         </ion-col>
       </ion-row>
 
     </ion-card>
-  </div>
+  </section>
 
   <!--Habit Tracker Preview Card-->
-  <div class="card">
+  <section class="card">
     <ion-card class="hascardfooter">
       <ion-card-header>
         <ion-card-title>Habit Tracker</ion-card-title>
@@ -89,19 +89,19 @@
 
       <ion-row class="cardfooter">
         <ion-col>
-          <div class="nexticon">
+          <section class="nexticon">
             <ion-button fill="clear" size="small" >
               <ion-icon src="../../../assets/icon/chevright.svg"></ion-icon>
             </ion-button>
-          </div>
+          </section>
         </ion-col>
       </ion-row>
 
     </ion-card>
-  </div>
+  </section>
 
   <!--Calorie Intake Preview Card-->
-  <div class="card">
+  <section class="card">
     <ion-card class="hascardfooter">
       <ion-card-header>
         <ion-card-title>Calorie Intake</ion-card-title>
@@ -112,15 +112,15 @@
 
       <ion-row class="cardfooter">
         <ion-col>
-          <div class="nexticon">
+          <section class="nexticon">
             <ion-button fill="clear" size="small" >
               <ion-icon src="../../../assets/icon/chevright.svg"></ion-icon>
             </ion-button>
-          </div>
+          </section>
         </ion-col>
       </ion-row>
 
     </ion-card>
-  </div>
+  </section>
 </ion-content>
 

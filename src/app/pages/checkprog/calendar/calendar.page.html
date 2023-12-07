@@ -1,14 +1,14 @@
 <!--Calendar Starts Here-->
 <ion-content [fullscreen]="true">
-  <div class="wrapper-calendar">
-    <div class="calendar">
+  <section class="wrapper-calendar">
+    <section class="calendar">
       <ion-datetime color="bland"></ion-datetime>
-    </div>
-  </div>
+    </section>
+  </section>
   <!--Calendar Ends Here-->
 
   <!--Segment Begins Here-->
-  <div class="segmentwrapper">
+  <section class="segmentwrapper">
     <ion-segment class="choices" value="History" mode="md" [(ngModel)]="selectTabs">
       <ion-segment-button value="History">
         <ion-label>History</ion-label>
@@ -20,11 +20,11 @@
         <ion-label>Calorie</ion-label>
       </ion-segment-button>
     </ion-segment>
-  </div>
+  </section>
   <!--Segment Ends Here-->
 
   <!--Segment Content Starts-->
-  <div class="segconwrapper">
+  <section class="segconwrapper">
     <section class="segcontent">
       <!--History Content Section-->
       <section *ngIf="selectTabs == 'History'">
@@ -71,15 +71,17 @@
           </ion-card-content>
         </ion-card>
       </section>
+
       <!--Habit Content Section-->
       <section *ngIf="selectTabs == 'Habit'">
         <h2>Habit</h2>
       </section>
+      
       <!--Calorie Content Section-->
       <section *ngIf="selectTabs == 'Calorie'">
         <h2>Calorie</h2>
       </section>
     </section>
-  </div>
+  </section>
   <!--Segment Content Ends-->
 </ion-content>
