@@ -13,12 +13,13 @@
     <ion-label class="recipe__parameter-label">What’s your Diet?</ion-label>
     <div class="recipe__parameter-input">
       <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
-      <ion-select justify="end" aria-label="diet" interface="popover" value="none">
-        <ion-select-option value="low_carb">Low-carb</ion-select-option>
-        <ion-select-option value="mediterranean">Mediterranean</ion-select-option>
-        <ion-select-option value="paleo">Paleo</ion-select-option>
-        <ion-select-option value="vegan">Vegan</ion-select-option>
-        <ion-select-option value="gluten_free">Gluten-free</ion-select-option>
+      <ion-select justify="end" aria-label="diet" value="none">
+        <ion-select-option value="balanced">Balanced</ion-select-option>
+        <ion-select-option value="high-fiber">High-fiber</ion-select-option>
+        <ion-select-option value="high-protein">High-protein</ion-select-option>
+        <ion-select-option value="low-carb">Low-carb</ion-select-option>
+        <ion-select-option value="low-fat">Low-fat</ion-select-option>
+        <ion-select-option value="low-sodium">Low-sodium</ion-select-option>
         <ion-select-option value="none">None</ion-select-option>
       </ion-select>
     </div>
@@ -26,54 +27,39 @@
     <ion-label class="recipe__parameter-label">Do you have any Allergies?</ion-label>
     <div class="recipe__parameter-input">
       <img class="recipe__paremeter-icon" src="./assets/icon/allergy-icon.png" alt="Allergy Icon">
-      <ion-select justify="end" aria-label="allergies" interface="popover" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" (ionChange)="getAllergens($event)">
-        <ion-select-option value="egg-free">Eggs</ion-select-option>
-        <ion-select-option value="dairy-free">Milk and Dairy</ion-select-option>
-        <ion-select-option value="peanut-free">Peanuts</ion-select-option>
-        <ion-select-option value="tree-nut-free">Tree nuts</ion-select-option>
-        <ion-select-option value="vegan">Fish</ion-select-option>
+      <ion-select justify="end" aria-label="allergies" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" (ionChange)="getAllergens($event)">
+        <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
+        <ion-select-option value="celery-free">Celery</ion-select-option>
+        <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
+        <ion-select-option value="dairy-free">Dairy</ion-select-option>
+        <ion-select-option value="egg-free">Egg</ion-select-option>
+        <ion-select-option value="fish-free">Fish</ion-select-option>
+        <ion-select-option value="fodmap-Free">FODMAP</ion-select-option>
+        <ion-select-option value="gluten-free">Gluten</ion-select-option>
+        <ion-select-option value="lupine-free">Lupine</ion-select-option>
+        <ion-select-option value="mustard-free">Mustard</ion-select-option>
+        <ion-select-option value="mollusk-free">Mollusk</ion-select-option>
+        <ion-select-option value="peanut-free">Peanut</ion-select-option>
+        <ion-select-option value="pork-free">Pork</ion-select-option>
+        <ion-select-option value="red-meat-free">Red-meat</ion-select-option>
+        <ion-select-option value="sesame-free">Sesame</ion-select-option>
         <ion-select-option value="shellfish-free">Shellfish</ion-select-option>
-        <ion-select-option value="wheat-free">Wheat</ion-select-option>
         <ion-select-option value="soy-free">Soy</ion-select-option>
+        <ion-select-option value="sulfite-free">Sulfite</ion-select-option>
+        <ion-select-option value="tree-nut-free">Tree-Nut</ion-select-option>
+        <ion-select-option value="wheat-free">Wheat</ion-select-option>
       </ion-select>
     </div>
 
-    <ion-label class="recipe__parameter-label">How much is your budget?</ion-label>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div class="recipe__parameter-input">
-            <ion-select justify="end" aria-label="budget" interface="popover" value="0">
-              <ion-select-option value="0">₱0</ion-select-option>
-              <ion-select-option value="50">₱50</ion-select-option>
-              <ion-select-option value="150">₱150</ion-select-option>
-              <ion-select-option value="250">₱250</ion-select-option>
-              <ion-select-option value="350">₱350</ion-select-option>
-              <ion-select-option value="450">₱450</ion-select-option>
-            </ion-select>
-          </div>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-icon name="arrow-forward-outline" size="large"></ion-icon>
-        </ion-col>
-        <ion-col>
-          <div class="recipe__parameter-input">
-            <ion-select justify="end" aria-label="budget" interface="popover" value="0">
-              <ion-select-option value="0">₱0</ion-select-option>
-              <ion-select-option value="50">₱50</ion-select-option>
-              <ion-select-option value="150">₱150</ion-select-option>
-              <ion-select-option value="250">₱250</ion-select-option>
-              <ion-select-option value="350">₱350</ion-select-option>
-              <ion-select-option value="450">₱450</ion-select-option>
-            </ion-select>
-          </div>
-
-          <br><br><br>
-
-          <ion-textarea label="Regular textarea" placeholder="Type something here"></ion-textarea>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-label class="recipe__parameter-label">How many calories?</ion-label>
+    <div class="recipe__parameter-input">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto"><ion-icon class="recipe__parameter-calorie-icon" name="flame-outline" size="large"></ion-icon></ion-col>
+          <ion-col><ion-input type="floating" aria-label="Calorie Input" clear-input="true" inputmode="decimal" type="number" enterkeyhint="done" value="" label="Kcal" labelPlacement="end"></ion-input></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 
   <ion-button class="recipe__generate-btn" expand="block" size="large" (click)="generateRecipe()">

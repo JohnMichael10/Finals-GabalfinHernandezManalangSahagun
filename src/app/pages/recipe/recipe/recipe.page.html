@@ -62,8 +62,8 @@
     <ion-segment-button value="ingredients">
       <ion-label>Ingredients</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="process">
-      <ion-label>Process</ion-label>
+    <ion-segment-button value="nutrition-facts">
+      <ion-label>Nutrition Facts</ion-label>
     </ion-segment-button>
   </ion-segment>
 
@@ -77,15 +77,15 @@
       <ion-icon slot="icon-only" name="restaurant"></ion-icon>
     </ion-button>
 
-  <section *ngIf="selectedSegment == 'process'">
+  <section *ngIf="selectedSegment == 'nutrition-facts'">
     <ion-list>
-      <ion-item text-wrap *ngFor="let list of process; let i=index;">
-          <ion-label>{{i + 1}}. {{list}}</ion-label>
+      <ion-item text-wrap *ngFor="let list of nutrition_facts; let i=index;">
+          <ion-label>{{list}}</ion-label>
       </ion-item>
     </ion-list>
 
-    <ion-button class="recipe__finish-btn" size="large" (click)="finishCooking()">
-      Finish Cooking
+    <ion-button class="recipe__finish-btn" size="large" (click)="addToMyMealPlan()">
+      Add To My Meal Plan
     </ion-button>
   </section>
 

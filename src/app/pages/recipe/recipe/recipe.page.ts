@@ -30,7 +30,7 @@ export class RecipePage implements OnInit {
   }
 
   segmentProcess() {
-    this.selectedSegment = 'process';
+    this.selectedSegment = 'nutrition_facts';
   }
 
   ingredients: any[] = [
@@ -46,24 +46,24 @@ export class RecipePage implements OnInit {
     'ingredient 10',
   ]
 
-  process: any[] = [
-    'process 1',
-    'process 2',
-    'process 3',
-    'process 4',
-    'process 5',
-    'process 6',
-    'process 7',
-    'process 8',
-    'process 9',
-    'process 10',
-    'process 11',
-    'process 12',
-    'process 13',
-    'process 14',
+  nutrition_facts: any[] = [
+    'nutrition fact 1',
+    'nutrition fact 2',
+    'nutrition fact 3',
+    'nutrition fact 4',
+    'nutrition fact 5',
+    'nutrition fact 6',
+    'nutrition fact 7',
+    'nutrition fact 8',
+    'nutrition fact 9',
+    'nutrition fact 10',
+    'nutrition fact 11',
+    'nutrition fact 12',
+    'nutrition fact 13',
+    'nutrition fact 14',
   ]
 
-  finishCooking(){
+  addToMyMealPlan(){
     // Will create splash screen to congratulate the user
     this.router.navigate(['/home']);
   }
