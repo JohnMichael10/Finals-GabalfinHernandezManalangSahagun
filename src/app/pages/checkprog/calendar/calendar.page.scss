@@ -79,3 +79,38 @@
     padding-left: 20px;
     color: #7A6341;
 }
+
+.mgoal{
+    font-size: 4.2vmin;
+    padding-top: 1opx;
+    padding-bottom: 5px;
+}
+
+.mgoalbox{
+    font-size: 3vmin; 
+    padding: 3px;
+    --border-color: #6F5656;
+    --size: 15px;
+    --background: square;
+    --inner-background: square;
+    --border-radius: 0;
+}
+
+.ngoal{
+    font-size: 4.2vmin;
+    padding-bottom: 5px;
+}
+
+.ngoalbox{
+    font-size: 3vmin; 
+    padding: 3px;
+    --border-color: #6F5656;
+    --size: 15px;
+    --background: square;
+    --inner-background: square;
+    --border-radius: 0;
+}
+
+.habitcont {
+    padding-bottom: 0px;
+}

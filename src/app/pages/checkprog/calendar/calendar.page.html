@@ -73,8 +73,23 @@
       </section>
 
       <!--Habit Content Section-->
-      <section class="habitcon" *ngIf="selectTabs == 'Habit'">
-        Habit
+      <section *ngIf="selectTabs == 'Habit'">
+        <ion-card-content class="habitcont">
+          <ion-row class="mgoal">Current Week Meal Goals</ion-row>
+          <ion-checkbox class ="mgoalbox" labelPlacement="end">Make breakfast using egg as main ingredient</ion-checkbox>
+          <br />
+          <ion-checkbox class ="mgoalbox" labelPlacement="end">Eat meal that has carrots for 2 days</ion-checkbox>
+          <br />
+          <ion-checkbox class ="mgoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
+        </ion-card-content>
+        <ion-card-content class="habitconttwo">
+          <ion-row class="ngoal">Current Week Nutrition Goals</ion-row>
+          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
+          <br />
+          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
+          <br />
+          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
+        </ion-card-content>
       </section>
       
       <!--Calorie Content Section-->
