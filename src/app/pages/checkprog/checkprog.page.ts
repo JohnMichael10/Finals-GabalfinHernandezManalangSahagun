@@ -7,118 +7,116 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkprog.page.scss'],
 })
 export class CheckprogPage {
+  cells : any[] = [];
+  dt = new Date();
+  day: any;
+  today: any;
+  endDate: any;
+  prevDate: any;
+
+  months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  currentMonth: any;
+  currentYear: any;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log("Hello")
-    // const daystag = document.querySelector(".days");
+    this.renderDate();
+  }
 
-    // let date = new Date(),
-    // currDay = date.getDay(),
-    // currMonth = date.getMonth(),
-    // currYear = date.getFullYear();
+  ionViewWillEnter(){
+    this.renderDate();
+  }
 
-    // var first = date.getDate() - currDay; //First day of month
-    // var last = first + 6; //Last day of month
+  ionViewDidEnter(){
+    this.renderDate();
+  }
 
-    // var firstday = new Date(date.setDate(first)).toUTCString();
-    // var lastday = new Date(date.setDate(last)).toUTCString();
+  renderDate(){
+    this.cells = [];
+    this.dt.setDate(1);
+    this.day = this.dt.getDay();
+    this.today = new Date().getDate();
+    // console.log(this.today)
+    // console.log(this.day)
 
-    // console.log(first, last, firstday, lastday);
-    // const renderCalendar = () => {
-    //   let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); // gets last date of the month
-    //   let liTag = "";
 
-    //   for (let i = 1; i <= lastDateofMonth; i++) {
-    //     liTag += `<li>${i}</li>`; 
-    //   }
+    this.endDate = new Date(
+      this.dt.getFullYear(),
+      this.dt.getMonth()+1,
+      0
+    ).getDate();
+    // console.log(this.endDate);
 
-    //   daystag.innerHTML = liTag;
-    // }
+    this.prevDate = new Date(
+      this.dt.getFullYear(),
+      this.dt.getMonth(),
+      0
+    ).getDate();
+    // console.log(this.prevDate);
 
-    // renderCalendar();
-
-    const datesElement = document.getElementById('dates');
+    this.currentMonth = this.months[this.dt.getMonth()];
+    // console.log(this.currentMonth);
     
+    this.currentYear = this.dt.getFullYear();
+    // console.log(this.currentYear);
 
-    let currentDate = new Date();
+    let i: any;
+    let j: any;
+    
+    for(j = 1; j <= this.endDate; j++){
+      let objData = {};
+      let statusColor;
 
-    const updateCalendar = () => {
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth();
-      // const currentWeek = ;
+      let Daydate = new Date(this.currentYear, this.dt.getMonth(), j);
+      let currDate = new Date();
+      // console.log(currDate);
+      // console.log(Daydate);
+
+      if(currDate.toDateString() == Daydate.toDateString()){
+        statusColor = true;
+      } else {
+        statusColor = false;
+      }
+
+      const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+      const daysofWeekIndex = Daydate.getDay();
+      const dayofWeek = daysofWeek[daysofWeekIndex];
+      objData = {date: j, day: dayofWeek, isToday: statusColor}
+      this.cells.push(objData);
+      // console.log(this.cells);
       
-      const firstDay = new Date(currentYear, currentMonth, 1); //1 so it starts on sunday, 0 if monday
-      const lastDay = new Date(currentYear, currentMonth + 1, 0);
-      const totalDays = lastDay.getDate(); console.log(totalDays);
-      const firstDayIndex = firstDay.getDay(); console.log(firstDayIndex);
-      const lastDayIndex = lastDay.getDay();
-
-      const monthYearString = currentDate.toLocaleString('default', {month: 'long', year: 'numeric'});
-      
-      let datesHTML = '';
-      //for previous month days
-      for (let i = firstDayIndex; i > 0; i--){
-        const prevDate = new Date(currentYear, currentMonth, 0 - i + 1);
-        datesHTML += `<div class="date inactive">${prevDate.getDate()}</div>`;
-      }
-      //for current month days and active date
-      for(let i = 1; i <= totalDays; i++){
-        const date = new Date(currentYear, currentMonth, i);
-        const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : '';
-        datesHTML += `<div class=date ${activeClass}">${i}</div>`;
-      }
-      //for next month days
-      for(let i = 1; i <= 7 - lastDayIndex; i++){
-        const nextDate = new Date(currentYear, currentMonth + 1, i);
-        datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
-      }
-
-      datesElement.innerHTML = datesHTML;
     }
 
-    updateCalendar();
+  }
 
-    // const datesElement = document.getElementById('dates');
+  moveDate(para:any){
+    if(para == "prev"){
+      this.dt.setMonth(this.dt.getMonth() - 1);
+    } else if(para == 'next'){
+      this.dt.setMonth(this.dt.getMonth() + 1);
+    }
+    this.renderDate();
+  }
 
-    // let currentDate = new Date();
-
-    // const updateCalendar = () => {
-    //   const currentYear = currentDate.getFullYear();
-    //   const currentMonth = currentDate.getMonth();
-
-    //   const firstDay = new Date(currentYear, currentMonth, 0);
-    //   const lastDay = new Date(currentYear, currentMonth + 1, 0);
-    //   const totalDays = lastDay.getDate();
-    //   const firstDayIndex = firstDay.getDay();
-    //   const lastDayIndex = lastDay.getDay();
-
-    //   const monthYearString = currentDate.toLocaleString('default', {month: 'long', year: 'numeric'});
-    //   // monthYearElement.textContent = monthYearString;
-
-    //   let datesHTML = '';
-
-    //   for (let i = firstDayIndex; i > 0; i--){
-    //     const prevDate = new Date(currentYear, currentMonth, 0 - i + 1);
-    //     datesHTML += `<div class="date inactive">${prevDate.getDate()}</div>`;
-    //   }
-
-    //   for(let i = 1; i <= totalDays; i++){
-    //     const date = new Date(currentYear, currentMonth, i);
-    //     const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : '';
-    //     datesHTML += `<div class=date ${activeClass}">${i}</div>`;
-    //   }
-
-    //   for(let i = 1; i <= 7 - lastDayIndex; i++){
-    //     const nextDate = new Date(currentYear, currentMonth + 1, i);
-    //     datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
-    //   }
-
-    //   datesElement.innerHTML = datesHTML;
-    // }
-
-    // updateCalendar();
+  dateClicked(date:any){
+    let clickedDate = new Date(this.currentYear, this.dt.getMonth(), date);
+    console.log(clickedDate);
   }
 
   goHome(){

@@ -1,3 +1,4 @@
+// Header - Title and Back Button
 .checkprog{
     font-size: 30px;
     font-weight: 700;
@@ -18,6 +19,8 @@
 .backicon{
     font-size: 20px;
 }
+
+// Content Cards
 
 .card{
     margin-left: 24px;
@@ -83,81 +86,83 @@ ion-card-subtitle{
     justify-items: end;
 }
 
+// Calendar
+
+.calendarcontainer{
+    display: flex;
+    justify-content: center;
+}
+
 .wrapper-calendar{
     width: 300px;
     background: #F5EFE6;
     border-radius: 10px;
 }
 
-.calendar ul{
+.calendar{
+    padding: 0px 20px;
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 4px;
+    border-radius: 10px;
+}
+
+.monthLine{
     display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.calendar ul li{
-    position: relative;
-    width: calc(100% / 7);
-}
-
-.calendar ul li::before{
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.days li:hover::before{
-    background: #f2f2f2;
-}
-
-.days,
-.weeks{
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0px;
-}
-
-.days{
-    margin-bottom: 5px;
-    margin-top: 3px;
-}
-
-.weeks{
-    margin-bottom: 3px;
-}
-
-.calendar .weeks li{
-    padding-top: 16px;
-    font-weight: 400;
-}
-
-.calendar .days li{
-    z-index: 1;
-    font-weight: 400;
-}
-
-.dates{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.date {
+.MonYear{
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.monthChange{
+    ion-icon{
+        font-size: 18px;
+        font-weight: 550;
+        padding: 10px 0px 10px 10px;
+    }
+}
+
+.week{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    margin-right: 5px;
+    max-width: 1231px;
+    overflow-x: auto;
+
+    .weekDay{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: gray;
+        width: 50px;
+    }
+
+    .weekNumber{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: 550;
+        width: 50px;
+    }
+
+    .today{
+        color: red !important;
+    }
+
+    .square{
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
 }
+
+// Habit Preview
 
 ion-checkbox::part(container) {
     border-radius: 15px;

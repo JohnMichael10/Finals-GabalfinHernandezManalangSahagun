@@ -14,28 +14,34 @@
   <section class="card">
     <ion-card class="hascardfooter">
       <ion-card-header>
-        <ion-card-subtitle>
-          <section class="dropdown-container">
-            <ion-label>November</ion-label>
-          </section>
-        </ion-card-subtitle>
         <ion-card-title>Calendar</ion-card-title>
       </ion-card-header>
     
-      <ion-card-content>
+      <ion-card-content class="calendarcontainer">
         <section class="wrapper-calendar">
-          <!-- <section class="monthYear" id="monthYear"></section> -->
           <section class="calendar">
-            <ul class="weeks">
-              <li>Su</li>
-              <li>M</li>
-              <li>T</li>
-              <li>W</li>
-              <li>Th</li>
-              <li>F</li>
-              <li>S</li>
-            </ul>
-            <section class="dates" id="dates"></section>
+            <section class="monthLine">
+              <section class="month">
+                <p class="MonYear">{{currentMonth}} {{currentYear}}</p>
+              </section>
+
+              <section class="monthChange">
+                <ion-icon name="arrow-back-outline" (click)="moveDate('prev')"></ion-icon>
+                <ion-icon name="arrow-forward-outline" (click)="moveDate('next')"></ion-icon>
+              </section>
+            </section>
+
+            <section class="week">
+              <section *ngFor="let data of cells">
+                <section class="weekDay">
+                  <p [ngClass]="data.isToday ? 'today' : ''">{{data.day}}</p>
+                </section>
+
+                <section class="weekNumber" (click)="dateClicked(data.date)">
+                  <p [ngClass]="data.isToday ? 'today square' : ''">{{data.date}}</p>
+                </section>
+              </section>
+            </section>
           </section>
         </section>
       </ion-card-content>
