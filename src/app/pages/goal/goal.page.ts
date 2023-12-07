@@ -72,8 +72,6 @@ export class GoalPage implements OnInit {
   // Pages toggle
 
 
-
-
   // BMI
   calculateBMI() {
     if (this.bmiStats.weight && this.bmiStats.height) {
