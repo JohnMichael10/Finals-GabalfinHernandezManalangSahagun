@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppStoreModule } from './store/AppStoreModule';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +26,16 @@ import { StoreModule } from '@ngrx/store';
     CommonModule,
     ...AppStoreModule,
     StoreDevtoolsModule.instrument({maxAge:25}),
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    provideFirebaseApp(() => initializeApp({
+      apiKey: "AIzaSyB3XivuGFPtxBOqXllm8-ZBdtdAieBXh9A",
+      authDomain: "recipal-fb8eb.firebaseapp.com",
+      projectId: "recipal-fb8eb",
+      storageBucket: "recipal-fb8eb.appspot.com",
+      messagingSenderId: "579183412601",
+      appId: "1:579183412601:web:3fde5f0822968c9cc65ba8"
+    })),
+    provideFirestore(() => getFirestore())
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

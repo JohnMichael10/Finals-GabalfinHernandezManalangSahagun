@@ -4,20 +4,18 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: "AIzaSyB3XivuGFPtxBOqXllm8-ZBdtdAieBXh9A",
+    authDomain: "recipal-fb8eb.firebaseapp.com",
+    projectId: "recipal-fb8eb",
+    storageBucket: "recipal-fb8eb.appspot.com",
+    messagingSenderId: "579183412601",
+    appId: "1:579183412601:web:3fde5f0822968c9cc65ba8"
+  },
   apiUrl: 'http://localhost/recipal/',
   foodApiUrl: 'https://api.edamam.com/api/recipes/v2',
   foodApiID: '0c3a13ae',
-  foodApiKey: '0e1d22af14fc795ecc2470ae3192929a',
-
-  firebaseConfig : {
-    apiKey: "AIzaSyBe3fFjrUvpe1YEqX7HMXyT4nPfu6bsWu8",
-    authDomain: "recipal-d4ded.firebaseapp.com",
-    projectId: "recipal-d4ded",
-    storageBucket: "recipal-d4ded.appspot.com",
-    messagingSenderId: "174785880990",
-    appId: "1:174785880990:web:39f5749dc4b22e73436c8f",
-    measurementId: "G-BLX6TSJ3E7"
-  }
+  foodApiKey: '0e1d22af14fc795ecc2470ae3192929a'
 };
 
 /*

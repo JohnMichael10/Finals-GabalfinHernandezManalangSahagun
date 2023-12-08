@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import axios from 'axios';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginPageForm } from './login-signup.page.form';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login-signup',
@@ -52,7 +53,12 @@ export class LoginSignupPage implements OnInit {
   constructor(
     private router: Router,
     private toastController: ToastController,
-    private formBuilder: FormBuilder) { 
+    private formBuilder: FormBuilder,
+    private dataService: DataService
+    ) { 
+      this.dataService.getNotes().subscribe(res => {
+        console.log(res);
+      })
     }
 
   ngOnInit() {
