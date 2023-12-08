@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { FoodapiService } from 'src/app/services/foodapi.service';
 import { Router } from '@angular/router';
+import { catchError, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-list',
@@ -10,6 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./recipe-list.page.scss'],
 })
 export class RecipeListPage implements OnInit {
+  mealPlan: { [key: string]: any } = {
+  };
+  mealParams: { [key: string]: any } = {
+    exclusion:[],
+    preferences: [],
+    diet: []
+
+  };
+  apiDone: boolean=false
+  apiCallPass: boolean=false
+
+
 
   items:string[]=["","",""]
   foodParams={
@@ -35,25 +47,30 @@ export class RecipeListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.showResults()
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      this.mealPlan=navigation.extras.state['mealPlan']
+      this.mealParams=navigation.extras.state['mealParams']
+    }
+    this.getMeal()
   }
 
-  showResults(){
-    this.foodapi.recommendRecipe(this.foodParams.allergens, this.foodParams.dishType)
-      .subscribe((response: any) => {
-        this.recipeList = response.hits || [];
-        console.log(this.recipeList)
-    });
-  }
+  // showResults(){
+  //   this.foodapi.recommendRecipe(this.foodParams.allergens, this.foodParams.dishType)
+  //     .subscribe((response: any) => {
+  //       this.recipeList = response.hits || [];
+  //       console.log(this.recipeList)
+  //   });
+  // }
 
   goBack(){
     this.router.navigate(['/recommend-recipe']);
   }
 
-  cookingRecipe(recipeIdx:number){
-
+  cookingRecipe(type:string,recipeIdx:number){
+    this.mealPlan[type][recipeIdx].type=type
     this.router.navigate(['/recommend-recipe/recipe'], {
-      state: this.recipeList[recipeIdx]
+      state: this.mealPlan[type][recipeIdx]
     });
   }
 
@@ -68,5 +85,41 @@ export class RecipeListPage implements OnInit {
       return text.substring(0, maxLength) + '...';
     }
     return text;
+  }
+
+
+  
+  transformObjectToArray(): any[] {
+    return Object.values(this.mealPlan);
+  }
+
+  getMeal(): void {
+    const mealType=Object.keys(this.mealPlan)
+    const apiCalls = mealType.map(mealType =>
+      this.foodapi.getMealPlan(mealType, this.mealParams['exclusion'].concat(this.mealParams['preferences']), this.mealParams['diet'], this.mealPlan[mealType]).pipe(
+        catchError(error => {
+          // Handle API call errors here
+          return (null); // Return a fallback value or handle the error
+        })
+      )
+    );
+
+    forkJoin(apiCalls)
+    .subscribe((responses: any[]) => {
+      let allCallsSuccessful = true;
+  
+      responses.forEach((response, i) => {
+        if (response !== null) {
+          this.mealPlan[mealType[i]] = response.hits;
+        }
+      });
+  
+      if (allCallsSuccessful) {
+        console.log(this.mealPlan)
+        this.apiDone=true
+      } else {
+        console.log('Some API calls failed. Cannot proceed.');
+      }
+    });
   }
 }

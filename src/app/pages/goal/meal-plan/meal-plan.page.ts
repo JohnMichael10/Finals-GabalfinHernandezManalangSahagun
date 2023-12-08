@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./meal-plan.page.scss'],
 })
 export class MealPlanPage implements OnInit {
-
+ 
   mealPlan: { [key: string]: any } = {
   };
   mealParams: { [key: string]: any } = {
@@ -40,18 +40,6 @@ export class MealPlanPage implements OnInit {
   }
 
   
-
-  factionMeals(){
-    const mealCat= Object.keys(this.mealPlan)
-    for (let i = 0; i < 5; i++) {
-      this.overallMeal[i] = [];
-      // Populate values (arrays) for each key in overallMeal
-      for (let j = 0; j < mealCat.length; j++) {
-        this.overallMeal[i][mealCat[j]] = this.mealPlan[mealCat[j]][i];
-      }
-    }
-    console.log(this.overallMeal)
-  }
   
   transformObjectToArray(): any[] {
     const transformedArray = Object.keys(this.overallMeal).map(key => ({
@@ -82,7 +70,7 @@ export class MealPlanPage implements OnInit {
       });
   
       if (allCallsSuccessful) {
-        this.factionMeals();
+        console.log(this.mealPlan)
         this.apiDone=true
       } else {
         console.log('Some API calls failed. Cannot proceed.');

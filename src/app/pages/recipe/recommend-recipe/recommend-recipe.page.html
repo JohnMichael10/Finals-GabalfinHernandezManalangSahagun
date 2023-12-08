@@ -1,3 +1,4 @@
+
 <ion-content [fullscreen]="true">
   <div class="header">
     <ion-button class="header__back-btn" fill="clear" size="small" (click)="goHome()">
@@ -6,61 +7,236 @@
     <ion-label class="header__title">Recommend me a recipe</ion-label>
   </div>
 
-  <img class="recipe__logo" src="./assets/utilities/recipe.png" alt="Recipe Logo">
+  <!-- <img class="recipe__logo" src="./assets/utilities/recipe.png" alt="Recipe Logo"> -->
+
+  <swiper-container class="recommend-swiper">
+    <!-- <swiper-slide>
+      <div class="recipe__parameters">
+        <ion-label class="recipe__parameter-label">What’s your Diet?</ion-label>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+          <ion-select justify="end" aria-label="diet" value="none">
+            <ion-select-option value="balanced">Balanced</ion-select-option>
+            <ion-select-option value="high-fiber">High-fiber</ion-select-option>
+            <ion-select-option value="high-protein">High-protein</ion-select-option>
+            <ion-select-option value="low-carb">Low-carb</ion-select-option>
+            <ion-select-option value="low-fat">Low-fat</ion-select-option>
+            <ion-select-option value="low-sodium">Low-sodium</ion-select-option>
+            <ion-select-option value="none">None</ion-select-option>
+          </ion-select>
+        </div>
+    
+        <ion-label class="recipe__parameter-label">Do you have any Allergies?</ion-label>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/allergy-icon.png" alt="Allergy Icon">
+          <ion-select justify="end" aria-label="allergies" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" (ionChange)="getAllergens($event)">
+            <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
+            <ion-select-option value="celery-free">Celery</ion-select-option>
+            <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
+            <ion-select-option value="dairy-free">Dairy</ion-select-option>
+            <ion-select-option value="egg-free">Egg</ion-select-option>
+            <ion-select-option value="fish-free">Fish</ion-select-option>
+            <ion-select-option value="fodmap-Free">FODMAP</ion-select-option>
+            <ion-select-option value="gluten-free">Gluten</ion-select-option>
+            <ion-select-option value="lupine-free">Lupine</ion-select-option>
+            <ion-select-option value="mustard-free">Mustard</ion-select-option>
+            <ion-select-option value="mollusk-free">Mollusk</ion-select-option>
+            <ion-select-option value="peanut-free">Peanut</ion-select-option>
+            <ion-select-option value="pork-free">Pork</ion-select-option>
+            <ion-select-option value="red-meat-free">Red-meat</ion-select-option>
+            <ion-select-option value="sesame-free">Sesame</ion-select-option>
+            <ion-select-option value="shellfish-free">Shellfish</ion-select-option>
+            <ion-select-option value="soy-free">Soy</ion-select-option>
+            <ion-select-option value="sulfite-free">Sulfite</ion-select-option>
+            <ion-select-option value="tree-nut-free">Tree-Nut</ion-select-option>
+            <ion-select-option value="wheat-free">Wheat</ion-select-option>
+          </ion-select>
+        </div>
+    
+        <ion-label class="recipe__parameter-label">How many calories?</ion-label>
+        <div class="recipe__parameter-input">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="auto"><ion-icon class="recipe__parameter-calorie-icon" name="flame-outline" size="large"></ion-icon></ion-col>
+              <ion-col><ion-input type="floating" aria-label="Calorie Input" clear-input="true" inputmode="decimal" type="number" enterkeyhint="done" value="" label="Kcal" labelPlacement="end"></ion-input></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </swiper-slide> -->
 
 
-  <div class="recipe__parameters">
-    <ion-label class="recipe__parameter-label">What’s your Diet?</ion-label>
-    <div class="recipe__parameter-input">
-      <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
-      <ion-select justify="end" aria-label="diet" value="none">
-        <ion-select-option value="balanced">Balanced</ion-select-option>
-        <ion-select-option value="high-fiber">High-fiber</ion-select-option>
-        <ion-select-option value="high-protein">High-protein</ion-select-option>
-        <ion-select-option value="low-carb">Low-carb</ion-select-option>
-        <ion-select-option value="low-fat">Low-fat</ion-select-option>
-        <ion-select-option value="low-sodium">Low-sodium</ion-select-option>
-        <ion-select-option value="none">None</ion-select-option>
-      </ion-select>
-    </div>
+    <swiper-slide>
+      <div class="blend-container">
+        <ion-img src="../../../../assets/isometric/recommend/1.png" class="miaw"></ion-img>
+        <div class="blend-layer"></div>
+      </div>
+      <h1>Set your meal preferences</h1>
+      <p>This lets us know what to recommend based on your wants</p>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+          <ion-select label="Meals included" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addMealInclusion($event)">
+            <ion-select-option value="breakfast">Breakfast</ion-select-option>
+            <ion-select-option value="lunch">Lunch</ion-select-option>
+            <ion-select-option value="dinner">Dinner</ion-select-option>
+            <ion-select-option value="snack">Snack</ion-select-option>
+          </ion-select>
+        </div>
 
-    <ion-label class="recipe__parameter-label">Do you have any Allergies?</ion-label>
-    <div class="recipe__parameter-input">
-      <img class="recipe__paremeter-icon" src="./assets/icon/allergy-icon.png" alt="Allergy Icon">
-      <ion-select justify="end" aria-label="allergies" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" (ionChange)="getAllergens($event)">
-        <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
-        <ion-select-option value="celery-free">Celery</ion-select-option>
-        <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
-        <ion-select-option value="dairy-free">Dairy</ion-select-option>
-        <ion-select-option value="egg-free">Egg</ion-select-option>
-        <ion-select-option value="fish-free">Fish</ion-select-option>
-        <ion-select-option value="fodmap-Free">FODMAP</ion-select-option>
-        <ion-select-option value="gluten-free">Gluten</ion-select-option>
-        <ion-select-option value="lupine-free">Lupine</ion-select-option>
-        <ion-select-option value="mustard-free">Mustard</ion-select-option>
-        <ion-select-option value="mollusk-free">Mollusk</ion-select-option>
-        <ion-select-option value="peanut-free">Peanut</ion-select-option>
-        <ion-select-option value="pork-free">Pork</ion-select-option>
-        <ion-select-option value="red-meat-free">Red-meat</ion-select-option>
-        <ion-select-option value="sesame-free">Sesame</ion-select-option>
-        <ion-select-option value="shellfish-free">Shellfish</ion-select-option>
-        <ion-select-option value="soy-free">Soy</ion-select-option>
-        <ion-select-option value="sulfite-free">Sulfite</ion-select-option>
-        <ion-select-option value="tree-nut-free">Tree-Nut</ion-select-option>
-        <ion-select-option value="wheat-free">Wheat</ion-select-option>
-      </ion-select>
-    </div>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+          <ion-select [disabled]="!keyExists('breakfast')" label="Breakfast" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addBreakfast($event)">
+            <ion-select-option value="biscuits and cookies">Biscuits and Cookies</ion-select-option>
+            <ion-select-option value="bread">Bread</ion-select-option>
+            <ion-select-option value="cereals">Cereals</ion-select-option>
+            <ion-select-option value="drinks">Drinks</ion-select-option>
+            <ion-select-option value="egg">Egg</ion-select-option>
+            <ion-select-option value="ice cream and custard">Ice Cream and Custard</ion-select-option>
+            <ion-select-option value="pancake">Pancake</ion-select-option>
+            <ion-select-option value="pasta">Pasta</ion-select-option>
+            <ion-select-option value="pastry">Pastry</ion-select-option>
+            <ion-select-option value="pies and tarts">Pies and Tarts</ion-select-option>
+            <ion-select-option value="salad">Salad</ion-select-option>
+            <ion-select-option value="sandwiches">Sandwiches</ion-select-option>
+            <ion-select-option value="soup">Soup</ion-select-option>
+            <ion-select-option value="special occasions">Special Occasions</ion-select-option>
+            <ion-select-option value="sweets">Sweets</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+          <ion-select [disabled]="!keyExists('lunch')" label="Lunch" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addLunch($event)">
+            <ion-select-option value="alcohol cocktail">Alcohol Cocktail</ion-select-option>
+            <ion-select-option value="condiments and sauces">Condiments and Sauces</ion-select-option>
+            <ion-select-option value="desserts">Desserts</ion-select-option>
+            <ion-select-option value="drinks">Drinks</ion-select-option>
+            <ion-select-option value="egg">Egg</ion-select-option>
+            <ion-select-option value="main course">Main Course</ion-select-option>
+            <ion-select-option value="pasta">Pasta</ion-select-option>
+            <ion-select-option value="pastry">Pastry</ion-select-option>
+            <ion-select-option value="pies and tarts">Pies and Tarts</ion-select-option>
+            <ion-select-option value="pizza">Pizza</ion-select-option>
+            <ion-select-option value="preps">Preps</ion-select-option>
+            <ion-select-option value="preserve">Preserve</ion-select-option>
+            <ion-select-option value="salad">Salad</ion-select-option>
+            <ion-select-option value="seafood">Seafood</ion-select-option>
+            <ion-select-option value="side dish">Side Dish</ion-select-option>
+            <ion-select-option value="soup">Soup</ion-select-option>
+            <ion-select-option value="special occasions">Special Occasions</ion-select-option>
+            <ion-select-option value="starter">Starter</ion-select-option>
+            <ion-select-option value="sweets">Sweets</ion-select-option>
+          </ion-select>
+        </div>
 
-    <ion-label class="recipe__parameter-label">How many calories?</ion-label>
-    <div class="recipe__parameter-input">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="auto"><ion-icon class="recipe__parameter-calorie-icon" name="flame-outline" size="large"></ion-icon></ion-col>
-          <ion-col><ion-input type="floating" aria-label="Calorie Input" clear-input="true" inputmode="decimal" type="number" enterkeyhint="done" value="" label="Kcal" labelPlacement="end"></ion-input></ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </div>
+        <div class="recipe__parameter-input">
+          <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+          <ion-select [disabled]="!keyExists('dinner')" label="Dinner" aria-label="dishTypes" interface="alert" placeholder="Add" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addDinner($event)">
+            <ion-select-option value="alcohol cocktail">Alcohol Cocktail</ion-select-option>
+            <ion-select-option value="bread">Bread</ion-select-option>
+            <ion-select-option value="condiments and sauces">Condiments and Sauces</ion-select-option>
+            <ion-select-option value="desserts">Desserts</ion-select-option>
+            <ion-select-option value="drinks">Drinks</ion-select-option>
+            <ion-select-option value="egg">Egg</ion-select-option>
+            <ion-select-option value="ice cream and custard">Ice Cream and Custard</ion-select-option>
+            <ion-select-option value="main course">Main Course</ion-select-option>
+            <ion-select-option value="pasta">Pasta</ion-select-option>
+            <ion-select-option value="pastry">Pastry</ion-select-option>
+            <ion-select-option value="pies and tarts">Pies and Tarts</ion-select-option>
+            <ion-select-option value="pizza">Pizza</ion-select-option>
+            <ion-select-option value="preps">Preps</ion-select-option>
+            <ion-select-option value="preserve">Preserve</ion-select-option>
+            <ion-select-option value="salad">Salad</ion-select-option>
+            <ion-select-option value="sandwiches">Sandwiches</ion-select-option>
+            <ion-select-option value="seafood">Seafood</ion-select-option>
+            <ion-select-option value="side dish">Side Dish</ion-select-option>
+            <ion-select-option value="soup">Soup</ion-select-option>
+            <ion-select-option value="special occasions">Special Occasions</ion-select-option>
+            <ion-select-option value="starter">Starter</ion-select-option>
+            <ion-select-option value="sweets">Sweets</ion-select-option>
+          </ion-select>
+        </div>
+      
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="blend-container">
+        <ion-img src="../../../../assets/isometric/recommend/2.png" class="miaw"></ion-img>
+        <div class="blend-layer"></div>
+      </div>
+      <h1>Select meal options</h1>
+      <p>This lets us know which meals if you have allegies, preferred diet, etc.</p>
+      <div class="recipe__parameter-input">
+        <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+        <ion-select label="Ingredients Exclusion" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'exclusion')">
+          <ion-select-option value="alcohol-free">Alcohol</ion-select-option>
+          <ion-select-option value="celery-free">Celery</ion-select-option>
+          <ion-select-option value="crustacean-free">Crustacean</ion-select-option>
+          <ion-select-option value="dairy-free">Dairy</ion-select-option>
+          <ion-select-option value="egg-free">Egg</ion-select-option>
+          <ion-select-option value="fish-free">Fish</ion-select-option>
+          <ion-select-option value="fodmap-Free">FODMAP</ion-select-option>
+          <ion-select-option value="gluten-free">Gluten</ion-select-option>
+          <ion-select-option value="lupine-free">Lupine</ion-select-option>
+          <ion-select-option value="mustard-free">Mustard</ion-select-option>
+          <ion-select-option value="mollusk-free">Mollusk</ion-select-option>
+          <ion-select-option value="peanut-free">Peanut</ion-select-option>
+          <ion-select-option value="pork-free">Pork</ion-select-option>
+          <ion-select-option value="red-meat-free">Red-meat</ion-select-option>
+          <ion-select-option value="sesame-free">Sesame</ion-select-option>
+          <ion-select-option value="shellfish-free">Shellfish</ion-select-option>
+          <ion-select-option value="soy-free">Soy</ion-select-option>
+          <ion-select-option value="sulfite-free">Sulfite</ion-select-option>
+          <ion-select-option value="tree-nut-free">Tree-Nut</ion-select-option>
+          <ion-select-option value="wheat-free">Wheat</ion-select-option>
+        </ion-select>
+      </div>
+      
+      
+      <div class="recipe__parameter-input">
+        <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+        <ion-select label="Diet" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'diet')">
+        <ion-select-option value="breakfast">Balanced</ion-select-option>
+        <ion-select-option value="lunch">High-fiber</ion-select-option>
+        <ion-select-option value="dinner">High-protein</ion-select-option>
+        <ion-select-option value="snack">Low-carb</ion-select-option>
+        <ion-select-option value="teatime">Low-fat</ion-select-option>
+        <ion-select-option value="teatime">Low-sodium</ion-select-option>
+        </ion-select>
+      </div>
+      
+      <div class="recipe__parameter-input">
+        <img class="recipe__paremeter-icon" src="./assets/icon/diet-icon.png" alt="Diet Icon">
+        <ion-select label="Other preferences" aria-label="dishTypes" interface="alert" placeholder="Add all that applies" toggleIcon="add" [multiple]="true" justify="space-between" (ionChange)="addConcern($event, 'preferences')">   
+          <ion-select-option value="alcohol-cocktail">Alcohol-Cocktail</ion-select-option>
+          <ion-select-option value="DASH">DASH</ion-select-option>
+          <ion-select-option value="immuno-supportive">Immuno-Supportive</ion-select-option>
+          <ion-select-option value="keto-friendly">Keto-Friendly</ion-select-option>
+          <ion-select-option value="kidney-friendly">Kidney-Friendly</ion-select-option>
+          <ion-select-option value="kosher">Kosher</ion-select-option>
+          <ion-select-option value="low-potassium">Low Potassium</ion-select-option>
+          <ion-select-option value="low-sugar">Low Sugar</ion-select-option>
+          <ion-select-option value="No-oil-added">No oil added</ion-select-option>
+          <ion-select-option value="Mediterranean">Mediterranean</ion-select-option>
+          <ion-select-option value="paleo">Paleo</ion-select-option>
+          <ion-select-option value="pecatarian">Pescatarian</ion-select-option>
+          <ion-select-option value="sugar-conscious">Sugar-Conscious</ion-select-option>
+          <ion-select-option value="vegan">Vegan</ion-select-option>
+          <ion-select-option value="vegetarian">Vegetarian</ion-select-option>
+        </ion-select>
+      </div>
+      
+
+      
+    </swiper-slide>
+
+  </swiper-container>
+
+      <!-- SET A GOAL - Meal Planner -->
+  
+
+  
+
+  
 
   <ion-button class="recipe__generate-btn" expand="block" size="large" (click)="generateRecipe()">
     Generate Recipe
