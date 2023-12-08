@@ -44,6 +44,29 @@ export class CheckprogPage {
 
   ionViewDidEnter(){
     this.renderDate();
+
+    // JS for Gauge movement
+    const gaugeElement = document.querySelector(".gauge");
+    const perleftElement = document.querySelector(".encourage");
+
+    this.setGaugeValue(gaugeElement, 0.3, perleftElement); // use to change gauge percentage
+
+  }
+
+  setGaugeValue(gauge: any, value: number, perleft: any) {
+    if (value < 0 || value > 1) {
+      return;
+    }
+
+    gauge.querySelector(".gauge__fill").style.transform = `rotate(${
+      value / 2
+    }turn)`; //moves the gauge bar
+    gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+      value * 100
+    )}%`; //changes text to percentage of progress
+    perleft.querySelector(".perleft").textContent = `${Math.round(
+      100 - (value * 100)
+    )}%`;
   }
 
   renderDate(){
