@@ -4,99 +4,211 @@
 }
 
 
-.homepage-cont{
-  --padding-start: 30px;
-  --padding-end: 30px;
-  --padding-top: 50px;
+// .homepage-cont{
+//   --padding-start: 30px;
+//   --padding-end: 30px;
+//   --padding-top: 50px;
 
-  .homepage-header{
-    font-size: 10vmin;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+//   .homepage-header{
+//     font-size: 10vmin;
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     span{
+//       font-weight: 700;
+//     }
+//   }
+
+//   .motd-grid{
+
+//     .motd-bg{
+//       position: absolute;
+//       padding-right: 100px;
+//       height: 20vh;
+//       ion-img{
+//         height: 100%;
+//         object-fit:fill;
+//       }
+//     }
+//     .motd-cont{
+//       position: relative;
+//       ion-img{
+//         margin-right: -80px;
+//       }
+//     }
+    
+//   }
+//   .recommend-grid{
+//     justify-content: space-between;
+
+//     .input-field{
+//       padding: 10px;
+//     }
+//     .input-field::part(native){
+//       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+//       height: 10vmax;
+//     }
+//     ion-img{
+//       mix-blend-mode: darken;
+//     }
+//   }
+
+
+//   .desc-col{
+//     padding-left: 30px;
+//     h1{
+//       font-size: 4.5vmin;
+//       font-weight: 700;
+//       line-height: 9vmin;
+//     }
+//     h2{
+//       font-size: 7vmin;
+//       font-weight: 400;
+//     }
+//     ion-button{
+//       font-size: 10px;
+//     }
+//   }
+
+
+//   ion-item::part(native){
+//     --padding-bottom: 10px;
+//     --padding-top: 10px;
+//     --background: #F8F6F2;
+//     border-radius: 15px;
+//     margin: 10px 0 10px 0;
+//   }
+// }
+
+
+// .progress-bar{
+//   width: 100px;
+//   height: 100px;
+//   background-image: url('../../../assets/icon/diet-icon.png');
+//   background-size: cover;
+//   position: relative;
+// }
+// .progress{
+//   background-color: #ff0000;
+//   height: 50%;
+//   width: 100%;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   mix-blend-mode:soft-light;
+// }
+
+h1{
+  font-size: 10vmin;
+}
+h2{
+  font-size: 5vmin;
+}
+h3{
+  font-size: 4vmin;
+}
+h5{
+  font-size: 2vmin;
+}
+.home-container{
+  --padding-top: 50px;
+  --padding-bottom: 80px;
+  --padding-start: 80px;
+  --padding-end: 80px;
+  height: 100vh !important;
+  width: 100vw !important;
+
+  .home-header{
+    font-weight: 400;
+    
     span{
       font-weight: 700;
     }
   }
-
-  .motd-grid{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    .motd-bg{
-      position: absolute;
-      padding-right: 100px;
-      height: 20vh;
-      ion-img{
-        height: 100%;
-        object-fit:fill;
-      }
+  .motd-home{
+    h3{
+      font-weight: 700;
     }
-    .motd-cont{
-      position: relative;
-      ion-img{
-        margin-right: -80px;
-      }
+    h4{
+      font-weight: 500;
     }
     
   }
-  .recommend-grid{
+}
+
+.header-home-container-grid{
+  // height: 40vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  ion-row{
+    // height: 40vh;
+  }
+  ion-col{
+  }
+  .img-col{
+    height: inherit !important;
+    img{
+      // height: 60%;
+    }
+  }
+}
+.what-container-grid{
+  // height: 50vh;
+
+  ion-row{
+
+    ion-col:nth-child(2){
+      padding-left: 30px;
+    }
+  }
+  .what-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 60%;
+  }
+
+  .started-card-section-home{
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    text-align: center;
+    background-color: rebeccapurple;
+    
+    .started-card{
+      background-color: yellow;
+      // margin: auto;
+      // padding: 0 20px 9 20px;
+      img{
+        // height: 100%;
+        // mix-blend-mode: darken;
+        // object-fit: contain;
+      }
+    }
 
-    .input-field{
-      padding: 10px;
-    }
-    .input-field::part(native){
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      height: 10vmax;
-    }
-    ion-icon{
-      margin: 20px;
-    }
+    
+    
   }
 
-
-  .desc-col{
-    padding-left: 30px;
-    h1{
-      font-size: 4.5vmin;
-      font-weight: 700;
-      line-height: 9vmin;
-    }
-    h2{
-      font-size: 7vmin;
-      font-weight: 400;
-    }
-    ion-button{
-      font-size: 10px;
-    }
-  }
-
-
-  ion-item::part(native){
-    --padding-bottom: 10px;
-    --padding-top: 10px;
-    --background: #F8F6F2;
-    border-radius: 15px;
-    margin: 10px 0 10px 0;
-  }
 }
 
 
-.progress-bar{
-  width: 100px;
-  height: 100px;
-  background-image: url('../../../assets/icon/diet-icon.png');
-  background-size: cover;
-  position: relative;
-}
-.progress{
-  background-color: #ff0000;
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  mix-blend-mode:soft-light;
+
+
+// --------------------------------------------------------- //
+
+@media only screen and (max-width: 1140px) {
+  .home-container{
+    --padding-top: 60px;
+    --padding-start: 50px;
+    --padding-end: 50px;
+  }
+  .what-container-grid{
+    height: 100% !important;
+    ion-col{
+      padding: 0 !important;
+    }
+  }
+ 
 }

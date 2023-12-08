@@ -1,4 +1,4 @@
-<!-- food-search.component.html -->
+<!-- food-search.component.html
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -23,4 +23,45 @@
       No results found.
     </ion-label>
   </ion-item>
+</ion-content> -->
+
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <div class="header-div">
+      <ion-searchbar placeholder="Search in notes..."></ion-searchbar>
+      <ion-fab-button color="primary">
+        +
+      </ion-fab-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <div class="notes-container">
+    <ion-card class="notes-card" >
+      <ion-card-header>
+        <div class="horizontal-buttons">
+          <ion-fab-button size="small" color="primary">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button size="small" color="primary">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button size="small" color="primary">
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </ion-fab-button>
+        </div>
+        <ion-input  placeholder="Note Title"></ion-input>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-textarea placeholder="Enter your note here..."></ion-textarea>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

@@ -1,58 +1,68 @@
-<ion-content class="homepage-cont">
-      
-    <br>
-    <h1 class="homepage-header">Good day<br> <span>Marius!</span></h1><br><br>
-    <br>
-    <ion-grid class="motd-grid">
-        <ion-row class="ion-align-items-center">
-            <ion-col class="motd-bg">
-                <ion-img src="../../../assets/utilities/home-banner.png" ></ion-img>
-            </ion-col>
-            <ion-col class="motd-cont">
-                <ion-grid>
-                    <ion-row class="ion-align-items-center">
-                        <ion-col size="7" class="desc-col">
-                            <h1>Meal of the day</h1>
-                            <h2>Halo-Halo</h2>
-                            <br>
-                            <ion-button shape="round">Teach me!</ion-button>
-                        </ion-col>
-                        <ion-col size="5"><ion-img src="../../assets/images/halohalo.png" alt="lomi cute photo"></ion-img></ion-col>
-                    </ion-row>
-                </ion-grid>
-
-                
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
-    <br><br><br>
-    <h3>Let's get started</h3>
-    <ion-grid class="recommend-grid">
-        <ion-row>
-            <ion-col size="12" size-md="4">
-                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none" (click)="recommendRecipe()">
-                    <ion-icon name="fast-food" slot="start"></ion-icon>
-                    <p>Recommend me a recipe</p>
-                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-                </ion-item>
-            </ion-col>
-            <ion-col size="12" size-md="4">
-                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none" (click)="goal()">
-                    <ion-icon name="checkmark-circle" slot="start"></ion-icon>
-                    <p>Set a goal</p>
-                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-                </ion-item>
-            </ion-col>
-            <ion-col size="12" size-md="4">
-                <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none" (click)="checkprog()">
-                    <ion-icon name="newspaper" slot="start"></ion-icon>
-                    <p>Check my progress</p>
-                    <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+<ion-content class="home-container">
     
+
+    <ion-grid class="header-home-container-grid">
+        <ion-row class="ion-align-items-center">
+            <ion-col size="12" size-xl="6">
+                <section class="header">
+                    <h1 class="home-header">Good day<br> <span>Marius!</span></h1>
+                    <h5>8:01 am  |   December 12, 2023</h5>
+                </section>
+            </ion-col>
+
+            <ion-col size="6" size-xl="2">
+                <section class="motd-home">
+                    <section class="desc-motd-home">
+                        <h3>Meal of the day</h3>
+                        <h4>Halo-Halo</h4>
+                        <a href="#">How to cook this?</a>
+                    </section>
+                </section>
+            </ion-col>
+            <ion-col size="6" size-xl="4" class="img-col">
+                <img src="../../../assets/images/halohalo.png" />
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="what-container-grid">
+        <ion-row>
+            <ion-col size="12" size-xl="3" class="what-col">
+                <h2>What to eat?</h2>
+                <section class="what-container">
+                    <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                        <h5 slot="start">250 kcal  |  Munggo</h5>
+                        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                    </ion-item>
+            
+                    <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                        <h5 slot="start">250 kcal  |  Munggo</h5>
+                        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                    </ion-item>
+            
+                    <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
+                        <h5 slot="start"><a href="#">See all</a></h5>
+                        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+                    </ion-item>
+                </section>
+            </ion-col>
+            <ion-col size="12" size-xl="9" class="started-grid">
+                <h2>Let's get started!</h2>
+                <section class="started-card-section-home">   
+                    <section class="started-card" (click)="recommendRecipe()">
+                        <img src="../../../assets/isometric/recommend.png">
+                        <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                    </section>
+                    <section class="started-card">
+                        <img src="../../../assets/isometric/goal.png" (click)="goal()">
+                        <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                    </section>
+                    <section class="started-card">
+                        <img src="../../../assets/isometric/progress.png" (click)="checkprog()">
+                        <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                    </section>
+                </section>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

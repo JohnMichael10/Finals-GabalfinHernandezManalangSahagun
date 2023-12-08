@@ -1,0 +1,136 @@
+ion-card-content {
+  font-size: 20px;
+  text-align: justify;
+}
+
+/* Styles for ion-card-header and ion-input */
+ion-card-header ion-input {
+  font-size: 2rem;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.header-div{
+    display: flex;
+    margin: 20px 50px 20px 50px;
+}
+
+
+/* Styles for ion-header and ion-toolbar */
+ion-header ion-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 16px;
+
+  /* Styles for .search-and-fab-container */
+  .search-and-fab-container {
+    display: flex;
+    align-items: center;
+
+    /* Styles for ion-searchbar */
+    ion-searchbar {
+      width: 80%;
+    //   max-width: 82%;
+      margin: 45px 0 0 0;
+      margin: auto;
+    //   margin-left: 100px;
+      --background: #B9D3EC;
+    }
+
+    /* Styles for ion-fab */
+    ion-fab {
+      margin-left: 10px;
+    }
+  }
+}
+
+/* Styles for the notes container */
+.notes-container {
+  clear: both;
+  width: 83%;
+  height: 380px;
+  margin: 40px auto 0;
+  position: relative;
+
+  /* Styles for ion-card inside .notes-container */
+  ion-card {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border: 2px solid #3880FF;
+    margin-bottom: 20px;
+    overflow: visible;
+
+    /* Styles for the notes card */
+    &:hover {
+      transform: scale(1.1);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Styles for ion-card-header */
+    ion-card-header {
+      position: relative;
+      height: 30px;
+      margin-bottom: 8px;
+    }
+
+    /* Styles for ion-card-content */
+    ion-card-content {
+      font-size: 20px;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    /* Styles for buttons in horizontal line */
+    ion-card-header .horizontal-buttons {
+      position: absolute;
+      top: 130px;
+      bottom: 8px;
+      right: 8px;
+      display: flex;
+      margin-bottom: 40px;
+
+      ion-fab-button {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  /* Styles for delete button */
+  ion-card ion-fab-button.delete-button {
+    --background: #2095F2;
+  }
+
+  /* Styles for edit button */
+  ion-card ion-fab-button.edit-button {
+    --background: #2095F2;
+  }
+
+  /* Styles for save button */
+  ion-card ion-fab-button.save-button {
+    --background: #2095F2;
+  }
+}
+
+/* Styles for the ion-fab button */
+.upper-center {
+  position: absolute
+}
+
+/* Styles for ion-fab button and ion-icon */
+ion-fab ion-fab-button {
+  background-color: transparent;
+  font-size: 40px;
+  width: 45px;
+  height: 45px;
+  margin-top: 25px;
+  margin-right: 40px;
+  --box-shadow: none;
+  z-index: 2;
+
+  ion-icon {
+    font-size: 35px;
+    --background: #2095F2;
+  }
+}
