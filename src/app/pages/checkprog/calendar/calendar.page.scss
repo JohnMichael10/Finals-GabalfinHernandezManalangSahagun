@@ -1,7 +1,22 @@
+// Back Button Formatting
+.backbuttonwrapper{
+    display: flex;
+    box-sizing: border-box;
+    width: auto;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.backicon{
+    font-size: 20px;
+    margin-top: 0.6rem;
+    margin-bottom: -0.5rem;
+    padding-top: 1rem 0 0 0;
+}
+
 // Calendar Formatting
 .wrapper-calendar{
     width: 430px;
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calendar',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class CalendarPage implements OnInit {
   selectTabs = 'History';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goBack(){
+    this.router.navigate(['/checkprog']);
   }
 
 }

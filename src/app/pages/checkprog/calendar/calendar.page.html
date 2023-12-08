@@ -1,5 +1,13 @@
-<!--Calendar Starts Here-->
 <ion-content [fullscreen]="true">
+<!--Back Button-->
+  <section class="backbuttonwrapper">
+    <ion-button class="backicon" fill="clear" size="small" (click)="goBack()">
+      <ion-icon src="../../../assets/icon/chevcircleleft.svg"></ion-icon>
+    </ion-button>
+  </section>
+<!--Back Button Ends Here-->
+
+<!--Calendar Starts Here-->
   <section class="wrapper-calendar">
     <section class="calendar">
       <ion-datetime color="bland"></ion-datetime>
@@ -71,6 +79,7 @@
           </ion-card-content>
         </ion-card>
       </section>
+      <!--History Content Section Ends Here-->
 
       <!--Habit Content Section-->
       <section *ngIf="selectTabs == 'Habit'">
@@ -91,11 +100,13 @@
           <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
         </ion-card-content>
       </section>
+      <!--Habit Content Section Ends Here-->
       
       <!--Calorie Content Section-->
       <section *ngIf="selectTabs == 'Calorie'">
         <h2>Calorie</h2>
       </section>
+      <!--Calorie Content Section Ends Here-->
     </section>
   </section>
   <!--Segment Content Ends-->
