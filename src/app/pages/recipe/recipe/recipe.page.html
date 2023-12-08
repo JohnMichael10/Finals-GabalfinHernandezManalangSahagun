@@ -62,11 +62,11 @@
     <ion-segment-button value="ingredients">
       <ion-label>Ingredients</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="nutrition-facts">
+    <ion-segment-button value="nutrition_facts">
       <ion-label>Nutrition Facts</ion-label>
     </ion-segment-button>
   </ion-segment>
-
+  <section *ngIf="selectedSegment == 'ingredients'">
     <ion-list>
       <ion-item text-wrap *ngFor="let list of selectedRecipeList[0].recipe.ingredientLines; let i=index;">
         <ion-checkbox labelPlacement="end" justify="start">{{list}}</ion-checkbox>
@@ -76,11 +76,17 @@
     <ion-button class="recipe__process-btn" size="large"  (click)="segmentProcess()">
       <ion-icon slot="icon-only" name="restaurant"></ion-icon>
     </ion-button>
+  </section>
 
-  <section *ngIf="selectedSegment == 'nutrition-facts'">
+  <section *ngIf="selectedSegment == 'nutrition_facts'">
     <ion-list>
-      <ion-item text-wrap *ngFor="let list of nutrition_facts; let i=index;">
-          <ion-label>{{list}}</ion-label>
+      <ion-item text-wrap *ngFor="let digest of selectedRecipeList[0].recipe.digest; let i=index;">
+        <ng-container *ngIf="digest.total != 0">
+          <ion-label color="success">{{digest.tag}}  </ion-label>
+          <ion-label>{{digest.label}}  </ion-label>
+          <ion-label>{{digest.total | number: '1.0-0'}}  {{  digest.unit }}</ion-label>
+        </ng-container>
+          
       </ion-item>
     </ion-list>
 

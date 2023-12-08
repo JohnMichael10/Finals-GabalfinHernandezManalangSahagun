@@ -15,14 +15,15 @@
                         <ion-icon name="star" size="large"></ion-icon>
                         <ion-icon name="star" size="large"></ion-icon>
                     </ion-card-subtitle>
-                    <ion-card-title class="recipe-list__title">{{ result.recipe.label }}</ion-card-title>
+                    <ion-card-title class="recipe-list__title">{{ getTruncatedText(result.recipe.label, 20) }}</ion-card-title>
                 </ion-card-header>
 
                 <ion-grid>
                     <ion-row>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="time" size="large"></ion-icon>
-                        <p>1h</p>
+                        <p *ngIf="result.recipe.totalTime==0">less than 1h</p>
+                        <p *ngIf="result.recipe.totalTime>1">{{ result.recipe.totalTime}}h</p>
                       </ion-col>
                       <ion-col class="recipe-list__sub-info">
                         <ion-icon name="flame" size="large"></ion-icon>

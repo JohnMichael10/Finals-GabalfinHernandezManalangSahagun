@@ -62,4 +62,11 @@ export class RecipeListPage implements OnInit {
     const color = percentage === 100 ? 'green' : 'gray'; // Modify colors as needed
     return `linear-gradient(to right, ${color} ${percentage}%, gray ${percentage}%`;
   }
+
+  getTruncatedText(text: string, maxLength: number): string {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  }
 }
