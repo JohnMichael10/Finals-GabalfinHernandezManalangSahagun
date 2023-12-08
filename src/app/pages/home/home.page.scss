@@ -174,10 +174,8 @@ h5{
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    background-color: rebeccapurple;
     
     .started-card{
-      background-color: yellow;
       // margin: auto;
       // padding: 0 20px 9 20px;
       img{
@@ -188,12 +186,28 @@ h5{
     }
   }
 }
-
 .started-swiper{
   swiper-slide{
-    background-color: rebeccapurple;
+    width: 50%;
+    border: solid;
   }
 }
+
+.blend-container {
+  position: relative;
+}
+
+.blend-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F5EFE6; /* Color to blend with */
+  mix-blend-mode: darken; /* Or any blend mode you want */
+  /* Other necessary styles */
+}
+
 
 
 // --------------------------------------------------------- //

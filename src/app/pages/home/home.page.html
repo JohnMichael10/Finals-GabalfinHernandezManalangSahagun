@@ -1,6 +1,4 @@
 <ion-content class="home-container">
-    
-
     <ion-grid class="header-home-container-grid">
         <ion-row class="ion-align-items-center">
             <ion-col size="12" size-xl="6">
@@ -9,7 +7,6 @@
                     <h5>8:01 am  |   December 12, 2023</h5>
                 </section>
             </ion-col>
-
             <ion-col size="6" size-xl="2">
                 <section class="motd-home">
                     <section class="desc-motd-home">
@@ -24,7 +21,6 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-
     <ion-grid class="what-container-grid">
         <ion-row>
             <ion-col size="12" size-xl="3" class="what-col">
@@ -50,27 +46,62 @@
                 <h2>Let's get started!</h2>
                 <section class="started-card-section-home">   
                     <section class="started-card" (click)="recommendRecipe()">
-                        <img src="../../../assets/isometric/recommend.png">
+                        <div class="blend-container">
+                            <img src="../../../assets/isometric/recommend.png">
+                            <div class="blend-layer"></div>
+                        </div>
+                        
                         <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
                     </section>
                     <section class="started-card">
-                        <img src="../../../assets/isometric/goal.png" (click)="goal()">
+                        <div class="blend-container">
+                            <img src="../../../assets/isometric/goal.png">
+                            <div class="blend-layer"></div>
+                        </div>
                         <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
                     </section>
                     <section class="started-card">
-                        <img src="../../../assets/isometric/progress.png" (click)="checkprog()">
+                        <div class="blend-container">
+                            <img src="../../../assets/isometric/progress.png">
+                            <div class="blend-layer"></div>
+                        </div>
                         <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
                     </section>
                 </section>
             </ion-col>
         </ion-row>
     </ion-grid>
-
-
     <swiper-container class="started-swiper">
-        <swiper-slide>Hello1</swiper-slide>
-        <swiper-slide>Hello2</swiper-slide>
-        <swiper-slide>Hello3</swiper-slide>
+        <swiper-slide>
+            <section class="started-card" (click)="recommendRecipe()">
+                <div class="blend-container">
+                    <img src="../../../assets/isometric/recommend.png">
+                    <div class="blend-layer"></div>
+                </div>
+                
+                <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+            </section>
+        </swiper-slide>
+
+        <swiper-slide>
+            <section class="started-card">
+                <div class="blend-container">
+                    <img src="../../../assets/isometric/goal.png">
+                    <div class="blend-layer"></div>
+                </div>
+                <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+            </section>
+        </swiper-slide>
+
+        <swiper-slide>
+            <section class="started-card">
+                <div class="blend-container">
+                    <img src="../../../assets/isometric/recommend.png">
+                    <div class="blend-layer"></div>
+                </div>
+                <img src="../../../assets/isometric/progress.png" (click)="checkprog()">
+                <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+            </section>
+        </swiper-slide>
     </swiper-container>
-      
 </ion-content>

@@ -177,7 +177,6 @@ export class GoalPage implements OnInit {
   }
   // MEAL PLANNER
 
-
   // UTILITIES
   goBack() {
     // Use the router to navigate back

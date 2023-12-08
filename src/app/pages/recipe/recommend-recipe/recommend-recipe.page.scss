@@ -72,3 +72,29 @@ ion-col {
     margin-left: 2rem;
     margin-right: 2rem;
 }
+
+.recommend-swiper {
+    swiper-slide{
+        padding: 20px 50px 0 50px;
+    }
+    ion-img{
+        width: 80%;
+        margin: auto;
+    }
+}
+
+
+.blend-container {
+    position: relative;
+}
+
+.blend-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F5EFE6; /* Color to blend with */
+    mix-blend-mode: darken; /* Or any blend mode you want */
+    /* Other necessary styles */
+}
