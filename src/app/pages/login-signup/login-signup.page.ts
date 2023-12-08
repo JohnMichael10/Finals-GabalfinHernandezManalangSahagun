@@ -56,7 +56,7 @@ export class LoginSignupPage implements OnInit {
     private formBuilder: FormBuilder,
     private dataService: DataService
     ) { 
-      this.dataService.getNotes().subscribe(res => {
+      this.dataService.getMealsByDate('2023', 'december', '9').subscribe(res => {
         console.log(res);
       })
     }

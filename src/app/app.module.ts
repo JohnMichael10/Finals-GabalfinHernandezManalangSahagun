@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getAnalytics } from "firebase/analytics";
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
       projectId: "recipal-fb8eb",
       storageBucket: "recipal-fb8eb.appspot.com",
       messagingSenderId: "579183412601",
-      appId: "1:579183412601:web:3fde5f0822968c9cc65ba8"
+      appId: "1:579183412601:web:3fde5f0822968c9cc65ba8",
+      measurementId: "G-08SRC28PBG"
     })),
     provideFirestore(() => getFirestore())
   ],
