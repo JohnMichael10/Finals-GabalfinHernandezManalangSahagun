@@ -255,3 +255,36 @@ ion-accordion {
         font-size: 100px;
     }
 }
+
+.goal-header-grid3{
+    text-align: center;
+    padding: 60px;
+    padding-bottom: 15px;
+
+    h1{
+        font-size: 10vmin;
+        font-weight: 600;
+        padding-bottom: 6.5px;
+        padding-right: 50px;
+    }
+    ion-icon::part(native){
+        font-size: 100px;
+    }
+}
+
+.habit-section {
+    ion-content {
+        height: auto;  // Adjust as needed
+        overflow-y: initial;  // Adjust as needed
+    }
+}
+
+.habitinput {
+    padding-left: 130px;
+    font-size: 6vmin;
+    font-weight: bold;
+}
+
+.checklist-icon {
+    padding: 0 0 0 165px;
+}

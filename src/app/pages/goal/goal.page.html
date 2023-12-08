@@ -51,14 +51,14 @@
             </ion-accordion>
             <ion-accordion value="third" class="goal-cat-acc">
               <ion-item slot="header">
-                <h2 class="ion-text-center">Nutrition</h2>
+                <h2 class="ion-text-center">Habit</h2>
                 <ion-icon name="body-outline" slot="start"></ion-icon>
               </ion-item>
 
               <div class="ion-padding" slot="content">
                 <p>Want to make sure you're getting enough calories? Perhaps you want to make sure you’re only getting a certain amount of sugars? Recipal will make sure you can hit your target!</p>
                 <br>
-                <ion-button shape="round" (click)="clickNutritionPage()">Start</ion-button>
+                <ion-button shape="round" (click)="clickHabitPage()">Start</ion-button>
               </div>
             </ion-accordion>
           </ion-accordion-group>
@@ -129,7 +129,36 @@
   </section>
   <!-- SET A GOAL - BMI -->
 
+  <!-- SET A GOAL - Habit -->
+<section class="habit-section" *ngIf="habitPage">
+  <ion-grid class="goal-header-grid3">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="2" (click)="clickHabitBackButton()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <h1>Start a Habit!</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row class="checklist-icon">
+    <ion-img src="assets/icon/checklist.svg" style="width: 100px; height: 100px;"></ion-img>
+  </ion-row>
+
+  <section class="habitinput">
+    <ion-input
+    class="habitenter"
+    label="Add a Habit +" 
+    label-placement="floating" 
+    placeholder="Enter text">
+    </ion-input>
+  </section>
+</section>
+<!-- SET A GOAL - Habit -->
+
   <!-- SET A GOAL - Meal Planner -->
+<ion-content class="ion-padding">
   <section class="meal-section" *ngIf="mealPage">
     <ion-grid class="goal-header-grid">
       <ion-row class="ion-align-items-center">

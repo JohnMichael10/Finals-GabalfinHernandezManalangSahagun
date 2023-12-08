@@ -13,7 +13,7 @@ export class GoalPage implements OnInit {
   goalPage: boolean = true;
   bmiPage: boolean = false;
   mealPage: boolean = false;
-  nutritionPage: boolean = false;
+  habitPage: boolean = false;
 
   // BMI
   bmiStats={
@@ -65,9 +65,13 @@ export class GoalPage implements OnInit {
     this.goalPage=true
     this.mealPage=false
   }
-  clickNutritionPage(){
+  clickHabitPage(){
     this.goalPage=false
-    this.nutritionPage=true
+    this.habitPage=true
+  }
+  clickHabitBackButton(){
+    this.goalPage=true
+    this.habitPage=false
   }
   // Pages toggle
 
