@@ -35,7 +35,7 @@
   <section class="segconwrapper">
     <section class="segcontent">
       <!--History Content Section-->
-      <section *ngIf="selectTabs == 'History'">
+      <section [hidden]="selectTabs !== 'History'">
         <ion-card class="historycard">
           <ion-card-content class="historycont">
             <ion-row class="time">
@@ -82,7 +82,7 @@
       <!--History Content Section Ends Here-->
 
       <!--Habit Content Section-->
-      <section *ngIf="selectTabs == 'Habit'">
+      <section [hidden]="selectTabs !== 'Habit'">
         <ion-card-content class="habitcont">
           <ion-row class="mgoal">Current Week Meal Goals</ion-row>
           <ion-checkbox class ="mgoalbox" labelPlacement="end">Make breakfast using egg as main ingredient</ion-checkbox>
@@ -103,8 +103,18 @@
       <!--Habit Content Section Ends Here-->
       
       <!--Calorie Content Section-->
-      <section *ngIf="selectTabs == 'Calorie'">
-        <h2>Calorie</h2>
+      <section [hidden]="selectTabs !== 'Calorie'">
+        <section class="gaugewrapper2">
+          <section class="gauge2">
+            <section class="gauge__body2">
+              <section class="gauge__fill2"></section>
+              <section class="gauge__cover2">50%</section>
+            </section>
+          </section>
+          <section class="percentleftcontainer2">
+            <p class="encourage2">Only <strong class="perleft2">70%</strong> to go! You stickman.</p>
+          </section>
+        </section>
       </section>
       <!--Calorie Content Section Ends Here-->
     </section>

@@ -13,6 +13,10 @@ export class CheckprogPage {
   today: any;
   endDate: any;
   prevDate: any;
+  currentMonth: any;
+  currentYear: any;
+  gaugeElement: any;
+  perleftElement: any;
 
   months = [
     "January",
@@ -29,28 +33,33 @@ export class CheckprogPage {
     "December"
   ];
 
-  currentMonth: any;
-  currentYear: any;
-
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.renderDate();
+
+    this.changeGaugeValue();
   }
 
   ionViewWillEnter(){
     this.renderDate();
+
+    this.changeGaugeValue();
   }
 
   ionViewDidEnter(){
     this.renderDate();
 
+    this.changeGaugeValue();
+
+  }
+
+  changeGaugeValue(){
     // JS for Gauge movement
-    const gaugeElement = document.querySelector(".gauge");
-    const perleftElement = document.querySelector(".encourage");
+    this.gaugeElement = document.querySelector(".gauge");
+    this.perleftElement = document.querySelector(".encourage");
 
-    this.setGaugeValue(gaugeElement, 0.3, perleftElement); // use to change gauge percentage
-
+    this.setGaugeValue(this.gaugeElement, 0.3, this.perleftElement); // use to change gauge percentage
   }
 
   setGaugeValue(gauge: any, value: number, perleft: any) {
@@ -146,8 +155,18 @@ export class CheckprogPage {
     this.router.navigate(['/home']);
   }
 
-  goCalendar(){
-    this.router.navigate(['/calendar']);
+  //Navigates to the same page but with different segments active
+
+  goCalendar1(): void{
+    this.router.navigate(['/calendar'], {queryParams: {segment: 'History'}});
+  }
+
+  goCalendar2(): void{
+    this.router.navigate(['/calendar'], {queryParams: {segment: 'Habit'}});
+  }
+
+  goCalendar3(): void{
+    this.router.navigate(['/calendar'], {queryParams: {segment: 'Calorie'}});
   }
 
 }
