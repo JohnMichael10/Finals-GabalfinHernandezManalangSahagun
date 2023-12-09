@@ -39,11 +39,14 @@
         <ion-card class="historycard">
           <ion-card-content class="historycont">
             <ion-row class="time">
-              <ion-col class="iconcol" size="0.79">
+              <ion-col class="iconcol" size="0.79" *ngIf="meal.finished">
+                <ion-icon name="ellipse" color="success"></ion-icon>
+                </ion-col>
+              <ion-col class="iconcol" size="0.79" *ngIf="!meal.finished">
               <ion-icon name="ellipse"></ion-icon>
               </ion-col>
               <ion-col class="iconcol2">
-              {{ meal.id.toUpperCase() }}
+              {{ meal.label.toUpperCase() }}
               </ion-col>
             </ion-row>
             <ion-row class="mfood">{{ meal.recipeName }}</ion-row>

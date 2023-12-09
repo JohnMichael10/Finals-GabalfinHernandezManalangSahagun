@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collectionData, deleteDoc, doc, docData, updateDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collectionData, deleteDoc, doc, docData, getAggregateFromServer, query, sum, updateDoc, where } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,7 @@ export interface habit {
 
 export interface mealType {
   id?: string;
+  label: string;
   recipeID: string;
   recipeName: string;
   calories: number;
@@ -24,9 +25,17 @@ export class DataService {
 
   constructor(private firestore: Firestore) { }
 
+  async getTotalCalories() : Promise<number> {
+    const mealsRef = collection(this.firestore, 'mealPlan');
+    const snapshot = await getAggregateFromServer(mealsRef, {
+      totalCalories: sum('calories')
+    });
+    return snapshot.data().totalCalories as number;
+  }
+
   getMealsByDate(year: string, month: string, day: string): Observable<mealType[]> {
-    const mealsDocRef = collection(this.firestore, `mealPlan/${year}/${month}/${day}/meals`);
-    return collectionData(mealsDocRef, { idField: 'id' }) as Observable<mealType[]>;
+    const mealsRef = collection(this.firestore, `mealPlan/${year}/${month}/${day}/meals`);
+    return collectionData(mealsRef, { idField: 'id' }) as Observable<mealType[]>;
   }
 
   getMealByType(year: string, month: string, day: string, mealType: string): Observable<mealType> {

@@ -53,7 +53,7 @@ export class CalendarPage implements OnInit {
     this.year = dateFormat[0];
     this.month = dateFormat[1];
     this.day = dateFormat[2];
-    console.log();
+    console.log(this.meals);
   }
 
   // Customize the color based on gauge value and if passed max
