@@ -17,6 +17,8 @@ export class CheckprogPage {
   currentYear: any;
   gaugeElement: any;
   perleftElement: any;
+  totalCalories: number = 1000; // Set your initial total calories
+  currentCalories: number = 700; // Set your initial current calories
 
   months = [
     "January",
@@ -59,7 +61,7 @@ export class CheckprogPage {
     this.gaugeElement = document.querySelector(".gauge");
     this.perleftElement = document.querySelector(".encourage");
 
-    this.setGaugeValue(this.gaugeElement, 0.3, this.perleftElement); // use to change gauge percentage
+    this.setGaugeValue(this.gaugeElement, this.currentCalories/this.totalCalories, this.perleftElement); // use to change gauge percentage
   }
 
   setGaugeValue(gauge: any, value: number, perleft: any) {

@@ -14,7 +14,7 @@ export class CalendarPage implements OnInit {
   perleftElement2: any;
   gaugeValue: number;
   totalCalories: number = 1000; // Set your initial total calories
-  currentCalories: number = 500; // Set your initial current calories
+  currentCalories: number = 700; // Set your initial current calories
 
   selectedDate: string;
   year: string = '2023';
