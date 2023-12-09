@@ -13,6 +13,7 @@ HERNANDEZ, MARIUS JACOB
 CS 3102
 
 December 2023
+
 I. PROJECT OVERVIEW
 Provide a concise yet comprehensive summary of your web/mobile app project, including its background, purpose, goals, and key functionalities. Mention the problem your app aims to solve and the value it brings to users.
 
