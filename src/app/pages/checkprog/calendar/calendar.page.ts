@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataService, habit, mealType } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-calendar',
@@ -11,14 +12,44 @@ export class CalendarPage implements OnInit {
   gaugeElement2: any;
   perleftElement2: any;
 
-  constructor(private router: ActivatedRoute, private router2: Router) {
+  selectedDate: string;
+  year: string = '2023';
+  month: string = '12';
+  day: string = '9';
+
+  habits: habit[] = [];
+  meals: mealType[] = [];
+
+  constructor(
+    private router: ActivatedRoute, 
+    private router2: Router,
+    private dataService: DataService
+    ) {
     this.router.queryParams.subscribe((params) =>{
       this.selectTabs = params['segment'] || 'History'; //Sets the default to History segment if none is selected
+    })
+
+    this.dataService.getMealsByDate(this.year, this.month, this.day).subscribe(res => {
+      console.log(res);
+      this.meals = res;
+    })
+
+    this.dataService.getHabits().subscribe(res => {
+      console.log(res);
+      this.habits = res;
     })
    }
 
   ngOnInit() {
     this.changeGaugeValue();
+  }
+
+  dateChanged(){
+    var dateFormat = this.selectedDate.split('T')[0].split("-", 3);
+    this.year = dateFormat[0];
+    this.month = dateFormat[1];
+    this.day = dateFormat[2];
+    console.log();
   }
 
   ionViewDidEnter(){

@@ -10,7 +10,7 @@
 <!--Calendar Starts Here-->
   <section class="wrapper-calendar">
     <section class="calendar">
-      <ion-datetime color="bland"></ion-datetime>
+      <ion-datetime color="bland" display-format="YYYY/MM/DD" [(ngModel)]="selectedDate" (ionChange)="dateChanged()"></ion-datetime>
     </section>
   </section>
   <!--Calendar Ends Here-->
@@ -35,7 +35,7 @@
   <section class="segconwrapper">
     <section class="segcontent">
       <!--History Content Section-->
-      <section [hidden]="selectTabs !== 'History'">
+      <section [hidden]="selectTabs !== 'History'" *ngFor="let meal of meals">
         <ion-card class="historycard">
           <ion-card-content class="historycont">
             <ion-row class="time">
@@ -43,39 +43,11 @@
               <ion-icon name="ellipse"></ion-icon>
               </ion-col>
               <ion-col class="iconcol2">
-              10:00 am - 12:00 pm
+              {{ meal.id.toUpperCase() }}
               </ion-col>
             </ion-row>
-            <ion-row class="mfood">Carrot Cake</ion-row>
-            <ion-row class="mingredient">Main ingredient used: Carrot</ion-row>
-          </ion-card-content>
-        </ion-card>
-        <ion-card class="historycard"> 
-          <ion-card-content class="historycont">
-            <ion-row class="time">
-              <ion-col class="iconcol" size="0.79">
-              <ion-icon name="ellipse"></ion-icon>
-              </ion-col>
-              <ion-col class="iconcol2">
-              1:30 pm - 3:00 pm
-              </ion-col>
-            </ion-row>
-            <ion-row class="mfood">Omelette Rice</ion-row>
-            <ion-row class="mingredient">Main ingredient used: Egg</ion-row>
-          </ion-card-content>
-        </ion-card>
-        <ion-card class="historycard">
-          <ion-card-content class="historycont">
-            <ion-row class="time">
-              <ion-col class="iconcol" size="0.79">
-              <ion-icon name="ellipse"></ion-icon>
-              </ion-col>
-              <ion-col class="iconcol2">
-              7:00 am - 10:00 am
-              </ion-col>
-            </ion-row>
-            <ion-row class="mfood">Stir-fried Sardines</ion-row>
-            <ion-row class="mingredient">Main ingredient used: Sardines</ion-row>
+            <ion-row class="mfood">{{ meal.recipeName }}</ion-row>
+            <ion-row class="mingredient"> Total Calories: {{ meal.calories }} </ion-row>
           </ion-card-content>
         </ion-card>
       </section>
@@ -84,20 +56,11 @@
       <!--Habit Content Section-->
       <section [hidden]="selectTabs !== 'Habit'">
         <ion-card-content class="habitcont">
-          <ion-row class="mgoal">Current Week Meal Goals</ion-row>
-          <ion-checkbox class ="mgoalbox" labelPlacement="end">Make breakfast using egg as main ingredient</ion-checkbox>
-          <br />
-          <ion-checkbox class ="mgoalbox" labelPlacement="end">Eat meal that has carrots for 2 days</ion-checkbox>
-          <br />
-          <ion-checkbox class ="mgoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
-        </ion-card-content>
-        <ion-card-content class="habitconttwo">
-          <ion-row class="ngoal">Current Week Nutrition Goals</ion-row>
-          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
-          <br />
-          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
-          <br />
-          <ion-checkbox class ="ngoalbox" labelPlacement="end">Eat 3 times a day</ion-checkbox>
+          <ion-row class="mgoal">Current Habit Goals</ion-row>
+          <section *ngFor="let habit of habits">
+            <ion-checkbox class ="mgoalbox" labelPlacement="end">{{ habit.label }}</ion-checkbox>
+            <br />
+          </section>
         </ion-card-content>
       </section>
       <!--Habit Content Section Ends Here-->

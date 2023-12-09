@@ -9,14 +9,10 @@ export interface habit {
   datesChecked: string[];
 }
 
-export interface mealPlanDay {
-  breakfast?: mealType;
-  lunch?: mealType;
-  dinner?: mealType;
-}
-
 export interface mealType {
+  id?: string;
   recipeID: string;
+  recipeName: string;
   calories: number;
   finished: boolean;
 }
@@ -28,19 +24,19 @@ export class DataService {
 
   constructor(private firestore: Firestore) { }
 
-  getMealsByMonth(year: string, month: string): Observable<mealPlanDay[]> {
-    const mealsRef = collection(this.firestore, `mealPlan/${year}/${month}`);
-    return collectionData(mealsRef, { idField: 'id' }) as Observable<mealPlanDay[]>;
+  getMealsByDate(year: string, month: string, day: string): Observable<mealType[]> {
+    const mealsDocRef = collection(this.firestore, `mealPlan/${year}/${month}/${day}/meals`);
+    return collectionData(mealsDocRef, { idField: 'id' }) as Observable<mealType[]>;
   }
 
-  getMealsByDate(year: string, month: string, day: string): Observable<mealPlanDay> {
-    const mealsDocRef = doc(this.firestore, `mealPlan/${year}/${month}/${day}`);
-    return docData(mealsDocRef) as Observable<mealPlanDay>;
+  getMealByType(year: string, month: string, day: string, mealType: string): Observable<mealType> {
+    const mealsDocRef = doc(this.firestore, `mealPlan/${year}/${month}/${day}/meals/${mealType}`);
+    return docData(mealsDocRef) as Observable<mealType>;
   }
 
-  addMealsPerDay(year: string, month: string, day: mealPlanDay) {
-    const mealsRef = collection(this.firestore, `mealPlan/${year}/${month}`);
-    return addDoc(mealsRef, day);
+  addMealsPerDayByType(year: string, month: string, day: string, mealType: mealType) {
+    const mealsRef = collection(this.firestore, `mealPlan/${year}/${month}/${day}/meals`);
+    return addDoc(mealsRef, mealType);
   }
 
   getHabits(): Observable<habit[]> {
