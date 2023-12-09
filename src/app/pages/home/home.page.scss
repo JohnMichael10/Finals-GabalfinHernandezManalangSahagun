@@ -101,11 +101,20 @@
 h1{
   font-size: 10vmin;
 }
-h2{
-  font-size: 5vmin;
+.h2{
+  font-size: 6vmin;
+  font-weight: 700;
 }
-h3{
+.h3{
   font-size: 4vmin;
+  font-weight: 700;
+}
+.h3-2{
+  font-size: 3.5vmin;
+  font-weight: 400;
+}
+h4{
+  font-size: 2.7vmin;
 }
 h5{
   font-size: 2vmin;
@@ -119,9 +128,7 @@ h5{
   width: 100vw !important;
 
   .home-header{
-    font-weight: 400;
-    
-    span{
+    ion-label{
       font-weight: 700;
     }
   }
@@ -130,7 +137,7 @@ h5{
       font-weight: 700;
     }
     h4{
-      font-weight: 500;
+      font-weight: 400;
     }
     
   }
@@ -138,26 +145,25 @@ h5{
 
 .header-home-container-grid{
   // height: 40vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
   ion-row{
-    // height: 40vh;
+    height: 40vh;
   }
   ion-col{
   }
   .img-col{
     height: inherit !important;
-    img{
-      // height: 60%;
-    }
+    -webkit-filter: drop-shadow(5px 5px 5px #a3a3a3);
+    filter: drop-shadow(5px 5px 5px #a3a3a3);
   }
 }
 .what-container-grid{
   // height: 50vh;
 
   ion-row{
-
+    
     ion-col:nth-child(2){
       padding-left: 30px;
     }
@@ -166,30 +172,26 @@ h5{
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    height: 60%;
+    height: 100%;
+
   }
 
   .started-card-section-home{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
     text-align: center;
     
     .started-card{
-      // margin: auto;
-      // padding: 0 20px 9 20px;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 20px;
+      height: 300px;
+      background-color: #e6e6e6;
       img{
-        // height: 100%;
-        // mix-blend-mode: darken;
-        // object-fit: contain;
+        height: 150px;
       }
     }
-  }
-}
-.started-swiper{
-  swiper-slide{
-    width: 50%;
-    border: solid;
   }
 }
 
@@ -203,7 +205,7 @@ h5{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #F5EFE6; /* Color to blend with */
+  background-color: #e6e6e6; /* Color to blend with */
   mix-blend-mode: darken; /* Or any blend mode you want */
   /* Other necessary styles */
 }
@@ -212,17 +214,41 @@ h5{
 
 // --------------------------------------------------------- //
 
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: 1200px) {
   .home-container{
     --padding-top: 60px;
     --padding-start: 50px;
     --padding-end: 50px;
   }
+  .header-home-container-grid{
+    ion-row{
+      height: 70vh;
+    }
+  }
   .what-container-grid{
     height: 100% !important;
     ion-col{
-      padding: 0 !important;
+      margin-bottom:50px;
+    }
+
+    ion-col:nth-child(2){
+      padding:0 !important;
+      height: 50vh;
+    }
+    ion-col:nth-child(1){
+      height: 30vh;
     }
   }
- 
+  .started-card{
+    height: 220px !important;
+  }
 }
+@media only screen and (max-width: 690px) {
+  .header-home-container-grid{
+    ion-row{
+      height: 40vh;
+    }
+  }
+
+}
+

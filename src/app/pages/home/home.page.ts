@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  slides:number=1.3
+  screenWidth:number
+  swiper: any; // Declare a swiper variable
 
-  constructor(private router: Router) {}
+  currentDate:string
+  currentTime: string
+  constructor(
+    private router: Router
+  ){
+    this.updateDateTime(); // Initial call to update date and time
+
+    // Update date and time every second (1000 milliseconds)
+    setInterval(() => {
+      this.updateDateTime();
+    }, 1000);
+  }
 
   goal(){
     this.router.navigate(['/goal']);
@@ -20,6 +36,16 @@ export class HomePage {
 
   checkprog(){
     this.router.navigate(['/checkprog']);
+  }
+
+  updateDateTime() {
+    const now = new Date();
+
+    // Get the current date in 'YYYY-MM-DD' format
+    this.currentDate = now.toISOString().split('T')[0];
+
+    // Format the time in 'hh:mm:ss AM/PM' format
+    this.currentTime = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' });
   }
 
 }

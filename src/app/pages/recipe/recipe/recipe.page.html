@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf="selectedRecipeList">
   <ion-toolbar class="header">
     <ion-grid>
       <ion-row class="ion-align-items-center">
@@ -6,7 +6,7 @@
           <ion-buttons class="header__btns" size="small" (click)="goBack()"><ion-icon name="close-circle" size="large"></ion-icon></ion-buttons>
         </ion-col>
         <ion-col>
-          <ion-title class="header__title" size="large">Lomi</ion-title>
+          <ion-title class="header__title" size="large">{{ getTruncatedText(selectedRecipeList[0].recipe.label, 5) }}</ion-title>
         </ion-col>
         <ion-col>
           <ion-buttons class="header__btns ion-float-right" size="small"><ion-icon name="bookmark-outline" size="large"></ion-icon></ion-buttons>
@@ -21,7 +21,7 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <div class="recipe__info">
-        <img class="recipe__img" src="{{ selectedRecipeList[0].recipe.image }}" alt="Lomi">
+        <img class="recipe__img" src="{{ selectedRecipeList[0].recipe.image }}" alt="{{ selectedRecipeList[0].recipe.label }}">
         <h2 class="recipe__title">{{ getTruncatedText(selectedRecipeList[0].recipe.label, 5) }}</h2>
         <div class="recipe__rating">
           <ion-icon name="star" size="large"></ion-icon>

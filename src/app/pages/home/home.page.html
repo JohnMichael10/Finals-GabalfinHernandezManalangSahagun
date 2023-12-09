@@ -2,16 +2,16 @@
     <ion-grid class="header-home-container-grid">
         <ion-row class="ion-align-items-center">
             <ion-col size="12" size-xl="6">
-                <section class="header">
-                    <h1 class="home-header">Good day<br> <span>Marius!</span></h1>
-                    <h5>8:01 am  |   December 12, 2023</h5>
+                <section class="header"> 
+                    <h1 class="home-header">Good day<br> <ion-label color="primary">Marius!</ion-label></h1><br>
+                    <h4>{{ currentTime }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ currentDate }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Logout</a></h4>
                 </section>
             </ion-col>
             <ion-col size="6" size-xl="2">
                 <section class="motd-home">
                     <section class="desc-motd-home">
-                        <h3>Meal of the day</h3>
-                        <h4>Halo-Halo</h4>
+                        <ion-label color="primary" class="h2">Meal of the day</ion-label><br>
+                        <ion-label class="h3">Halo-Halo</ion-label><br>
                         <a href="#">How to cook this?</a>
                     </section>
                 </section>
@@ -21,87 +21,79 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <br><br>
     <ion-grid class="what-container-grid">
         <ion-row>
-            <ion-col size="12" size-xl="3" class="what-col">
-                <h2>What to eat?</h2>
+            <ion-col size="12" size-xl="3" class="what-col" class="ion-reorder-xl-first">
+                <ion-label class="h2" color="primary">What to eat?</ion-label>
                 <section class="what-container">
                     <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                        <h5 slot="start">250 kcal  |  Munggo</h5>
+                        <ion-label class="h3-2" slot="start">250 kcal  |  Munggo</ion-label>
                         <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                     </ion-item>
             
                     <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                        <h5 slot="start">250 kcal  |  Munggo</h5>
+                        <ion-label class="h3-2" slot="start">250 kcal  |  Munggo</ion-label>
                         <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                     </ion-item>
             
                     <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
-                        <h5 slot="start"><a href="#">See all</a></h5>
+                        <ion-label class="h3-2" slot="start"><a href="#">See all</a></ion-label>
                         <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                     </ion-item>
                 </section>
             </ion-col>
-            <ion-col size="12" size-xl="9" class="started-grid">
-                <h2>Let's get started!</h2>
-                <section class="started-card-section-home">   
-                    <section class="started-card" (click)="recommendRecipe()">
-                        <div class="blend-container">
-                            <img src="../../../assets/isometric/recommend.png">
-                            <div class="blend-layer"></div>
-                        </div>
-                        
-                        <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-                    </section>
-                    <section class="started-card">
-                        <div class="blend-container">
-                            <img src="../../../assets/isometric/goal.png">
-                            <div class="blend-layer"></div>
-                        </div>
-                        <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-                    </section>
-                    <section class="started-card">
-                        <div class="blend-container">
-                            <img src="../../../assets/isometric/progress.png">
-                            <div class="blend-layer"></div>
-                        </div>
-                        <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-                    </section>
+            <ion-col size="12" size-xl="9" class="started-col" class="ion-reorder-xl-last">
+                <ion-label class="h2" color="primary">Let's get started!</ion-label>
+                <section class="started-card-section-home">  
+                    <swiper-container [slidesPerView]="slides" class="started-swiper swiper-container" #swiperContainer> 
+                        <swiper-slide>
+                            <section class="started-card" (click)="recommendRecipe()">
+                                <div class="blend-container">
+                                    <img src="../../../assets/isometric/recommend.png">
+                                    <div class="blend-layer"></div>
+                                </div><br>
+                                <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                            </section>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <section class="started-card" (click)="goal()">
+                                <div class="blend-container">
+                                    <img src="../../../assets/isometric/goal.png">
+                                    <div class="blend-layer"></div>
+                                </div><br>
+                                <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                            </section>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <section class="started-card" (click)="checkprog()">
+                                <div class="blend-container">
+                                    <img src="../../../assets/isometric/progress.png">
+                                    <div class="blend-layer"></div>
+                                </div><br>
+                                <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
+                            </section>
+                        </swiper-slide>
+                    </swiper-container>
                 </section>
             </ion-col>
         </ion-row>
     </ion-grid>
-    <swiper-container class="started-swiper">
-        <swiper-slide>
-            <section class="started-card" (click)="recommendRecipe()">
-                <div class="blend-container">
-                    <img src="../../../assets/isometric/recommend.png">
-                    <div class="blend-layer"></div>
-                </div>
-                
-                <h4>Recommend me a recipe <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-            </section>
-        </swiper-slide>
 
-        <swiper-slide>
-            <section class="started-card">
-                <div class="blend-container">
-                    <img src="../../../assets/isometric/goal.png">
-                    <div class="blend-layer"></div>
-                </div>
-                <h4>Set a goal <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-            </section>
-        </swiper-slide>
-
-        <swiper-slide>
-            <section class="started-card">
-                <div class="blend-container">
-                    <img src="../../../assets/isometric/recommend.png">
-                    <div class="blend-layer"></div>
-                </div>
-                <img src="../../../assets/isometric/progress.png" (click)="checkprog()">
-                <h4>Check my progress <ion-icon name="arrow-forward-circle" slot="end"></ion-icon></h4>
-            </section>
-        </swiper-slide>
-    </swiper-container>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button size="large">
+        <ion-icon name="person-circle"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+        <ion-fab-button>
+            <ion-icon name="log-out"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+            <ion-icon name="settings"></ion-icon>
+        </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>
+
+
+
