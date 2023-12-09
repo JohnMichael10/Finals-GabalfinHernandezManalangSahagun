@@ -62,7 +62,7 @@
 .historycard{
     height: 78px;
     border-radius: 10px;
-    background: #FFEED4;
+    background: radial-gradient(139.13% 130.79% at -4.71% 115.38%, #F1DCBC 0%, #EEBF78 100%);
 }
 
 .historycont{
@@ -87,6 +87,7 @@
 .mfood{
     padding-left: 20px;
     color: #7A6341;
+    font-weight: 500;
 }
 
 .mcal{
@@ -95,10 +96,32 @@
     color: #7A6341;
 }
 
+// toRecipeIcon
+
+.nexticon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    justify-items: end;
+    margin-left: 30px;
+}
+
+.button-wrapper {
+    position: absolute;
+    top: 52%;
+    right: 3%;
+    transform: translateY(-50%);
+  }
+
+.whiteicon{
+    color:#583a0e;
+}
+
 .mgoal{
-    font-size: 4.2vmin;
+    font-size: 4.6vmin;
     padding-top: 1opx;
     padding-bottom: 5px;
+    font-weight: 500;
 }
 
 .mgoalbox{
@@ -109,6 +132,10 @@
     --background: square;
     --inner-background: square;
     --border-radius: 0;
+}
+
+.padding{
+    padding-top: 5px;
 }
 
 .ngoal{

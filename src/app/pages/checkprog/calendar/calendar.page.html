@@ -50,7 +50,13 @@
               </ion-col>
             </ion-row>
             <ion-row class="mfood">{{ meal.recipeName }}</ion-row>
-            <ion-row class="mcal"> Total Calories: {{ meal.calories }} </ion-row>
+            <ion-row class="mcal"> Total Calories: {{ meal.calories }} 
+              <div class="button-wrapper">
+                <ion-button fill="clear" size="small" class="showmeal">
+                  <ion-icon name="chevron-forward-outline" class="whiteicon"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-row>
           </ion-card-content>
         </ion-card>
       </section>
@@ -60,7 +66,7 @@
       <section [hidden]="selectTabs !== 'Habit'">
         <ion-card-content class="habitcont">
           <ion-row class="mgoal">Current Habit Goals</ion-row>
-          <section *ngFor="let habit of habits">
+          <section class="padding" *ngFor="let habit of habits">
             <ion-checkbox class ="mgoalbox" labelPlacement="end">{{ habit.label }}</ion-checkbox>
             <br />
           </section>
