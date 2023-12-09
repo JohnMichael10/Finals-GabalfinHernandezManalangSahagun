@@ -47,7 +47,7 @@
               </ion-col>
             </ion-row>
             <ion-row class="mfood">{{ meal.recipeName }}</ion-row>
-            <ion-row class="mingredient"> Total Calories: {{ meal.calories }} </ion-row>
+            <ion-row class="mcal"> Total Calories: {{ meal.calories }} </ion-row>
           </ion-card-content>
         </ion-card>
       </section>
@@ -67,16 +67,37 @@
       
       <!--Calorie Content Section-->
       <section [hidden]="selectTabs !== 'Calorie'">
-        <section class="gaugewrapper2">
-          <section class="gauge2">
-            <section class="gauge__body2">
-              <section class="gauge__fill2"></section>
-              <section class="gauge__cover2">50%</section>
-            </section>
-          </section>
-          <section class="percentleftcontainer2">
-            <p class="encourage2">Only <strong class="perleft2">70%</strong> to go! You stickman.</p>
-          </section>
+        <section class="totalcalcontainer">
+          <p class="totalcal">Target: {{ totalCalories }} cal</p>
+          <p class="currcal">Current: {{ currentCalories }} cal</p>
+        </section>
+        <section class="gauge-container">
+          <svg height="200" width="200">
+            <!-- White circle for the fill inside -->
+            <circle cx="100" cy="100" r="90" fill="#fff"></circle>
+            
+            <!-- Outer white circle to cover the entire gauge area -->
+            <circle cx="100" cy="100" r="90" stroke="#b4c0be" stroke-width="15" fill="transparent"></circle>
+            
+            <!-- Dynamic progress circle -->
+            <circle
+              class="gauge-circle"
+              cx="100"
+              cy="100"
+              r="90"
+              [attr.stroke]="getGaugeColor()"
+              stroke-width="15"
+              fill="transparent"
+              [style.stroke-dasharray]="getStrokeDashArray()"
+              [style.stroke-dashoffset]="getStrokeDashOffset()"
+            ></circle>
+            
+            <!-- Text displaying the gauge value -->
+            <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="1.5rem">{{ gaugeValue }}%</text>
+          </svg>
+        </section>
+        <section class="percentleftcontainer2">
+          <p class="encourage2">Only <strong class="perleft2">{{ getPercentageLeft() }}%</strong> to go!<br> Eat until you Meet the Goal.</p>
         </section>
       </section>
       <!--Calorie Content Section Ends Here-->

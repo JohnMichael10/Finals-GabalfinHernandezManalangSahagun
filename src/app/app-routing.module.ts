@@ -37,14 +37,6 @@ const routes: Routes = [
   {
     path: 'calendar',
     loadChildren: () => import('./pages/checkprog/calendar/calendar.module').then( m => m.CalendarPageModule)
-  },
-  {
-    path: 'calorie',
-    loadChildren: () => import('./pages/checkprog/calorie/calorie.module').then( m => m.CaloriePageModule)
-  },
-  {
-    path: 'habit',
-    loadChildren: () => import('./pages/checkprog/habit/habit.module').then( m => m.HabitPageModule)
   }
 ];
 
