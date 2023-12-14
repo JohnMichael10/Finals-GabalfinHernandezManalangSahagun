@@ -14,7 +14,7 @@ export class CalendarPage implements OnInit {
   perleftElement2: any;
   gaugeValue: number;
   totalCalories: number = 1000; // Set your initial total calories
-  currentCalories: number = 700; // Set your initial current calories
+  currentCalories: number = 800; // Set your initial current calories
 
   selectedDate: string;
   year: string = '2023';
@@ -32,7 +32,6 @@ export class CalendarPage implements OnInit {
     this.router.queryParams.subscribe((params) =>{
       this.selectTabs = params['segment'] || 'History'; //Sets the default to History segment if none is selected
     })
-
     this.dataService.getMealsByDate(this.year, this.month, this.day).subscribe(res => {
       console.log(res);
       this.meals = res;

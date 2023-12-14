@@ -43,8 +43,10 @@ export class DataService {
     return docData(mealsDocRef) as Observable<mealType>;
   }
 
+  // SA pag add ng meal sa DB
   addMealsPerDayByType(year: string, month: string, day: string, mealType: mealType) {
     const mealsRef = collection(this.firestore, `mealPlan/${year}/${month}/${day}/meals`);
+    
     return addDoc(mealsRef, mealType);
   }
 

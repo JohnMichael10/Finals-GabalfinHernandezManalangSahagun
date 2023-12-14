@@ -1,7 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
-import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +7,14 @@ import Swiper from 'swiper';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  slides:number=1.3
   screenWidth:number
   swiper: any; // Declare a swiper variable
 
   currentDate:string
   currentTime: string
+
+  introPage: boolean=true
+  homePage: boolean=false
   constructor(
     private router: Router
   ){
@@ -46,6 +46,14 @@ export class HomePage {
 
     // Format the time in 'hh:mm:ss AM/PM' format
     this.currentTime = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+  }
+  start(){
+    this.homePage=true
+    this.introPage=false
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
   }
 
 }

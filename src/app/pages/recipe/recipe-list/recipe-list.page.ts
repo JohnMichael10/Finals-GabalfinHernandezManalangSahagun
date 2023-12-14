@@ -93,6 +93,8 @@ export class RecipeListPage implements OnInit {
     return Object.values(this.mealPlan);
   }
 
+
+  // DISPLAYING ALL DATA
   getMeal(): void {
     const mealType=Object.keys(this.mealPlan)
     const apiCalls = mealType.map(mealType =>

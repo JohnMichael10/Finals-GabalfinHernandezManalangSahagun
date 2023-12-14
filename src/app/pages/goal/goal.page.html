@@ -36,7 +36,7 @@
               </div>
 
             </ion-accordion>
-            <ion-accordion value="second" class="goal-cat-acc">
+            <!-- <ion-accordion value="second" class="goal-cat-acc">
               <ion-item slot="header">
                 <h2 class="ion-text-center">Meal Plan</h2>
                 <ion-icon name="fast-food-outline" slot="start"></ion-icon>
@@ -48,7 +48,7 @@
                 <ion-button shape="round" (click)="clickMealPage()">Start</ion-button>
               </div>
 
-            </ion-accordion>
+            </ion-accordion> -->
             <ion-accordion value="third" class="goal-cat-acc">
               <ion-item slot="header">
                 <h2 class="ion-text-center">Habit</h2>
@@ -122,7 +122,6 @@
             <h1 class="bmi-h3">Your target weight:</h1>
             <ion-label>{{bmiStats.target}} kg</ion-label>
           </section>
-         
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -151,8 +150,12 @@
     class="habitenter"
     label="Add a Habit +" 
     label-placement="floating" 
-    placeholder="Enter text">
+    placeholder="Enter text"
+    [(ngModel)]="habit"
+    >
     </ion-input>
+
+    <ion-button (click)="addHabit()">Add this habit</ion-button>
   </section>
 </section>
 <!-- SET A GOAL - Habit -->

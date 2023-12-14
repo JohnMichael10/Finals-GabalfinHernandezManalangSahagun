@@ -1,4 +1,4 @@
-<ion-content class="home-container">
+<ion-content class="home-container" *ngIf="homePage">
     <ion-grid class="header-home-container-grid">
         <ion-row class="ion-align-items-center">
             <ion-col size="12" size-xl="6">
@@ -24,7 +24,7 @@
     <br><br>
     <ion-grid class="what-container-grid">
         <ion-row>
-            <ion-col size="12" size-xl="3" class="what-col" class="ion-reorder-xl-first">
+            <!-- <ion-col size="12" size-xl="3" class="what-col" class="ion-reorder-xl-first">
                 <ion-label class="h2" color="primary">What to eat?</ion-label>
                 <section class="what-container">
                     <ion-item class="input-field" [button]="true" detail="false" mode='md' lines="none">
@@ -42,11 +42,11 @@
                         <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
                     </ion-item>
                 </section>
-            </ion-col>
+            </ion-col> -->
             <ion-col size="12" size-xl="9" class="started-col" class="ion-reorder-xl-last">
                 <ion-label class="h2" color="primary">Let's get started!</ion-label>
                 <section class="started-card-section-home">  
-                    <swiper-container [slidesPerView]="slides" class="started-swiper swiper-container" #swiperContainer> 
+                    <swiper-container [slidesPerView]="1.3" class="started-swiper swiper-container" #swiperContainer> 
                         <swiper-slide>
                             <section class="started-card" (click)="recommendRecipe()">
                                 <div class="blend-container">
@@ -79,20 +79,49 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="goBack()">
         <ion-fab-button size="large">
-        <ion-icon name="person-circle"></ion-icon>
+          <ion-icon name="log-out"></ion-icon>
         </ion-fab-button>
-        <ion-fab-list side="top">
-        <ion-fab-button>
-            <ion-icon name="log-out"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button>
-            <ion-icon name="settings"></ion-icon>
-        </ion-fab-button>
-        </ion-fab-list>
-    </ion-fab>
+      </ion-fab>
+</ion-content>
+
+<ion-content class="intro-container" *ngIf="introPage">
+    <swiper-container [slidesPerView]="1" class="started-swiper swiper-container" #swiperContainer> 
+        <swiper-slide>
+            <div class="blend-container img-div">
+                <img src="../../../assets/isometric/recommend/1.png" alt="">
+                <div class="blend-layer"></div><br>
+            </div>
+            <div class="text-div">
+                <ion-label class="intro-header" color="primary">Hey there!</ion-label><br><br><br>
+                <ion-label class="intro-text">It’s a wise decision that you’re here! Let’s start your healthy and delicious journey!</ion-label>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="blend-container img-div">
+                <img src="../../../assets/isometric/recommend/2.png" alt="">
+                <div class="blend-layer"></div>
+            </div>
+            <div class="text-div">
+                <ion-label class="intro-header" color="primary">Our goal</ion-label><br><br><br>
+                <ion-label class="intro-text">To keep you in shape in short period of time. But still eat some Yum-tastic! foods.</ion-label>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="blend-container img-div">
+                <img src="../../../assets/isometric/recommend/3.png" alt="">
+                <div class="blend-layer"></div>
+            </div>
+            <div class="text-div">
+                <ion-label class="intro-header" color="primary">Let's go</ion-label><br>
+                <ion-label class="intro-text">Grab those pan and bowls for this Yum-tastic recipes!</ion-label>
+            </div>
+            <ion-button (click)="start()">Let's start now!</ion-button>
+        </swiper-slide>
+    </swiper-container>
 </ion-content>
 
 

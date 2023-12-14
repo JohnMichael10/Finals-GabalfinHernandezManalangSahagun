@@ -114,18 +114,27 @@ h1{
   font-weight: 400;
 }
 h4{
-  font-size: 2.7vmin;
+  font-size: 4vmin;
 }
 h5{
   font-size: 2vmin;
 }
 .home-container{
+  opacity: 1;
+  -webkit-animation: fadein 3s linear forwards;
+  animation: fadein 3s linear forwards;
+
   --padding-top: 50px;
   --padding-bottom: 80px;
   --padding-start: 80px;
   --padding-end: 80px;
   height: 100vh !important;
   width: 100vw !important;
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+  }
 
   .home-header{
     ion-label{
@@ -168,6 +177,8 @@ h5{
       padding-left: 30px;
     }
   }
+
+  
   .what-container{
     display: flex;
     justify-content: space-around;
@@ -195,19 +206,63 @@ h5{
   }
 }
 
-.blend-container {
+.started-col .blend-container {
   position: relative;
 }
 
-.blend-layer {
+.started-col .blend-layer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e6e6e6; /* Color to blend with */
+  background-color: #F5EFE6; /* Color to blend with */
   mix-blend-mode: darken; /* Or any blend mode you want */
   /* Other necessary styles */
+}
+
+.intro-container{
+  swiper-container{
+    height: 100vh;
+    
+    swiper-slide{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center
+    }
+  }
+
+  .blend-container {
+    position: relative;
+  }
+  
+  .blend-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F5EFE6; /* Color to blend with */
+    mix-blend-mode: darken; /* Or any blend mode you want */
+    /* Other necessary styles */
+  }
+  text-align: center;
+  .intro-header{
+    font-size: 50px;
+    font-weight: 700;
+  }
+  .intro-text{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .img-div{
+    height: 40%;
+  }
+  .text-div{
+    height: 30%;
+    padding: 0 40px 0 40px;
+  }
 }
 
 
@@ -240,7 +295,7 @@ h5{
     }
   }
   .started-card{
-    height: 220px !important;
+    height: 280px !important;
   }
 }
 @media only screen and (max-width: 690px) {

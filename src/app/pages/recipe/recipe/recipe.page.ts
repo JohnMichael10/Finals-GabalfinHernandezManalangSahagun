@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-recipe',
@@ -13,7 +14,9 @@ export class RecipePage implements OnInit {
 
   selectedRecipeList: any[] = [];
   constructor(private router: Router,
-    private toastController: ToastController) { }
+    private toastController: ToastController,
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
@@ -38,7 +41,29 @@ export class RecipePage implements OnInit {
   addToMyMealPlan(){
     const productID=this.selectedRecipeList[0]._links.self.href //productID
     const calories=this.selectedRecipeList[0].recipe.calories //calories
-    const mealType=this.selectedRecipeList[0].type //mealType
+    // const mealType=this.selectedRecipeList[0].type //mealType
+
+    const mealType= {
+
+      label: this.selectedRecipeList[0].recipe.label,
+      recipeID: this.selectedRecipeList[0]._links.self.href,
+      recipeName: this.selectedRecipeList[0].type,
+      calories: this.selectedRecipeList[0].recipe.calories,
+      finished: false
+    };
+
+
+    if (mealType) { // Check if mealType is not empty
+      this.dataService.addMealsPerDayByType('2022', '04', '04', mealType)
+        .then(() => {
+          console.log('Meal added successfully');
+        })
+        .catch((error) => {
+          console.error('Error adding meal: ', error);
+        });
+    } else {
+      console.error('Meal type is empty');
+    }
 
     this.presentToast(this.getTruncatedText(this.selectedRecipeList[0].recipe.label, 10)+" is successfully added to your meal plan!")
     this.router.navigate(['/recommend-recipe/recipe-list']);
@@ -50,6 +75,10 @@ export class RecipePage implements OnInit {
     }
     return text;
   }
+
+
+
+  // UTILITIES
   async presentToast(message: string, duration: number = 3000) {
     const toast = await this.toastController.create({
       message: message,

@@ -64,6 +64,11 @@ ion-accordion {
     
 }
 
+.bmi-section{
+    position: absolute;
+    z-index: 100;
+}
+
 // BMI
 .bmi-header{
     padding-right: 50px;

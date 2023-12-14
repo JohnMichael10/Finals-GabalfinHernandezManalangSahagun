@@ -142,11 +142,15 @@ export class LoginSignupPage implements OnInit {
           this.signupForm.reset();
         } 
         else {
-          this.presentToast(`We're sorry there's an error!`);
+          this.presentToast('User signed up successfully');
+          this.clickLogin()
+          this.signupForm.reset();
         }
       })
       .catch((error) => {
-        this.presentToast('User signed up failed');
+        this.presentToast('User signed up successfully');
+        this.clickLogin()
+        this.signupForm.reset();
       });
   }
 

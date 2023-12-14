@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonModal } from '@ionic/angular';
+import { IonModal, ToastController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-goal',
@@ -36,12 +37,19 @@ export class GoalPage implements OnInit {
     diet: []
   };
 
+  // HABIT
+  habit: string=""
+  // HABIT
+
+
 
   // Utilities
   @ViewChild(IonModal) modal: IonModal;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private dataService: DataService,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -181,6 +189,34 @@ export class GoalPage implements OnInit {
   }
   // MEAL PLANNER
 
+
+
+
+
+  // HABIT
+  addHabit(){
+    const habit= {
+      label: this.habit,
+      datesChecked:[""]
+    };
+
+
+    if (habit) { // Check if mealType is not empty
+      this.dataService.addHabit(habit)
+        .then(() => {
+          this.presentToast("You have successfully added a habit")
+        })
+        .catch((error) => {
+          this.presentToast("Error adding a habit: "+error)
+        });
+    } else {
+      console.error('Meal type is empty');
+    }
+  }
+
+
+
+  // HABIT
   // UTILITIES
   goBack() {
     // Use the router to navigate back
@@ -202,5 +238,25 @@ export class GoalPage implements OnInit {
     this.calculateStatus() //for displaying status
     this.clickBmiPage()
   }
+
+  async presentToast(message: string, duration: number = 3000) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: duration,
+      position: 'top', // You can change the position as needed ('top', 'middle', 'bottom')
+      color: 'light', // You can change the color as needed
+      buttons: [
+        {
+          side: 'end',
+          icon: 'close',
+          role: 'cancel'
+        }
+      ]
+    });
+  
+    toast.present();
+  }
   // UTILITIES
+
+
 }
